@@ -10,9 +10,175 @@
 
 @implementation Encrypt
 
--(NSString *)strEncode:(NSString *)data firstKey:(NSString *)key secondKey:(NSString *)key thirdKey:(NSString *)key{
+-(NSString *)strEncode:(NSString *)data firstKey:(NSString *)firstKey secondKey:(NSString *)secondKey thirdKey:(NSString *)thirdKey{
     
-    return nil;
+    int leng = data.length;
+    NSString * encData = @"";
+    
+    
+    NSArray *firstKeyBt, *secondKeyBt, *thirdKeyBt;
+    
+    int firstLength,secondLength,thirdLength;
+    
+    if(firstKey != nil && ![firstKey isEqualToString: @""]){
+        
+        firstKeyBt = [self getKeyBytes:firstKey];
+
+        firstLength = firstKeyBt.count;
+        
+    }
+    if(secondKey != nil && ![secondKey isEqualToString: @""]){
+        secondKeyBt = [self getKeyBytes:secondKey];//getKeyBytes(secondKey);
+        secondLength = secondKeyBt.count;
+    }
+    if(thirdKey != nil && ![thirdKey isEqualToString: @""]){
+        thirdKeyBt = [self getKeyBytes:thirdKey];
+        thirdLength = thirdKeyBt.count;
+    }
+    
+    if(leng > 0){
+        if(leng < 4){
+            NSArray *bt = [self strToBt:data];
+            NSArray *encByte ;
+            if(firstKey != nil && ![firstKey isEqualToString: @""] && secondKey != nil && ![secondKey isEqualToString: @""] && thirdKey != nil && ![thirdKey isEqualToString: @""]){
+                
+                NSArray* tempBt;
+                int x,y,z;
+                tempBt = bt;
+                for(x = 0;x < firstLength ;x ++){
+                    NSArray *firstKeyBtArr = [firstKeyBt objectAtIndex:x];
+                    tempBt = [self enc:tempBt :firstKeyBtArr];
+                }
+                for(y = 0;y < secondLength ;y ++){
+                    
+                    NSArray *secondKeyBtArr = [secondKeyBt objectAtIndex:x];
+                    tempBt = [self enc:tempBt :secondKeyBtArr];
+
+                }
+                for(z = 0;z < thirdLength ;z ++){
+                    tempBt = enc(tempBt,thirdKeyBt[z]);
+                }
+                encByte = tempBt;
+            }else{
+                if(firstKey != nil && firstKey !="" && secondKey != nil && secondKey != ""){
+                    var tempBt;
+                    var x,y;
+                    tempBt = bt;
+                    for(x = 0;x < firstLength ;x ++){
+                        tempBt = enc(tempBt,firstKeyBt[x]);
+                    }
+                    for(y = 0;y < secondLength ;y ++){
+                        tempBt = enc(tempBt,secondKeyBt[y]);
+                    }
+                    encByte = tempBt;
+                }else{
+                    if(firstKey != nil && firstKey !=""){
+                        var tempBt;
+                        var x = 0;
+                        tempBt = bt;
+                        for(x = 0;x < firstLength ;x ++){
+                            tempBt = enc(tempBt,firstKeyBt[x]);
+                        }
+                        encByte = tempBt;
+                    }
+                }
+            }
+            encData = bt64ToHex(encByte);
+        }else{
+            var iterator = parseInt(leng/4);
+            var remainder = leng%4;
+            var i=0;
+            for(i = 0;i < iterator;i++){
+                var tempData = data.substring(i*4+0,i*4+4);
+                var tempByte = strToBt(tempData);
+                var encByte ;
+                if(firstKey != nil && firstKey !="" && secondKey != nil && secondKey != "" && thirdKey != nil && thirdKey != ""){
+                    var tempBt;
+                    var x,y,z;
+                    tempBt = tempByte;
+                    for(x = 0;x < firstLength ;x ++){
+                        tempBt = enc(tempBt,firstKeyBt[x]);
+                    }
+                    for(y = 0;y < secondLength ;y ++){
+                        tempBt = enc(tempBt,secondKeyBt[y]);
+                    }
+                    for(z = 0;z < thirdLength ;z ++){
+                        tempBt = enc(tempBt,thirdKeyBt[z]);
+                    }
+                    encByte = tempBt;
+                }else{
+                    if(firstKey != nil && firstKey !="" && secondKey != nil && secondKey != ""){
+                        var tempBt;
+                        var x,y;
+                        tempBt = tempByte;
+                        for(x = 0;x < firstLength ;x ++){
+                            tempBt = enc(tempBt,firstKeyBt[x]);
+                        }
+                        for(y = 0;y < secondLength ;y ++){
+                            tempBt = enc(tempBt,secondKeyBt[y]);
+                        }
+                        encByte = tempBt;
+                    }else{
+                        if(firstKey != nil && firstKey !=""){
+                            var tempBt;
+                            var x;
+                            tempBt = tempByte;
+                            for(x = 0;x < firstLength ;x ++){
+                                tempBt = enc(tempBt,firstKeyBt[x]);
+                            }
+                            encByte = tempBt;
+                        }
+                    }
+                }
+                encData += bt64ToHex(encByte);
+            }
+            if(remainder > 0){
+                var remainderData = data.substring(iterator*4+0,leng);
+                var tempByte = strToBt(remainderData);
+                var encByte ;
+                if(firstKey != nil && firstKey !="" && secondKey != nil && secondKey != "" && thirdKey != nil && thirdKey != ""){
+                    var tempBt;
+                    var x,y,z;
+                    tempBt = tempByte;
+                    for(x = 0;x < firstLength ;x ++){
+                        tempBt = enc(tempBt,firstKeyBt[x]);
+                    }
+                    for(y = 0;y < secondLength ;y ++){
+                        tempBt = enc(tempBt,secondKeyBt[y]);
+                    }
+                    for(z = 0;z < thirdLength ;z ++){
+                        tempBt = enc(tempBt,thirdKeyBt[z]);
+                    }
+                    encByte = tempBt;
+                }else{
+                    if(firstKey != nil && firstKey !="" && secondKey != nil && secondKey != ""){
+                        var tempBt;
+                        var x,y;
+                        tempBt = tempByte;
+                        for(x = 0;x < firstLength ;x ++){
+                            tempBt = enc(tempBt,firstKeyBt[x]);
+                        }
+                        for(y = 0;y < secondLength ;y ++){
+                            tempBt = enc(tempBt,secondKeyBt[y]);
+                        }
+                        encByte = tempBt;
+                    }else{
+                        if(firstKey != nil && firstKey !=""){
+                            var tempBt;
+                            var x;
+                            tempBt = tempByte;
+                            for(x = 0;x < firstLength ;x ++){
+                                tempBt = enc(tempBt,firstKeyBt[x]);
+                            }
+                            encByte = tempBt;
+                        }
+                    }
+                }
+                encData += bt64ToHex(encByte);
+            }                
+        }
+    }
+    return encData;
 }
 
 -(NSMutableArray*) getKeyBytes:(NSString*)key{
@@ -76,98 +242,207 @@
     return bt;
 }
 
-function enc(dataByte,keyByte){
-    var keys = generateKeys(keyByte);
-    var ipByte   = initPermute(dataByte);
-    var ipLeft   = new Array(32);
-    var ipRight  = new Array(32);
-    var tempLeft = new Array(32);
-    var i = 0,j = 0,k = 0,m = 0, n = 0;
-    for(k = 0;k < 32;k ++){
-        ipLeft[k] = ipByte[k];
-        ipRight[k] = ipByte[32+k];
+
+-(NSArray*)mInitPermute:(NSArray*)originalData{
+   
+    int ipByte[64] = {0};
+    
+    for (int i = 0, m = 1, n = 0; i < 4; i++, m += 2, n += 2) {
+        for (int j = 7, k = 0; j >= 0; j--, k++) {
+            ipByte[i * 8 + k] = [[originalData objectAtIndex:(j * 8 + m)] intValue];
+            ipByte[i * 8 + k + 32] = [[originalData objectAtIndex:(j * 8 + n)] intValue];
+        }
     }
+    
+    NSMutableArray * result = [NSMutableArray arrayWithCapacity:64];
+    for (int i = 0; i < 64; i ++) {
+        NSNumber * number = [NSNumber numberWithInt:ipByte[i]];
+        [result addObject:number];
+        
+    }
+    return [result copy];
+}
+
+
+-(NSArray *) enc:(NSArray*)dataByte :(NSArray*)keyByte{
+
+    NSArray *keys = [self generateKeys:keyByte];
+    
+    NSArray *ipByte   =  [self mInitPermute:dataByte];
+    
+    int ipLeft[32]   = {0};
+    
+    int ipRight[32]  = {0};
+    
+    int tempLeft[32] = {0};
+    
+    int i = 0,j = 0,k = 0,m = 0, n = 0;
+    
+    for(k = 0;k < 32;k ++){
+        ipLeft[k] = [[ipByte objectAtIndex:k] intValue];//ipByte[k];
+        ipRight[k] = [[ipByte objectAtIndex:(32 + k)] intValue];//ipByte[32+k];
+    }
+    
+    
+    
+    NSMutableArray *ipRightArr = [NSMutableArray arrayWithCapacity:32];
+    for (int i = 0; i < ipRightArr.count; i ++) {
+        NSNumber * number = [NSNumber numberWithInt:ipRight[i]];
+        [ipRightArr addObject:number];
+        
+    }
+    
+    
     for(i = 0;i < 16;i ++){
         for(j = 0;j < 32;j ++){
             tempLeft[j] = ipLeft[j];
             ipLeft[j] = ipRight[j];
         }
-        var key = new Array(48);
+        
+        int key[48] = {0};
         for(m = 0;m < 48;m ++){
-            key[m] = keys[i][m];
+            key[m] = [[[keys objectAtIndex:i] objectAtIndex:m] intValue];//keys[i][m];
         }
-        var  tempRight = xor(pPermute(sBoxPermute(xor(expandPermute(ipRight),key))), tempLeft);
+        
+        NSMutableArray *keyArr = [NSMutableArray arrayWithCapacity:48];
+        for (int i = 0; i < keyArr.count; i ++) {
+            NSNumber * number = [NSNumber numberWithInt:key[i]];
+            [keyArr addObject:number];
+        }
+        
+        
+        NSArray * expandPermute = [self expandPermute:ipRightArr];
+        NSArray * xor1 = [self xor:expandPermute :keyArr];
+        NSArray * sBoxPermute = [self sBoxPermute:xor1];
+        NSArray * pPermute = [self pPermute:sBoxPermute];
+        
+        
+        NSMutableArray *tempLeftArr = [NSMutableArray arrayWithCapacity:32];
+        for (int i = 0; i < tempLeftArr.count; i ++) {
+            NSNumber * number = [NSNumber numberWithInt:tempLeft[i]];
+            [tempLeftArr addObject:number];
+            
+        }
+        
+        NSArray * tempRight = [self xor:pPermute :tempLeftArr];
         for(n = 0;n < 32;n ++){
-            ipRight[n] = tempRight[n];
+            ipRight[n] = [self readNSArray:tempRight index:n];//tempRight[n];
         }
     }
     
     
-    var finalData =new Array(64);
-    for(i = 0;i < 32;i ++){
-        finalData[i] = ipRight[i];
-        finalData[32+i] = ipLeft[i];
+    NSMutableArray *finalData = [NSMutableArray arrayWithCapacity:64];
+    for(int i = 0;i < 32;i ++){
+        [finalData setObject:[NSNumber numberWithInt:ipRight[i]] atIndexedSubscript:i];
+        
+        [finalData setObject:[NSNumber numberWithInt:ipLeft[i]] atIndexedSubscript:(32+i)];
+//        finalData[i] = ipRight[i];
+//        finalData[32+i] = ipLeft[i];
     }
-    return finallyPermute(finalData);  
+    return [self finallyPermute:finalData];//finallyPermute(finalData);
 }
+
+-(NSArray*) expandPermute:(NSArray*) rightData{
+    int epByte[48] = {0};
+    for (int i = 0; i < 8; i++) {
+        if (i == 0) {
+            epByte[i * 6 + 0] = [self readNSArray:rightData index:31];
+        } else {
+            epByte[i * 6 + 0] = [self readNSArray:rightData index:(i * 4 - 1)];//rightData[i * 4 - 1];
+        }
+        epByte[i * 6 + 1] = [self readNSArray:rightData index:(i * 4 + 0)];//rightData[i * 4 + 0];
+        epByte[i * 6 + 2] = [self readNSArray:rightData index:(i * 4 + 1)];//rightData[i * 4 + 1];
+        epByte[i * 6 + 3] = [self readNSArray:rightData index:(i * 4 + 2)];//rightData[i * 4 + 2];
+        epByte[i * 6 + 4] = [self readNSArray:rightData index:(i * 4 + 3)];//rightData[i * 4 + 3];
+        if (i == 7) {
+            epByte[i * 6 + 5] = [self readNSArray:rightData index:(0)];//rightData[0];
+        } else {
+            epByte[i * 6 + 5] = [self readNSArray:rightData index:(i * 4 + 4)];//rightData[i * 4 + 4];
+        }
+    }
+    
+    NSMutableArray * result = [NSMutableArray arrayWithCapacity:48];
+    for (int i = 0; i < 48; i ++) {
+        NSNumber * number = [NSNumber numberWithInt:epByte[i]];
+        [result addObject:number];
+        
+    }
+    return [result copy];
+}
+
+-(int) readNSArray:(NSArray*) data index:(int)index{
+    return [[data objectAtIndex:index] intValue];
+}
+
+-(NSArray<NSNumber*>*) xor:(NSArray*)byteOne :(NSArray*)byteTwo{
+    
+    NSMutableArray *xorByte = [NSMutableArray arrayWithCapacity:byteOne.count];
+    
+    for(int i = 0;i < byteOne.count; i ++){
+        int a = [[byteOne objectAtIndex:i] intValue];
+        int b = [[byteTwo objectAtIndex:i] intValue];
+        int c = a ^ b;
+        [xorByte addObject:[NSNumber numberWithInt:c]];
+    }
+    return xorByte;
+}
+
 
 -(NSArray*) sBoxPermute:(NSArray<NSNumber*>*)expandByte{
     
-    NSMutableArray* sBoxByte = [NSMutableArray arrayWithCapacity:32];//new Array(32);
+    int sBoxByte[32] = {0};
     NSString *binary = @"";
     
     
-    
-    
-    NSArray *s1 = @[
-              @[@14, @4, @13, @1, @2, @15, @11, @8, @3, @10, @6, @12, @5, @9, @0, @7],
-              @[@0, @15, @7, @4, @14, @2, @13, @1, @10, @6, @12, @11, @9, @5, @3, @8],
-              @[@4, @1, @14, @8, @13, @6, @2, @11, @15, @12, @9, @7, @3, @10, @5, @0],
-              @[@15, @12, @8, @2, @4, @9, @1, @7, @5, @11, @3, @14, @10, @0, @6, @13 ]];
-    /* Table - s2 */
-    /* Table - s2 */
-    NSArray *s2 = @[
-              @[@15, @1, @8, @14, @6, @11, @3, @4, @9, @7, @2, @13, @12, @0, @5, @10],
-              @[@3, @13, @4, @7, @15, @2, @8, @14, @12, @0, @1, @10, @6, @9, @11, @5],
-              @[@0, @14, @7, @11, @10, @4, @13, @1, @5, @8, @12, @6, @9, @3, @2, @15],
-              @[@13, @8, @10, @1, @3, @15, @4, @2, @11, @6, @7, @12, @0, @5, @14, @9 ]];
-    /* Table - s3 */
-    NSArray *s3= @[
-                   @[@10,  @0,  @9,  @14,  @6,  @3,  @15,  @5,  @1,  @13,  @12,  @7,  @11,  @4,  @2,  @8],
-                   @[@13,  @7,  @0,  @9,  @3,  @4,  @6,  @10,  @2,  @8,  @5,  @14,  @12,  @11,  @15,  @1],
-                   @[@13,  @6,  @4,  @9,  @8,  @15,  @3,  @0,  @11,  @1,  @2,  @12,  @5,  @10,  @14,  @7],
-                   @[@1,  @10,  @13,  @0,  @6,  @9,  @8,  @7,  @4,  @15,  @14,  @3,  @11,  @5,  @2,  @12 ]];
-    /* Table - s4 */
-    NSArray *s4 = @[
-                    @[@7,  @13,  @14,  @3,  @0,  @6,  @9,  @10,  @1,  @2,  @8,  @5,  @11,  @12,  @4,  @15],
-                    @[@13,  @8,  @11,  @5,  @6,  @15,  @0,  @3,  @4,  @7,  @2,  @12,  @1,  @10,  @14,  @9],
-                    @[@10,  @6,  @9,  @0,  @12,  @11,  @7,  @13,  @15,  @1,  @3,  @14,  @5,  @2,  @8,  @4],
-                    @[@3,  @15,  @0,  @6,  @10,  @1,  @13,  @8,  @9,  @4,  @5,  @11,  @12,  @7,  @2,  @14 ]];
-    /* Table - s5 */
-    NSArray *s5 = @[
-                    @[@2,  @12,  @4,  @1,  @7,  @10,  @11,  @6,  @8,  @5,  @3,  @15,  @13,  @0,  @14,  @9],
-                    @[@14,  @11,  @2,  @12,  @4,  @7,  @13,  @1,  @5,  @0,  @15,  @10,  @3,  @9,  @8,  @6],
-                    @[@4,  @2,  @1,  @11,  @10,  @13,  @7,  @8,  @15,  @9,  @12,  @5,  @6,  @3,  @0,  @14],
-                    @[@11,  @8,  @12,  @7,  @1,  @14,  @2,  @13,  @6,  @15,  @0,  @9,  @10,  @4,  @5,  @3 ]];
-    /* Table - s6 */
-    NSArray *s6 = @[
-                    @[@12,  @1,  @10,  @15,  @9,  @2,  @6,  @8,  @0,  @13,  @3,  @4,  @14,  @7,  @5,  @11],
-                    @[@10,  @15,  @4,  @2,  @7,  @12,  @9,  @5,  @6,  @1,  @13,  @14,  @0,  @11,  @3,  @8],
-                    @[@9,  @14,  @15,  @5,  @2,  @8,  @12,  @3,  @7,  @0,  @4,  @10,  @1,  @13,  @11,  @6],
-                    @[@4,  @3,  @2,  @12,  @9,  @5,  @15,  @10,  @11,  @14,  @1,  @7,  @6,  @0,  @8,  @13 ]];
-    /* Table - s7 */
-    NSArray *s7 = @[
-                    @[@4,  @11,  @2,  @14,  @15,  @0,  @8,  @13,  @3,  @12,  @9,  @7,  @5,  @10,  @6,  @1],
-                    @[@13,  @0,  @11,  @7,  @4,  @9,  @1,  @10,  @14,  @3,  @5,  @12,  @2,  @15,  @8,  @6],
-                    @[@1,  @4,  @11,  @13,  @12,  @3,  @7,  @14,  @10,  @15,  @6,  @8,  @0,  @5,  @9,  @2],
-                    @[@6,  @11,  @13,  @8,  @1,  @4,  @10,  @7,  @9,  @5,  @0,  @15,  @14,  @2,  @3,  @12]];
-    /* Table - s8 */
 
-    NSArray *s8 = @[
-                    @[@13,  @2,  @8,  @4,  @6,  @15,  @11,  @1,  @10,  @9,  @3,  @14,  @5,  @0,  @12,  @7],
-                    @[@1,  @15,  @13,  @8,  @10,  @3,  @7,  @4,  @12,  @5,  @6,  @11,  @0,  @14,  @9,  @2],
-                    @[@7,  @11,  @4,  @1,  @9,  @12,  @14,  @2,  @0,  @6,  @10,  @13,  @15,  @3,  @5,  @8],
-                    @[@2,  @1,  @14,  @7,  @4,  @10,  @8,  @13,  @15,  @12,  @9,  @0,  @3,  @5,  @6,  @11]];
+    
+    int s1[4][16] = {
+        {14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7},
+        {0, 15, 7, 4, 14, 2, 13, 1, 10, 6, 12, 11, 9, 5, 3, 8},
+        {4, 1, 14, 8, 13, 6, 2, 11, 15, 12, 9, 7, 3, 10, 5, 0},
+        {15, 12, 8, 2, 4, 9, 1, 7, 5, 11, 3, 14, 10, 0, 6, 13 }};
+    /* Table - s2 */
+    int s2[4][16] = {
+        {15, 1, 8, 14, 6, 11, 3, 4, 9, 7, 2, 13, 12, 0, 5, 10},
+        {3, 13, 4, 7, 15, 2, 8, 14, 12, 0, 1, 10, 6, 9, 11, 5},
+        {0, 14, 7, 11, 10, 4, 13, 1, 5, 8, 12, 6, 9, 3, 2, 15},
+        {13, 8, 10, 1, 3, 15, 4, 2, 11, 6, 7, 12, 0, 5, 14, 9 }};
+    /* Table - s3 */
+    int s3[4][16]= {
+        {10, 0, 9, 14, 6, 3, 15, 5, 1, 13, 12, 7, 11, 4, 2, 8},
+        {13, 7, 0, 9, 3, 4, 6, 10, 2, 8, 5, 14, 12, 11, 15, 1},
+        {13, 6, 4, 9, 8, 15, 3, 0, 11, 1, 2, 12, 5, 10, 14, 7},
+        {1, 10, 13, 0, 6, 9, 8, 7, 4, 15, 14, 3, 11, 5, 2, 12 }};
+    /* Table - s4 */
+    int s4[4][16] = {
+        {7, 13, 14, 3, 0, 6, 9, 10, 1, 2, 8, 5, 11, 12, 4, 15},
+        {13, 8, 11, 5, 6, 15, 0, 3, 4, 7, 2, 12, 1, 10, 14, 9},
+        {10, 6, 9, 0, 12, 11, 7, 13, 15, 1, 3, 14, 5, 2, 8, 4},
+        {3, 15, 0, 6, 10, 1, 13, 8, 9, 4, 5, 11, 12, 7, 2, 14 }};
+    /* Table - s5 */
+    int s5[4][16] = {
+        {2, 12, 4, 1, 7, 10, 11, 6, 8, 5, 3, 15, 13, 0, 14, 9},
+        {14, 11, 2, 12, 4, 7, 13, 1, 5, 0, 15, 10, 3, 9, 8, 6},
+        {4, 2, 1, 11, 10, 13, 7, 8, 15, 9, 12, 5, 6, 3, 0, 14},
+        {11, 8, 12, 7, 1, 14, 2, 13, 6, 15, 0, 9, 10, 4, 5, 3 }};
+    /* Table - s6 */
+    int s6[4][16] = {
+        {12, 1, 10, 15, 9, 2, 6, 8, 0, 13, 3, 4, 14, 7, 5, 11},
+        {10, 15, 4, 2, 7, 12, 9, 5, 6, 1, 13, 14, 0, 11, 3, 8},
+        {9, 14, 15, 5, 2, 8, 12, 3, 7, 0, 4, 10, 1, 13, 11, 6},
+        {4, 3, 2, 12, 9, 5, 15, 10, 11, 14, 1, 7, 6, 0, 8, 13 }};
+    /* Table - s7 */
+    int s7[4][16] = {
+        {4, 11, 2, 14, 15, 0, 8, 13, 3, 12, 9, 7, 5, 10, 6, 1},
+        {13, 0, 11, 7, 4, 9, 1, 10, 14, 3, 5, 12, 2, 15, 8, 6},
+        {1, 4, 11, 13, 12, 3, 7, 14, 10, 15, 6, 8, 0, 5, 9, 2},
+        {6, 11, 13, 8, 1, 4, 10, 7, 9, 5, 0, 15, 14, 2, 3, 12}};
+    /* Table - s8 */
+    int s8[4][16] = {
+        {13, 2, 8, 4, 6, 15, 11, 1, 10, 9, 3, 14, 5, 0, 12, 7},
+        {1, 15, 13, 8, 10, 3, 7, 4, 12, 5, 6, 11, 0, 14, 9, 2},
+        {7, 11, 4, 1, 9, 12, 14, 2, 0, 6, 10, 13, 15, 3, 5, 8},
+        {2, 1, 14, 7, 4, 10, 8, 13, 15, 12, 9, 0, 3, 5, 6, 11}};
     
     for(int m=0;m<8;m++){
         int i=0,j=0;
@@ -178,39 +453,44 @@ function enc(dataByte,keyByte){
         + [expandByte[m * 6 + 4] intValue];
         switch (m) {
             case 0 :
-
-                NSArray * a = s1[i];
-                
-                binary = getBoxBinary(s1[i][j]);
+                binary = [self getBoxBinary:(s1[i][j])];
                 break;
             case 1 :
-                binary = getBoxBinary(s2[i][j]);
+                binary = [self getBoxBinary:(s2[i][j])];
                 break;
             case 2 :
-                binary = getBoxBinary(s3[i][j]);
+                binary = [self getBoxBinary:(s3[i][j])];
                 break;
             case 3 :
-                binary = getBoxBinary(s4[i][j]);
+                binary = [self getBoxBinary:(s4[i][j])];
                 break;
             case 4 :
-                binary = getBoxBinary(s5[i][j]);
+                binary = [self getBoxBinary:(s5[i][j])];
                 break;
             case 5 :
-                binary = getBoxBinary(s6[i][j]);
+                binary = [self getBoxBinary:(s6[i][j])];
                 break;
             case 6 :
-                binary = getBoxBinary(s7[i][j]);
+                binary = [self getBoxBinary:(s7[i][j])];
                 break;
             case 7 :
-                binary = getBoxBinary(s8[i][j]);
+                binary = [self getBoxBinary:(s8[i][j])];
                 break;
-        }      
-        sBoxByte[m*4+0] = parseInt(binary.substring(0,1));
-        sBoxByte[m*4+1] = parseInt(binary.substring(1,2));
-        sBoxByte[m*4+2] = parseInt(binary.substring(2,3));
-        sBoxByte[m*4+3] = parseInt(binary.substring(3,4));
+        }
+        
+        sBoxByte[m*4+0] = [[binary substringWithRange:NSMakeRange(0, 1)] intValue];
+        sBoxByte[m*4+1] = [[binary substringWithRange:NSMakeRange(1, 2)] intValue];
+        sBoxByte[m*4+2] = [[binary substringWithRange:NSMakeRange(2, 3)] intValue];
+        sBoxByte[m*4+3] = [[binary substringWithRange:NSMakeRange(3, 4)] intValue];
     }
-    return sBoxByte;
+    
+    NSMutableArray * result = [NSMutableArray arrayWithCapacity:32];
+    for (int i = 0; i < 32; i ++) {
+        NSNumber * number = [NSNumber numberWithInt:sBoxByte[i]];
+        [result addObject:number];
+                             
+    }
+    return result;
 }
 
 
