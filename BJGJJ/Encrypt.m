@@ -51,135 +51,241 @@
                 }
                 for(y = 0;y < secondLength ;y ++){
                     
-                    NSArray *secondKeyBtArr = [secondKeyBt objectAtIndex:x];
+                    NSArray *secondKeyBtArr = [secondKeyBt objectAtIndex:y];
                     tempBt = [self enc:tempBt :secondKeyBtArr];
 
                 }
                 for(z = 0;z < thirdLength ;z ++){
-                    tempBt = enc(tempBt,thirdKeyBt[z]);
+                    
+                    NSArray *thirdKeyBtArr = [thirdKeyBt objectAtIndex:z];
+                    tempBt = [self enc:tempBt :thirdKeyBtArr];
+                    
                 }
                 encByte = tempBt;
             }else{
-                if(firstKey != nil && firstKey !="" && secondKey != nil && secondKey != ""){
-                    var tempBt;
-                    var x,y;
+                if(firstKey != nil && ![firstKey isEqualToString:@""] && secondKey != nil && ![secondKey isEqualToString:@""]){
+                    NSArray* tempBt;
+                    int x,y;
                     tempBt = bt;
                     for(x = 0;x < firstLength ;x ++){
-                        tempBt = enc(tempBt,firstKeyBt[x]);
+                        NSArray *firstKeyBtArr = [firstKeyBt objectAtIndex:x];
+                        tempBt = [self enc:tempBt :firstKeyBtArr];
                     }
                     for(y = 0;y < secondLength ;y ++){
-                        tempBt = enc(tempBt,secondKeyBt[y]);
+                        NSArray *secondKeyBtArr = [secondKeyBt objectAtIndex:y];
+                        tempBt = [self enc:tempBt :secondKeyBtArr];
                     }
                     encByte = tempBt;
                 }else{
-                    if(firstKey != nil && firstKey !=""){
-                        var tempBt;
-                        var x = 0;
+                    if(firstKey != nil && ![firstKey isEqualToString:@""]){
+                        NSArray *tempBt;
+                        int x = 0;
                         tempBt = bt;
                         for(x = 0;x < firstLength ;x ++){
-                            tempBt = enc(tempBt,firstKeyBt[x]);
+                            NSArray *firstKeyBtArr = [firstKeyBt objectAtIndex:x];
+                            tempBt = [self enc:tempBt :firstKeyBtArr];
                         }
                         encByte = tempBt;
                     }
                 }
             }
-            encData = bt64ToHex(encByte);
+            encData = [self bt64ToHex:encByte];//bt64ToHex(encByte);
         }else{
-            var iterator = parseInt(leng/4);
-            var remainder = leng%4;
-            var i=0;
+            int iterator = leng/4;
+            int remainder = leng%4;
+            int i=0;
             for(i = 0;i < iterator;i++){
-                var tempData = data.substring(i*4+0,i*4+4);
-                var tempByte = strToBt(tempData);
-                var encByte ;
-                if(firstKey != nil && firstKey !="" && secondKey != nil && secondKey != "" && thirdKey != nil && thirdKey != ""){
-                    var tempBt;
-                    var x,y,z;
+                
+                NSRange range = NSMakeRange(i * 4 + 0,  4);
+                NSString *tempData = [data substringWithRange:range];
+                
+                NSArray *tempByte = [self strToBt:tempData];//strToBt(tempData);
+                NSArray *encByte ;
+                if(firstKey != nil && ![firstKey isEqualToString: @""] && secondKey != nil && ![secondKey isEqualToString: @""] && thirdKey != nil && ![thirdKey isEqualToString: @""]){
+                    NSArray *tempBt;
+                    int x,y,z;
                     tempBt = tempByte;
                     for(x = 0;x < firstLength ;x ++){
-                        tempBt = enc(tempBt,firstKeyBt[x]);
+                        NSArray *firstKeyBtArr = [firstKeyBt objectAtIndex:x];
+                        tempBt = [self enc:tempBt :firstKeyBtArr];
                     }
                     for(y = 0;y < secondLength ;y ++){
-                        tempBt = enc(tempBt,secondKeyBt[y]);
+                        NSArray *secondKeyBtArr = [secondKeyBt objectAtIndex:y];
+                        tempBt = [self enc:tempBt :secondKeyBtArr];
+
                     }
                     for(z = 0;z < thirdLength ;z ++){
-                        tempBt = enc(tempBt,thirdKeyBt[z]);
+                        NSArray *thirdKeyBtArr = [thirdKeyBt objectAtIndex:z];
+                        tempBt = [self enc:tempBt :thirdKeyBtArr];
                     }
                     encByte = tempBt;
                 }else{
-                    if(firstKey != nil && firstKey !="" && secondKey != nil && secondKey != ""){
-                        var tempBt;
-                        var x,y;
+                    if(firstKey != nil && ![firstKey isEqualToString:@""] && secondKey != nil && ![secondKey isEqualToString:@""]){
+                        NSArray* tempBt;
+                        int x,y;
                         tempBt = tempByte;
                         for(x = 0;x < firstLength ;x ++){
-                            tempBt = enc(tempBt,firstKeyBt[x]);
+                            NSArray *firstKeyBtArr = [firstKeyBt objectAtIndex:x];
+                            tempBt = [self enc:tempBt :firstKeyBtArr];
                         }
                         for(y = 0;y < secondLength ;y ++){
-                            tempBt = enc(tempBt,secondKeyBt[y]);
+                            NSArray *secondKeyBtArr = [secondKeyBt objectAtIndex:y];
+                            tempBt = [self enc:tempBt :secondKeyBtArr];
+
                         }
                         encByte = tempBt;
                     }else{
-                        if(firstKey != nil && firstKey !=""){
-                            var tempBt;
-                            var x;
+                        if(firstKey != nil && ![firstKey isEqualToString:@""]){
+                            NSArray *tempBt;
+                            int x;
                             tempBt = tempByte;
                             for(x = 0;x < firstLength ;x ++){
-                                tempBt = enc(tempBt,firstKeyBt[x]);
+                                NSArray *firstKeyBtArr = [firstKeyBt objectAtIndex:x];
+                                tempBt = [self enc:tempBt :firstKeyBtArr];
                             }
                             encByte = tempBt;
                         }
                     }
                 }
-                encData += bt64ToHex(encByte);
+                encData = [encData stringByAppendingString:[self bt64ToHex:encByte]];
+//                encData += bt64ToHex(encByte);
             }
             if(remainder > 0){
-                var remainderData = data.substring(iterator*4+0,leng);
-                var tempByte = strToBt(remainderData);
-                var encByte ;
-                if(firstKey != nil && firstKey !="" && secondKey != nil && secondKey != "" && thirdKey != nil && thirdKey != ""){
-                    var tempBt;
-                    var x,y,z;
+                NSRange range = NSMakeRange(iterator*4+0, remainder);
+                
+                
+                NSString* remainderData = [data substringWithRange:range];
+                
+                NSArray *tempByte = [self strToBt:remainderData];
+
+                NSArray *encByte ;
+                if(firstKey != nil && ![firstKey isEqualToString: @""] && secondKey != nil && ![secondKey isEqualToString: @""] && thirdKey != nil && ![thirdKey isEqualToString: @""]){
+                    NSArray *tempBt;
+                    int x,y,z;
                     tempBt = tempByte;
                     for(x = 0;x < firstLength ;x ++){
-                        tempBt = enc(tempBt,firstKeyBt[x]);
+                        NSArray *firstKeyBtArr = [firstKeyBt objectAtIndex:x];
+                        tempBt = [self enc:tempBt :firstKeyBtArr];
                     }
                     for(y = 0;y < secondLength ;y ++){
-                        tempBt = enc(tempBt,secondKeyBt[y]);
+                        NSArray *secondKeyBtArr = [secondKeyBt objectAtIndex:y];
+                        tempBt = [self enc:tempBt :secondKeyBtArr];
+                        
                     }
                     for(z = 0;z < thirdLength ;z ++){
-                        tempBt = enc(tempBt,thirdKeyBt[z]);
+                        NSArray *thirdKeyBtArr = [thirdKeyBt objectAtIndex:z];
+                        tempBt = [self enc:tempBt :thirdKeyBtArr];
                     }
                     encByte = tempBt;
                 }else{
-                    if(firstKey != nil && firstKey !="" && secondKey != nil && secondKey != ""){
-                        var tempBt;
-                        var x,y;
+                    if(firstKey != nil && ![firstKey isEqualToString:@""] && secondKey != nil && ![secondKey isEqualToString:@""]){
+                        NSArray* tempBt;
+                        int x,y;
                         tempBt = tempByte;
                         for(x = 0;x < firstLength ;x ++){
-                            tempBt = enc(tempBt,firstKeyBt[x]);
+                            NSArray *firstKeyBtArr = [firstKeyBt objectAtIndex:x];
+                            tempBt = [self enc:tempBt :firstKeyBtArr];
                         }
                         for(y = 0;y < secondLength ;y ++){
-                            tempBt = enc(tempBt,secondKeyBt[y]);
+                            NSArray *secondKeyBtArr = [secondKeyBt objectAtIndex:y];
+                            tempBt = [self enc:tempBt :secondKeyBtArr];
+                            
                         }
                         encByte = tempBt;
                     }else{
-                        if(firstKey != nil && firstKey !=""){
-                            var tempBt;
-                            var x;
+                        if(firstKey != nil && ![firstKey isEqualToString:@""]){
+                            NSArray *tempBt;
+                            int x;
                             tempBt = tempByte;
                             for(x = 0;x < firstLength ;x ++){
-                                tempBt = enc(tempBt,firstKeyBt[x]);
+                                NSArray *firstKeyBtArr = [firstKeyBt objectAtIndex:x];
+                                tempBt = [self enc:tempBt :firstKeyBtArr];
                             }
                             encByte = tempBt;
                         }
                     }
                 }
-                encData += bt64ToHex(encByte);
+                encData = [encData stringByAppendingString:[self bt64ToHex:encByte]];
             }                
         }
     }
     return encData;
 }
+
+-(NSString*) bt64ToHex:(NSArray*)byteData{
+    NSString *hex = @"";
+    for(int i = 0;i < 16; i ++){
+        NSString *bt = @"";
+        for(int j = 0; j < 4; j ++){
+            
+            NSNumber * number = [byteData objectAtIndex:i *4 + j];
+            
+            NSString * byteDataString = [number stringValue];
+            bt = [bt stringByAppendingString:byteDataString];
+//            bt += byteData[i*4+j];
+        }
+        NSString * bt4 = [self bt4ToHex:bt];
+        
+        hex = [hex stringByAppendingString:bt4];
+//        hex+=bt4ToHex(bt);
+    }
+    return hex;
+}
+
+-(NSString*) bt4ToHex:(NSString*)binary {
+    if ([binary isEqualToString:@"0000"]) {
+        return @"0";
+    }
+    
+    if ([binary isEqualToString:@"0001"]) {
+        return @"1";
+    }
+    if ([binary isEqualToString:@"0010"]) {
+        return @"2";
+    }
+    if ([binary isEqualToString:@"0011"]) {
+        return @"3";
+    }
+    if ([binary isEqualToString:@"0100"]) {
+        return @"4";
+    }
+    if ([binary isEqualToString:@"0101"]) {
+        return @"5";
+    }
+    if ([binary isEqualToString:@"0110"]) {
+        return @"6";
+    }
+    if ([binary isEqualToString:@"0111"]) {
+        return @"7";
+    }
+    if ([binary isEqualToString:@"1000"]) {
+        return @"8";
+    }
+    if ([binary isEqualToString:@"1001"]) {
+        return @"9";
+    }
+    if ([binary isEqualToString:@"1010"]) {
+        return @"A";
+    }
+    if ([binary isEqualToString:@"1011"]) {
+        return @"B";
+    }
+    if ([binary isEqualToString:@"1100"]) {
+        return @"C";
+    }
+    if ([binary isEqualToString:@"1101"]) {
+        return @"D";
+    }
+    if ([binary isEqualToString:@"1110"]) {
+        return @"E";
+    }
+    if ([binary isEqualToString:@"1111"]) {
+        return @"F";
+    }
+
+    return @"";
+}
+
 
 -(NSMutableArray*) getKeyBytes:(NSString*)key{
     NSMutableArray * keyBytes = [NSMutableArray array];
@@ -188,11 +294,11 @@
     int remainder = leng % 4;
     int i = 0;
     for (i = 0; i < iterator; i ++) {
-        [keyBytes setObject:[self strToBt:[key substringWithRange:NSMakeRange(i * 4 + 0, i * 4 + 4)]] atIndexedSubscript:i];
+        [keyBytes setObject:[self strToBt:[key substringWithRange:NSMakeRange(i * 4 + 0, 4)]] atIndexedSubscript:i];
     }
     
     if (remainder > 0) {
-        [keyBytes setObject:[self strToBt:[key substringWithRange:NSMakeRange(i * 4 + 0, leng)]] atIndexedSubscript:i];
+        [keyBytes setObject:[self strToBt:[key substringWithRange:NSMakeRange(i * 4 + 0, remainder)]] atIndexedSubscript:i];
     }
     
     return keyBytes;
@@ -264,6 +370,8 @@
 }
 
 
+//------------------------------------------
+
 -(NSArray *) enc:(NSArray*)dataByte :(NSArray*)keyByte{
 
     NSArray *keys = [self generateKeys:keyByte];
@@ -286,7 +394,7 @@
     
     
     NSMutableArray *ipRightArr = [NSMutableArray arrayWithCapacity:32];
-    for (int i = 0; i < ipRightArr.count; i ++) {
+    for (int i = 0; i < 32; i ++) {
         NSNumber * number = [NSNumber numberWithInt:ipRight[i]];
         [ipRightArr addObject:number];
         
@@ -305,7 +413,7 @@
         }
         
         NSMutableArray *keyArr = [NSMutableArray arrayWithCapacity:48];
-        for (int i = 0; i < keyArr.count; i ++) {
+        for (int i = 0; i < 48; i ++) {
             NSNumber * number = [NSNumber numberWithInt:key[i]];
             [keyArr addObject:number];
         }
@@ -318,7 +426,7 @@
         
         
         NSMutableArray *tempLeftArr = [NSMutableArray arrayWithCapacity:32];
-        for (int i = 0; i < tempLeftArr.count; i ++) {
+        for (int i = 0; i < 32; i ++) {
             NSNumber * number = [NSNumber numberWithInt:tempLeft[i]];
             [tempLeftArr addObject:number];
             
@@ -333,12 +441,15 @@
     
     NSMutableArray *finalData = [NSMutableArray arrayWithCapacity:64];
     for(int i = 0;i < 32;i ++){
-        [finalData setObject:[NSNumber numberWithInt:ipRight[i]] atIndexedSubscript:i];
-        
-        [finalData setObject:[NSNumber numberWithInt:ipLeft[i]] atIndexedSubscript:(32+i)];
-//        finalData[i] = ipRight[i];
-//        finalData[32+i] = ipLeft[i];
+//        [finalData setObject:[NSNumber numberWithInt:ipRight[i]] atIndexedSubscript:i];
+        [finalData addObject:[NSNumber numberWithInt:ipRight[i]]];
     }
+    
+    for(int i = 0;i < 32;i ++){
+//        [finalData setObject:[NSNumber numberWithInt:ipLeft[i]] atIndexedSubscript:(32+i)];
+        [finalData addObject:[NSNumber numberWithInt:ipLeft[i]]];
+    }
+    
     return [self finallyPermute:finalData];//finallyPermute(finalData);
 }
 
@@ -479,9 +590,9 @@
         }
         
         sBoxByte[m*4+0] = [[binary substringWithRange:NSMakeRange(0, 1)] intValue];
-        sBoxByte[m*4+1] = [[binary substringWithRange:NSMakeRange(1, 2)] intValue];
-        sBoxByte[m*4+2] = [[binary substringWithRange:NSMakeRange(2, 3)] intValue];
-        sBoxByte[m*4+3] = [[binary substringWithRange:NSMakeRange(3, 4)] intValue];
+        sBoxByte[m*4+1] = [[binary substringWithRange:NSMakeRange(1, 1)] intValue];
+        sBoxByte[m*4+2] = [[binary substringWithRange:NSMakeRange(2, 1)] intValue];
+        sBoxByte[m*4+3] = [[binary substringWithRange:NSMakeRange(3, 1)] intValue];
     }
     
     NSMutableArray * result = [NSMutableArray arrayWithCapacity:32];

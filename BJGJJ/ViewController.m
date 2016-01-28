@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Encrypt.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    //data = "556566", firstKey = "pdcss123", secondKey = "css11q1a", thirdKey = "co1qacq11"
+    
+    Encrypt * arr = [[Encrypt alloc] init];
+    
+    NSString * result = [arr strEncode:@"556566" firstKey:@"pdcss123" secondKey:@"css11q1a" thirdKey:@"co1qacq11"];
+    
+    NSLog(@"%@", result);
 }
 
 - (void)didReceiveMemoryWarning {

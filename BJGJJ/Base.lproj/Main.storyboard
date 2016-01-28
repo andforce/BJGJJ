@@ -77,7 +77,7 @@
         <!--View Controller-->
         <scene sceneID="aIV-rw-S26">
             <objects>
-                <viewController id="nzJ-Tj-X80" sceneMemberID="viewController">
+                <viewController id="nzJ-Tj-X80" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hqm-aG-FRP"/>
                         <viewControllerLayoutGuide type="bottom" id="B1n-du-oS0"/>
