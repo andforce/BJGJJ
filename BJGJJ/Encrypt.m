@@ -376,6 +376,8 @@
 
     NSArray *keys = [self generateKeys:keyByte];
     
+    NSLog(@"---->>> %@", keys);
+    
     NSArray *ipByte   =  [self mInitPermute:dataByte];
     
     int ipLeft[32]   = {0};
@@ -390,16 +392,7 @@
         ipLeft[k] = [[ipByte objectAtIndex:k] intValue];//ipByte[k];
         ipRight[k] = [[ipByte objectAtIndex:(32 + k)] intValue];//ipByte[32+k];
     }
-    
-    
-    
-    NSMutableArray *ipRightArr = [NSMutableArray arrayWithCapacity:32];
-    for (int i = 0; i < 32; i ++) {
-        NSNumber * number = [NSNumber numberWithInt:ipRight[i]];
-        [ipRightArr addObject:number];
-        
-    }
-    
+
     
     for(i = 0;i < 16;i ++){
         for(j = 0;j < 32;j ++){
@@ -409,7 +402,7 @@
         
         int key[48] = {0};
         for(m = 0;m < 48;m ++){
-            key[m] = [[[keys objectAtIndex:i] objectAtIndex:m] intValue];//keys[i][m];
+            key[m] = [keys[i][m] intValue];
         }
         
         NSMutableArray *keyArr = [NSMutableArray arrayWithCapacity:48];
@@ -419,7 +412,7 @@
         }
         
         
-        NSArray * expandPermute = [self expandPermute:ipRightArr];
+        NSArray * expandPermute = [self expandPermute:ipRight];
         NSArray * xor1 = [self xor:expandPermute :keyArr];
         NSArray * sBoxPermute = [self sBoxPermute:xor1];
         NSArray * pPermute = [self pPermute:sBoxPermute];
@@ -434,7 +427,8 @@
         
         NSArray * tempRight = [self xor:pPermute :tempLeftArr];
         for(n = 0;n < 32;n ++){
-            ipRight[n] = [self readNSArray:tempRight index:n];//tempRight[n];
+            int tmp = [self readNSArray:tempRight index:n];
+            ipRight[n] = tmp;//tempRight[n];
         }
     }
     
@@ -453,22 +447,22 @@
     return [self finallyPermute:finalData];//finallyPermute(finalData);
 }
 
--(NSArray*) expandPermute:(NSArray*) rightData{
+-(NSArray*) expandPermute:(int[]) rightData{
     int epByte[48] = {0};
     for (int i = 0; i < 8; i++) {
         if (i == 0) {
-            epByte[i * 6 + 0] = [self readNSArray:rightData index:31];
+            epByte[i * 6 + 0] = rightData[31];
         } else {
-            epByte[i * 6 + 0] = [self readNSArray:rightData index:(i * 4 - 1)];//rightData[i * 4 - 1];
+            epByte[i * 6 + 0] = rightData[i * 4 - 1];
         }
-        epByte[i * 6 + 1] = [self readNSArray:rightData index:(i * 4 + 0)];//rightData[i * 4 + 0];
-        epByte[i * 6 + 2] = [self readNSArray:rightData index:(i * 4 + 1)];//rightData[i * 4 + 1];
-        epByte[i * 6 + 3] = [self readNSArray:rightData index:(i * 4 + 2)];//rightData[i * 4 + 2];
-        epByte[i * 6 + 4] = [self readNSArray:rightData index:(i * 4 + 3)];//rightData[i * 4 + 3];
+        epByte[i * 6 + 1] = rightData[i * 4 + 0];
+        epByte[i * 6 + 2] = rightData[i * 4 + 1];
+        epByte[i * 6 + 3] = rightData[i * 4 + 2];
+        epByte[i * 6 + 4] = rightData[i * 4 + 3];
         if (i == 7) {
-            epByte[i * 6 + 5] = [self readNSArray:rightData index:(0)];//rightData[0];
+            epByte[i * 6 + 5] = rightData[0];
         } else {
-            epByte[i * 6 + 5] = [self readNSArray:rightData index:(i * 4 + 4)];//rightData[i * 4 + 4];
+            epByte[i * 6 + 5] = rightData[i * 4 + 4];
         }
     }
     
@@ -739,31 +733,19 @@
 }
 
 -(NSArray*) generateKeys:(NSArray*)keyByte{
-    NSMutableArray<NSNumber*> *key   = [NSMutableArray arrayWithCapacity:56];
-    NSMutableArray * keys = [NSMutableArray array];
+    //NSMutableArray<NSNumber*> *key   = [NSMutableArray arrayWithCapacity:56];
+    int key[56] = {0};
     
-    keys[ 0] = [NSMutableArray array];
-    keys[ 1] = [NSMutableArray array];
-    keys[ 2] = [NSMutableArray array];
-    keys[ 3] = [NSMutableArray array];
-    keys[ 4] = [NSMutableArray array];
-    keys[ 5] = [NSMutableArray array];
-    keys[ 6] = [NSMutableArray array];
-    keys[ 7] = [NSMutableArray array];
-    keys[ 8] = [NSMutableArray array];
-    keys[ 9] = [NSMutableArray array];
-    keys[10] = [NSMutableArray array];
-    keys[11] = [NSMutableArray array];
-    keys[12] = [NSMutableArray array];
-    keys[13] = [NSMutableArray array];
-    keys[14] = [NSMutableArray array];
-    keys[15] = [NSMutableArray array];
-    NSArray *loop = @[[NSNumber numberWithInt:1],[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:2],[NSNumber numberWithInt:2],
-                      [NSNumber numberWithInt:2],[NSNumber numberWithInt:2],[NSNumber numberWithInt:2],[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:2],[NSNumber numberWithInt:2],[NSNumber numberWithInt:2],[NSNumber numberWithInt:2],[NSNumber numberWithInt:2],[NSNumber numberWithInt:1]];
+    //NSMutableArray * keys = [NSMutableArray array];
+    
+    int keys[16][48] = {0};
+    
+    
+    int loop[] = {1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1};
     
     for(int i=0;i<7;i++){
         for(int j=0,k=7;j<8;j++,k--){
-            key[i*8+j]=keyByte[8*k+i];
+            key[i*8+j] = [keyByte[8*k+i] intValue];
         }
     }
     
@@ -771,17 +753,17 @@
     for(i = 0;i < 16;i ++){
         int tempLeft=0;
         int tempRight=0;
-        for(int j = 0; j < [loop[i] intValue]; j ++){
-            tempLeft = [key[0] intValue];
-            tempRight = [key[28] intValue];
+        for(int j = 0; j < loop[i]; j ++){
+            tempLeft = key[0];
+            tempRight = key[28];
             for(int k = 0;k < 27 ;k ++){
                 key[k] = key[k+1];
                 key[28+k] = key[29+k];
             }
-            key[27] = [NSNumber numberWithInt:tempLeft];
-            key[55] = [NSNumber numberWithInt:tempRight];
+            key[27] = tempLeft;
+            key[55] = tempRight;
         }
-        NSMutableArray* tempKey = [NSMutableArray arrayWithCapacity:48];//new Array(48);
+        int tempKey[48] = {0};
         tempKey[ 0] = key[13];
         tempKey[ 1] = key[16];
         tempKey[ 2] = key[10];
@@ -850,7 +832,21 @@
             case 15: for(int m=0;m < 48 ;m++){ keys[15][m] = tempKey[m]; } break;
         }
     }
-    return keys;  
+    
+    NSMutableArray * result = [NSMutableArray arrayWithCapacity:16];
+   
+    for (int i = 0; i < 16; i ++) {
+        
+        NSMutableArray * arr = [NSMutableArray arrayWithCapacity:48];
+        for (int j = 0; j < 48; j++) {
+            NSNumber * number = [NSNumber numberWithInt:keys[i][j]];
+            [arr addObject:number];
+        }
+        [result addObject:arr];
+    }
+    
+    
+    return result;
 }
 
 
