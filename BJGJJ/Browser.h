@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Browser : NSObject
 
 -(void) loginWithCardNumber:(NSString*) number andPassword:(NSString*)password andSecurityCode:(NSString*)code;
+
+-(void)refreshVCodeToUIImageView:(UIImageView* ) vCodeImageView;
 
 @end

@@ -12,6 +12,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *cardNumber;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UIImageView *securityCode;
+@property (weak, nonatomic) IBOutlet UITextField *code;
+
+
 - (IBAction)refreshSecurityCode:(id)sender;
+- (IBAction)login:(id)sender;
 
 @end

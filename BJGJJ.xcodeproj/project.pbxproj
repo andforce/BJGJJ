@@ -19,6 +19,8 @@
 		3A3F44F41C5668070061817B /* Browser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44F31C5668070061817B /* Browser.m */; };
 		3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8019AF1C57B6A500DB16BF /* Encrypt.m */; };
 		3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EF41C5C820100FE956D /* NSArray+Converter.m */; };
+		3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EF71C5C977D00FE956D /* NSStringUtils.m */; };
+		3A8B5EFB1C5CB48400FE956D /* NSString+Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EFA1C5CB48400FE956D /* NSString+Converter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,10 @@
 		3A8019AF1C57B6A500DB16BF /* Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encrypt.m; sourceTree = "<group>"; };
 		3A8B5EF31C5C820100FE956D /* NSArray+Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Converter.h"; sourceTree = "<group>"; };
 		3A8B5EF41C5C820100FE956D /* NSArray+Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Converter.m"; sourceTree = "<group>"; };
+		3A8B5EF61C5C977D00FE956D /* NSStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringUtils.h; sourceTree = "<group>"; };
+		3A8B5EF71C5C977D00FE956D /* NSStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringUtils.m; sourceTree = "<group>"; };
+		3A8B5EF91C5CB48400FE956D /* NSString+Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Converter.h"; sourceTree = "<group>"; };
+		3A8B5EFA1C5CB48400FE956D /* NSString+Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Converter.m"; sourceTree = "<group>"; };
 		B08B99FB47221E1188BA9356 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,8 +101,12 @@
 				3A3F44F31C5668070061817B /* Browser.m */,
 				3A8019AE1C57B6A500DB16BF /* Encrypt.h */,
 				3A8019AF1C57B6A500DB16BF /* Encrypt.m */,
+				3A8B5EF61C5C977D00FE956D /* NSStringUtils.h */,
+				3A8B5EF71C5C977D00FE956D /* NSStringUtils.m */,
 				3A8B5EF31C5C820100FE956D /* NSArray+Converter.h */,
 				3A8B5EF41C5C820100FE956D /* NSArray+Converter.m */,
+				3A8B5EF91C5CB48400FE956D /* NSString+Converter.h */,
+				3A8B5EFA1C5CB48400FE956D /* NSString+Converter.m */,
 			);
 			path = BJGJJ;
 			sourceTree = "<group>";
@@ -249,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */,
+				3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */,
+				3A8B5EFB1C5CB48400FE956D /* NSString+Converter.m in Sources */,
 				3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */,
 				3A3F44F41C5668070061817B /* Browser.m in Sources */,
 				3A3F44DD1C565AAF0061817B /* ViewController.m in Sources */,
@@ -367,6 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BJGJJ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andforce.BJGJJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -379,6 +392,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BJGJJ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andforce.BJGJJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";

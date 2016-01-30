@@ -10,5 +10,7 @@
 
 @interface Encrypt : NSObject
 
--(NSString*) strEncode:(NSString*) data firstKey:(NSString*)key secondKey:(NSString*)key thirdKey:(NSString*)key;
+-(NSString*) strEncode:(NSString*) data;
+
+
 @end
