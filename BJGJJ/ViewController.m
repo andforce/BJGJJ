@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Encrypt.h"
+#import "NSArray+Converter.h"
 
 @interface ViewController ()
 
@@ -24,7 +25,13 @@
     
     NSString * result = [arr strEncode:@"" firstKey:@"pdcss123" secondKey:@"css11q1a" thirdKey:@"co1qacq11"];
     
-    NSLog(@"%@", result);
+    int a[2] = {100,0};
+
+    int lenA = sizeof(a) /sizeof(a[0]);
+    
+    NSArray * array = [NSArray arrayWithIntArray:a andIntArrayLength:lenA];
+    
+    NSLog(@"%@", array);
 }
 
 - (void)didReceiveMemoryWarning {

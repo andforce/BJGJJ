@@ -18,6 +18,7 @@
 		3A3F44F11C56661C0061817B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44F01C56661C0061817B /* LoginViewController.m */; };
 		3A3F44F41C5668070061817B /* Browser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44F31C5668070061817B /* Browser.m */; };
 		3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8019AF1C57B6A500DB16BF /* Encrypt.m */; };
+		3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EF41C5C820100FE956D /* NSArray+Converter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		3A3F44F31C5668070061817B /* Browser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Browser.m; sourceTree = "<group>"; };
 		3A8019AE1C57B6A500DB16BF /* Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encrypt.h; sourceTree = "<group>"; };
 		3A8019AF1C57B6A500DB16BF /* Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encrypt.m; sourceTree = "<group>"; };
+		3A8B5EF31C5C820100FE956D /* NSArray+Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Converter.h"; sourceTree = "<group>"; };
+		3A8B5EF41C5C820100FE956D /* NSArray+Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Converter.m"; sourceTree = "<group>"; };
 		B08B99FB47221E1188BA9356 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +95,8 @@
 				3A3F44F31C5668070061817B /* Browser.m */,
 				3A8019AE1C57B6A500DB16BF /* Encrypt.h */,
 				3A8019AF1C57B6A500DB16BF /* Encrypt.m */,
+				3A8B5EF31C5C820100FE956D /* NSArray+Converter.h */,
+				3A8B5EF41C5C820100FE956D /* NSArray+Converter.m */,
 			);
 			path = BJGJJ;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */,
+				3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */,
 				3A3F44F41C5668070061817B /* Browser.m in Sources */,
 				3A3F44DD1C565AAF0061817B /* ViewController.m in Sources */,
 				3A3F44E31C565AAF0061817B /* BJGJJ.xcdatamodeld in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "Encrypt.h"
+#import "NSArray+Converter.h"
 
 @implementation Encrypt
 
@@ -222,12 +223,9 @@
             
             NSString * byteDataString = [number stringValue];
             bt = [bt stringByAppendingString:byteDataString];
-//            bt += byteData[i*4+j];
         }
         NSString * bt4 = [self bt4ToHex:bt];
-        
         hex = [hex stringByAppendingString:bt4];
-//        hex+=bt4ToHex(bt);
     }
     return hex;
 }
@@ -359,14 +357,8 @@
             ipByte[i * 8 + k + 32] = [[originalData objectAtIndex:(j * 8 + n)] intValue];
         }
     }
-    
-    NSMutableArray * result = [NSMutableArray arrayWithCapacity:64];
-    for (int i = 0; i < 64; i ++) {
-        NSNumber * number = [NSNumber numberWithInt:ipByte[i]];
-        [result addObject:number];
-        
-    }
-    return [result copy];
+
+    return [NSArray arrayWithIntArray:ipByte andIntArrayLength:64];
 }
 
 
@@ -733,13 +725,9 @@
 }
 
 -(NSArray*) generateKeys:(NSArray*)keyByte{
-    //NSMutableArray<NSNumber*> *key   = [NSMutableArray arrayWithCapacity:56];
+
     int key[56] = {0};
-    
-    //NSMutableArray * keys = [NSMutableArray array];
-    
     int keys[16][48] = {0};
-    
     
     int loop[] = {1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1};
     
