@@ -16,11 +16,13 @@
 #define kChoice @"http://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-choice.jsp"
 #define kSecruityCode @"http://www.bjgjj.gov.cn/wsyw/servlet/PicCheckCode1"
 #define kLoginUrl @"http://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-login.jsp"
+#define kLKUrl @"http://www.bjgjj.gov.cn/wsyw/wscx/asdwqnasmdnams.jsp"
 
 
 @implementation Browser{
     AFHTTPSessionManager *_browser;
     NSString * _cookie;
+    NSString * _lk;
 }
 
 -(id)init{
@@ -40,28 +42,21 @@
 
 -(void)loginWithCardNumber:(NSString *)number andPassword:(NSString *)password andSecurityCode:(NSString *)code{
     
-    NSDictionary * parameters = [NSDictionary dictionary];
-    
+
     Encrypt * enc = [[Encrypt alloc]init];
     
-    NSString * encodeNumber = [enc strEncode:@""];
+    NSString * encodeNumber = [enc strEncode:number];
     
-    NSString * encodePassword = [enc strEncode:@""];
+    NSString * encodePassword = [enc strEncode:password];
+
     
+
     
-    [parameters setValue:@"5" forKey:@"lb"];
-    [parameters setValue:encodeNumber forKey:@"bh"];
-    [parameters setValue:encodePassword forKey:@"mm"];
-    [parameters setValue:code forKey:@"gjjcxjjmyhpppp"];
-    [parameters setValue:@"1" forKey:@"lk"];
-    
-    
-    
-    NSDictionary * p = @{@"lb":@"5",
+    NSDictionary * paramaters = @{@"lb":@"5",
                          @"bh": encodeNumber,
                          @"mm": encodePassword,
                          @"gjjcxjjmyhpppp":code,
-                         @"lk":@"1"
+                         @"lk":_lk
                          };
     // 设置Headers
     [_browser.requestSerializer setValue:@"www.bjgjj.gov.cn" forHTTPHeaderField:@"Host"];
@@ -79,19 +74,16 @@
     
     
     
-    [_browser POST:kChoice parameters:p progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [_browser POST:kChoice parameters:paramaters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         
         NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
         
         NSString *html = [[[NSString alloc] initWithData:responseObject encoding:gbkEncoding] replaceUnicode];
-        
-        
-        
-        NSLog(@"------->>> %@", html);
+
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"------->>>-------------  ");
+
         
     }];
     
@@ -101,6 +93,8 @@
 
 
 -(void)refreshVCodeToUIImageView:(UIImageView* ) vCodeImageView{
+    
+
     
     [_browser.requestSerializer setValue:@"www.bjgjj.gov.cn" forHTTPHeaderField:@"Host"];
     
@@ -113,8 +107,6 @@
     [_browser.requestSerializer setValue:@"zh-cn" forHTTPHeaderField:@"Accept-Language"];
     
     [_browser.requestSerializer setValue:@"gzip, deflate" forHTTPHeaderField:@"Accept-Encoding"];
-    
-    
 
     
     [_browser GET:kLoginUrl parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -131,6 +123,28 @@
         
         _cookie = cookiesString;
         
+        
+        
+        [_browser POST:kLKUrl parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            
+            NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+            
+            NSString *html = [[[NSString alloc] initWithData:responseObject encoding:gbkEncoding] replaceUnicode];
+            
+            NSString *trimmedString = [html stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            
+            NSString * lk = [trimmedString substringFromIndex:4];
+            
+            _lk = lk;
+            
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"------->>>-------------  ");
+            
+        }];
+
+        
         AFImageDownloader *downloader = [[vCodeImageView class] sharedImageDownloader];
         id <AFImageRequestCache> imageCache = downloader.imageCache;
         [imageCache removeImageWithIdentifier:kSecruityCode];
@@ -141,8 +155,9 @@
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
         [request setValue:_cookie forHTTPHeaderField:@"Cookie"];
-        [request setValue:@"image/gif, image/jpeg, image/pjpeg,image/bmp, application/x-shockwave-flash, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/QVOD, application/QVOD, */*" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"image/webp,image/*,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
         [request setValue:@"Mozilla/5.0 (Windows;U; Windows NT 5.1; en-US; rv:0.9.4)" forHTTPHeaderField:@"User-Agent"];
+        [request setValue:@"http://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-login.jsp" forHTTPHeaderField:@"Referer"];
         
         
         UIImageView * view = vCodeImageView;
