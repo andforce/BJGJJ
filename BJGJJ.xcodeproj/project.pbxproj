@@ -17,6 +17,7 @@
 		3A3F44E81C565AAF0061817B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F44E61C565AAF0061817B /* LaunchScreen.storyboard */; };
 		3A3F44F11C56661C0061817B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44F01C56661C0061817B /* LoginViewController.m */; };
 		3A3F44F41C5668070061817B /* Browser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44F31C5668070061817B /* Browser.m */; };
+		3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */; };
 		3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8019AF1C57B6A500DB16BF /* Encrypt.m */; };
 		3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EF41C5C820100FE956D /* NSArray+Converter.m */; };
 		3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EF71C5C977D00FE956D /* NSStringUtils.m */; };
@@ -41,6 +42,8 @@
 		3A3F44F01C56661C0061817B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		3A3F44F21C5668070061817B /* Browser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Browser.h; sourceTree = "<group>"; };
 		3A3F44F31C5668070061817B /* Browser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Browser.m; sourceTree = "<group>"; };
+		3A79DED81C5DCD3A007C5D48 /* BJBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJBrowser.h; sourceTree = "<group>"; };
+		3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJBrowser.m; sourceTree = "<group>"; };
 		3A8019AE1C57B6A500DB16BF /* Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encrypt.h; sourceTree = "<group>"; };
 		3A8019AF1C57B6A500DB16BF /* Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encrypt.m; sourceTree = "<group>"; };
 		3A8B5EF31C5C820100FE956D /* NSArray+Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Converter.h"; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				3A3F44F01C56661C0061817B /* LoginViewController.m */,
 				3A3F44F21C5668070061817B /* Browser.h */,
 				3A3F44F31C5668070061817B /* Browser.m */,
+				3A79DED81C5DCD3A007C5D48 /* BJBrowser.h */,
+				3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */,
 				3A8019AE1C57B6A500DB16BF /* Encrypt.h */,
 				3A8019AF1C57B6A500DB16BF /* Encrypt.m */,
 				3A8B5EF61C5C977D00FE956D /* NSStringUtils.h */,
@@ -260,6 +265,7 @@
 			files = (
 				3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */,
 				3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */,
+				3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */,
 				3A8B5EFB1C5CB48400FE956D /* NSString+Converter.m in Sources */,
 				3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */,
 				3A3F44F41C5668070061817B /* Browser.m in Sources */,

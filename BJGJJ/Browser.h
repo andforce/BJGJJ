@@ -9,10 +9,26 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef void (^responseHtml)(NSString* responseHtml);
+
+
+
 @interface Browser : NSObject
 
--(void) loginWithCardNumber:(NSString*) number andPassword:(NSString*)password andSecurityCode:(NSString*)code;
+-(instancetype)initWithStringEncoding:(NSStringEncoding) encoding;
 
--(void)refreshVCodeToUIImageView:(UIImageView* ) vCodeImageView;
+
+-(void) POST:(NSString*) url headers:(NSDictionary*) headers formData:(NSDictionary*)formData response:(responseHtml)response;
+
+
+
+
+-(void) GET:(NSString*) url response:(responseHtml)response;
+
+-(void) GET:(NSString*) url headers:(NSDictionary*) headers response:(responseHtml)response;
+
+-(void) GET:(NSString*) url params:(NSDictionary*)params response:(responseHtml)response;
+
+-(void) GET:(NSString*) url headers:(NSDictionary*) headers params:(NSDictionary*)params response:(responseHtml)response;
 
 @end

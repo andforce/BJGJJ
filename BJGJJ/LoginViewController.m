@@ -7,13 +7,13 @@
 //
 
 #import "LoginViewController.h"
-#import "Browser.h"
+#import "BJBrowser.h"
 
 
 
 @interface LoginViewController (){
     
-    Browser * _browser;
+    BJBrowser * _browser;
 }
 
 @end
@@ -23,7 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _browser = [[Browser alloc] init];
+    _browser = [[BJBrowser alloc] init];
+    
+    [_browser refreshVCodeToUIImageView:_securityCode];
 
 }
 
