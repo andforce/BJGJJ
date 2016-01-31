@@ -18,6 +18,9 @@
 		3A3F44F11C56661C0061817B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44F01C56661C0061817B /* LoginViewController.m */; };
 		3A3F44F41C5668070061817B /* Browser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44F31C5668070061817B /* Browser.m */; };
 		3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */; };
+		3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEDD1C5DE4E1007C5D48 /* StatusBean.m */; };
+		3A79DEE11C5DE5F9007C5D48 /* HtmlPraser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */; };
+		3A79DEE41C5DED68007C5D48 /* NSString+Regular.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEE31C5DED68007C5D48 /* NSString+Regular.m */; };
 		3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8019AF1C57B6A500DB16BF /* Encrypt.m */; };
 		3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EF41C5C820100FE956D /* NSArray+Converter.m */; };
 		3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EF71C5C977D00FE956D /* NSStringUtils.m */; };
@@ -44,6 +47,12 @@
 		3A3F44F31C5668070061817B /* Browser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Browser.m; sourceTree = "<group>"; };
 		3A79DED81C5DCD3A007C5D48 /* BJBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJBrowser.h; sourceTree = "<group>"; };
 		3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJBrowser.m; sourceTree = "<group>"; };
+		3A79DEDC1C5DE4E1007C5D48 /* StatusBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBean.h; sourceTree = "<group>"; };
+		3A79DEDD1C5DE4E1007C5D48 /* StatusBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBean.m; sourceTree = "<group>"; };
+		3A79DEDF1C5DE5F9007C5D48 /* HtmlPraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlPraser.h; sourceTree = "<group>"; };
+		3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HtmlPraser.m; sourceTree = "<group>"; };
+		3A79DEE21C5DED68007C5D48 /* NSString+Regular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Regular.h"; sourceTree = "<group>"; };
+		3A79DEE31C5DED68007C5D48 /* NSString+Regular.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Regular.m"; sourceTree = "<group>"; };
 		3A8019AE1C57B6A500DB16BF /* Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encrypt.h; sourceTree = "<group>"; };
 		3A8019AF1C57B6A500DB16BF /* Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encrypt.m; sourceTree = "<group>"; };
 		3A8B5EF31C5C820100FE956D /* NSArray+Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Converter.h"; sourceTree = "<group>"; };
@@ -88,8 +97,19 @@
 		3A3F44D41C565AAF0061817B /* BJGJJ */ = {
 			isa = PBXGroup;
 			children = (
+				3A79DEDB1C5DE478007C5D48 /* Public */,
 				3A3F44D81C565AAF0061817B /* AppDelegate.h */,
 				3A3F44D91C565AAF0061817B /* AppDelegate.m */,
+				3A3F44EF1C56661C0061817B /* LoginViewController.h */,
+				3A3F44F01C56661C0061817B /* LoginViewController.m */,
+				3A79DEDC1C5DE4E1007C5D48 /* StatusBean.h */,
+				3A79DEDD1C5DE4E1007C5D48 /* StatusBean.m */,
+				3A79DED81C5DCD3A007C5D48 /* BJBrowser.h */,
+				3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */,
+				3A79DEDF1C5DE5F9007C5D48 /* HtmlPraser.h */,
+				3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */,
+				3A8019AE1C57B6A500DB16BF /* Encrypt.h */,
+				3A8019AF1C57B6A500DB16BF /* Encrypt.m */,
 				3A3F44DB1C565AAF0061817B /* ViewController.h */,
 				3A3F44DC1C565AAF0061817B /* ViewController.m */,
 				3A3F44DE1C565AAF0061817B /* Main.storyboard */,
@@ -98,20 +118,6 @@
 				3A3F44E91C565AAF0061817B /* Info.plist */,
 				3A3F44E11C565AAF0061817B /* BJGJJ.xcdatamodeld */,
 				3A3F44D51C565AAF0061817B /* Supporting Files */,
-				3A3F44EF1C56661C0061817B /* LoginViewController.h */,
-				3A3F44F01C56661C0061817B /* LoginViewController.m */,
-				3A3F44F21C5668070061817B /* Browser.h */,
-				3A3F44F31C5668070061817B /* Browser.m */,
-				3A79DED81C5DCD3A007C5D48 /* BJBrowser.h */,
-				3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */,
-				3A8019AE1C57B6A500DB16BF /* Encrypt.h */,
-				3A8019AF1C57B6A500DB16BF /* Encrypt.m */,
-				3A8B5EF61C5C977D00FE956D /* NSStringUtils.h */,
-				3A8B5EF71C5C977D00FE956D /* NSStringUtils.m */,
-				3A8B5EF31C5C820100FE956D /* NSArray+Converter.h */,
-				3A8B5EF41C5C820100FE956D /* NSArray+Converter.m */,
-				3A8B5EF91C5CB48400FE956D /* NSString+Converter.h */,
-				3A8B5EFA1C5CB48400FE956D /* NSString+Converter.m */,
 			);
 			path = BJGJJ;
 			sourceTree = "<group>";
@@ -122,6 +128,23 @@
 				3A3F44D61C565AAF0061817B /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A79DEDB1C5DE478007C5D48 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				3A3F44F21C5668070061817B /* Browser.h */,
+				3A3F44F31C5668070061817B /* Browser.m */,
+				3A8B5EF61C5C977D00FE956D /* NSStringUtils.h */,
+				3A8B5EF71C5C977D00FE956D /* NSStringUtils.m */,
+				3A8B5EF31C5C820100FE956D /* NSArray+Converter.h */,
+				3A8B5EF41C5C820100FE956D /* NSArray+Converter.m */,
+				3A8B5EF91C5CB48400FE956D /* NSString+Converter.h */,
+				3A8B5EFA1C5CB48400FE956D /* NSString+Converter.m */,
+				3A79DEE21C5DED68007C5D48 /* NSString+Regular.h */,
+				3A79DEE31C5DED68007C5D48 /* NSString+Regular.m */,
+			);
+			name = Public;
 			sourceTree = "<group>";
 		};
 		93768791D24479DFD934CA9A /* Pods */ = {
@@ -264,16 +287,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */,
+				3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */,
 				3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */,
 				3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */,
 				3A8B5EFB1C5CB48400FE956D /* NSString+Converter.m in Sources */,
 				3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */,
+				3A79DEE41C5DED68007C5D48 /* NSString+Regular.m in Sources */,
 				3A3F44F41C5668070061817B /* Browser.m in Sources */,
 				3A3F44DD1C565AAF0061817B /* ViewController.m in Sources */,
 				3A3F44E31C565AAF0061817B /* BJGJJ.xcdatamodeld in Sources */,
 				3A3F44DA1C565AAF0061817B /* AppDelegate.m in Sources */,
 				3A3F44D71C565AAF0061817B /* main.m in Sources */,
 				3A3F44F11C56661C0061817B /* LoginViewController.m in Sources */,
+				3A79DEE11C5DE5F9007C5D48 /* HtmlPraser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

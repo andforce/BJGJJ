@@ -14,6 +14,7 @@
 #import "Encrypt.h"
 #import "NSString+Converter.h"
 #import "Browser.h"
+#import "HtmlPraser.h"
 
 #define kChoice @"http://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-choice.jsp"
 #define kSecruityCode @"http://www.bjgjj.gov.cn/wsyw/servlet/PicCheckCode1"
@@ -26,6 +27,7 @@
     Browser *_browser;
     NSString * _cookie;
     NSString * _lk;
+    HtmlPraser *_praser;
 }
 
 
@@ -34,17 +36,14 @@
     
     if (self = [super init]) {
         _browser = [[Browser alloc] initWithStringEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
+        _praser = [[HtmlPraser alloc] init];
     }
     
     return self;
 }
 
 
-
-
--(void)loginWithCardNumber:(NSString *)number andPassword:(NSString *)password andSecurityCode:(NSString *)code{
-    
-    
+-(void)loginWithCardNumber:(NSString *)number andPassword:(NSString *)password andSecurityCode:(NSString *)code status:(Response)statusList{
     Encrypt * enc = [[Encrypt alloc]init];
     
     // FormData
@@ -67,12 +66,14 @@
                                @"Accept"                :@"*/*",
                                @"Cookie"                :_cookie
                                };
-
+    
     [_browser POST:kChoice headers:headers formData:paramaters response:^(NSString *responseHtml) {
         NSLog(@"%@", responseHtml);
+        
+        [_praser praserStatusList:responseHtml];
     }];
-    
 }
+
 
 
 

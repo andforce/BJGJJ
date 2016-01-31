@@ -35,6 +35,8 @@
 }
 
 - (IBAction)login:(id)sender {
-    [_browser loginWithCardNumber:_cardNumber.text andPassword:_password.text andSecurityCode:_code.text];
+   [_browser loginWithCardNumber:_cardNumber.text andPassword:_password.text andSecurityCode:_code.text status:^(NSArray<StatusBean *> *statusList) {
+       
+   }];
 }
 @end

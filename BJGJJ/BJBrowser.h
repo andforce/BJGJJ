@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "StatusBean.h"
 
+
+typedef void(^Response) (NSArray<StatusBean*>* statusList);
 
 @interface BJBrowser : NSObject
 
--(void) loginWithCardNumber:(NSString*) number andPassword:(NSString*)password andSecurityCode:(NSString*)code;
+-(void) loginWithCardNumber:(NSString*) number andPassword:(NSString*)password andSecurityCode:(NSString*)code status:(Response)statusList;
 
 -(void)refreshVCodeToUIImageView:(UIImageView* ) vCodeImageView;
 
