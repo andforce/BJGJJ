@@ -21,6 +21,7 @@
 		3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEDD1C5DE4E1007C5D48 /* StatusBean.m */; };
 		3A79DEE11C5DE5F9007C5D48 /* HtmlPraser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */; };
 		3A79DEE41C5DED68007C5D48 /* NSString+Regular.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEE31C5DED68007C5D48 /* NSString+Regular.m */; };
+		3A79DEF31C5E35D2007C5D48 /* CaptchaBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEF21C5E35D2007C5D48 /* CaptchaBrowser.m */; };
 		3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8019AF1C57B6A500DB16BF /* Encrypt.m */; };
 		3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EF41C5C820100FE956D /* NSArray+Converter.m */; };
 		3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EF71C5C977D00FE956D /* NSStringUtils.m */; };
@@ -53,6 +54,8 @@
 		3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HtmlPraser.m; sourceTree = "<group>"; };
 		3A79DEE21C5DED68007C5D48 /* NSString+Regular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Regular.h"; sourceTree = "<group>"; };
 		3A79DEE31C5DED68007C5D48 /* NSString+Regular.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Regular.m"; sourceTree = "<group>"; };
+		3A79DEF11C5E35D2007C5D48 /* CaptchaBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptchaBrowser.h; sourceTree = "<group>"; };
+		3A79DEF21C5E35D2007C5D48 /* CaptchaBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptchaBrowser.m; sourceTree = "<group>"; };
 		3A8019AE1C57B6A500DB16BF /* Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encrypt.h; sourceTree = "<group>"; };
 		3A8019AF1C57B6A500DB16BF /* Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encrypt.m; sourceTree = "<group>"; };
 		3A8B5EF31C5C820100FE956D /* NSArray+Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Converter.h"; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				3A79DEDD1C5DE4E1007C5D48 /* StatusBean.m */,
 				3A79DED81C5DCD3A007C5D48 /* BJBrowser.h */,
 				3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */,
+				3A79DEF11C5E35D2007C5D48 /* CaptchaBrowser.h */,
+				3A79DEF21C5E35D2007C5D48 /* CaptchaBrowser.m */,
 				3A79DEDF1C5DE5F9007C5D48 /* HtmlPraser.h */,
 				3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */,
 				3A8019AE1C57B6A500DB16BF /* Encrypt.h */,
@@ -289,6 +294,7 @@
 				3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */,
 				3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */,
 				3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */,
+				3A79DEF31C5E35D2007C5D48 /* CaptchaBrowser.m in Sources */,
 				3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */,
 				3A8B5EFB1C5CB48400FE956D /* NSString+Converter.m in Sources */,
 				3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */,

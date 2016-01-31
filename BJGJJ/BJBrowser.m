@@ -77,32 +77,6 @@
 
 
 
-
-- (void)refreshSecurityCode:(UIImageView *)vCodeImageView {
-    AFImageDownloader *downloader = [[vCodeImageView class] sharedImageDownloader];
-    id <AFImageRequestCache> imageCache = downloader.imageCache;
-    [imageCache removeImageWithIdentifier:kSecruityCode];
-
-    
-    NSURL *URL = [NSURL URLWithString:kSecruityCode];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    [request setValue:_cookie forHTTPHeaderField:@"Cookie"];
-    [request setValue:@"image/webp,image/*,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"Mozilla/5.0 (Windows;U; Windows NT 5.1; en-US; rv:0.9.4)" forHTTPHeaderField:@"User-Agent"];
-    [request setValue:@"http://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-login.jsp" forHTTPHeaderField:@"Referer"];
-    
-    
-    UIImageView * view = vCodeImageView;
-    
-    [vCodeImageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-        [view setImage:image];
-        
-    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-        
-    }];
-}
-
 - (void)refreshLK {
     [_browser POST:kLKUrl headers:nil formData:nil response:^(NSString *responseHtml) {
         
@@ -113,8 +87,8 @@
     }];
 }
 
--(void)refreshVCodeToUIImageView:(UIImageView* ) vCodeImageView{
-    
+
+-(void)refreshVCodeToUIImageView:(UIImageView *)showCapImageView :(CaptchaImage)captchaImage{
     NSDictionary * headers = @{
                                @"Host"                  :@"www.bjgjj.gov.cn",
                                @"Content-Type"          :@"application/x-www-form-urlencoded",
@@ -139,12 +113,37 @@
         
         [self refreshLK];
         
-        [self refreshSecurityCode:vCodeImageView];
+        AFImageDownloader *downloader = [[showCapImageView class] sharedImageDownloader];
+        id <AFImageRequestCache> imageCache = downloader.imageCache;
+        [imageCache removeImageWithIdentifier:kSecruityCode];
         
-
+        
+        NSURL *URL = [NSURL URLWithString:kSecruityCode];
+        
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
+        [request setValue:_cookie forHTTPHeaderField:@"Cookie"];
+        [request setValue:@"image/webp,image/*,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"Mozilla/5.0 (Windows;U; Windows NT 5.1; en-US; rv:0.9.4)" forHTTPHeaderField:@"User-Agent"];
+        [request setValue:@"http://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-login.jsp" forHTTPHeaderField:@"Referer"];
+        
+        
+        UIImageView * view = showCapImageView;
+        
+        [showCapImageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+            
+            [view setImage:image];
+            
+            captchaImage(image);
+            
+        } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+            
+        }];
+        
+        
         
     }];
-
 }
+
+
 
 @end

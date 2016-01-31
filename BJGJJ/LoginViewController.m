@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "BJBrowser.h"
-
+#import "CaptchaBrowser.h"
 
 
 @interface LoginViewController (){
@@ -25,13 +25,35 @@
     
     _browser = [[BJBrowser alloc] init];
     
-    [_browser refreshVCodeToUIImageView:_securityCode];
+    [_browser refreshVCodeToUIImageView:_securityCode :^(UIImage *captchaImage) {
+        
+        CaptchaBrowser * captcha = [[CaptchaBrowser alloc] init];
+        [captcha captchaToText:captchaImage response:^(BOOL success, NSString *captchaText) {
+            NSLog(@" 验证码 解析结果： %@     %@", success ? @"YES" : @"NO", captchaText);
+            if (success) {
+                _code.text = captchaText;
+            }
+        }];
+    }];
+    
+    
+    
+    
+    
 
 }
 
 
 - (IBAction)refreshSecurityCode:(id)sender {
-    [_browser refreshVCodeToUIImageView:_securityCode];
+    [_browser refreshVCodeToUIImageView:_securityCode :^(UIImage *captchaImage) {
+        CaptchaBrowser * captcha = [[CaptchaBrowser alloc] init];
+        [captcha captchaToText:captchaImage response:^(BOOL success, NSString *captchaText) {
+            NSLog(@" 验证码 解析结果： %@     %@", success ? @"YES" : @"NO", captchaText);
+            if (success) {
+                _code.text = captchaText;
+            }
+        }];
+    }];
 }
 
 - (IBAction)login:(id)sender {

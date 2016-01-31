@@ -19,7 +19,7 @@ typedef void (^responseHtml)(NSString* responseHtml);
 
 
 -(void) POST:(NSString*) url headers:(NSDictionary*) headers formData:(NSDictionary*)formData response:(responseHtml)response;
-
+-(void) POST:(NSString *)url uploadImage:(UIImage *)image serverAcceptFileName:(NSString*)acceptName fileName:(NSString*)fileName headers:(NSDictionary *)headers formData:(NSDictionary *)formData response:(responseHtml)response;
 
 
 

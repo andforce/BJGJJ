@@ -132,4 +132,28 @@
         
     }];
 }
+
+-(void)POST:(NSString *)url uploadImage:(UIImage *)image serverAcceptFileName:(NSString*)acceptName fileName:(NSString*)fileName headers:(NSDictionary *)headers formData:(NSDictionary *)formData response:(responseHtml)response{
+    if (headers != nil && headers.count > 0) {
+        NSArray * keys = [headers allKeys];
+        for (NSString *key in keys) {
+            [_browser.requestSerializer setValue:[headers valueForKey:key] forHTTPHeaderField:key];
+        }
+    }
+    
+    [_browser POST:url parameters:formData constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+
+        NSData *data = UIImageJPEGRepresentation(image, 1);
+        
+        [formData appendPartWithFileData:data name:acceptName fileName:fileName mimeType:@"image/jpeg"];
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSString *html = [[[NSString alloc] initWithData:responseObject encoding:_encoding] replaceUnicode];
+        response(html);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
 @end
