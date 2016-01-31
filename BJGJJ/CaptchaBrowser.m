@@ -45,6 +45,10 @@
             NSLog(@"----upload %@", responseHtml);
             
             NSString * fileID = [responseHtml stringWithRegular:@"\\w{40}"];
+            if (fileID == nil) {
+                response(NO, @"亲，你访问有些快,再不减速小心被判定为恶意访问哦！");
+            }
+            
             
             NSDictionary * doFormData = @{
                                         @"service"    :@"OcrKingForCaptcha",
@@ -54,8 +58,12 @@
                                         @"fileID"      :fileID,
                                         @"email"      :@""
                                         };
+            
+            // 防止访问太快
+            [NSThread sleepForTimeInterval:2.5f];
+            
             [_browser POST:@"http://lab.ocrking.com/do.html" headers:nil formData:doFormData response:^(NSString *responseHtml) {
-                NSLog(@"----do %@", responseHtml);
+                
                 IGXMLDocument * xmlDoc = [[IGXMLDocument alloc] initWithXMLString:responseHtml error:nil];
 
                 IGXMLNodeSet *set = [xmlDoc children];
@@ -63,9 +71,17 @@
                 IGXMLNodeSet * resultSet = [resultList children];
                 
                 IGXMLNodeSet * tmpSet = [resultSet[0] children];
-                NSString * status = [tmpSet[1] text];
-                NSString * result = [tmpSet[0] text];
+                NSString * status;// = [tmpSet[1] text];
+                NSString * result;// = [tmpSet[0] text];
                 
+                for (IGXMLNode *node in tmpSet) {
+                    if ([[node tag] isEqualToString:@"Status"]) {
+                        status = [node text];
+                    } else if([[node tag] isEqualToString:@"Result"]){
+                        result = [node text];
+                    }
+                }
+
                 //<Result>亲，你访问有些快,再不减速小心被判定为恶意访问哦！</Result>
                 response([status isEqualToString:@"true"], result);
                 
