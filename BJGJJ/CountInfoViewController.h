@@ -10,5 +10,6 @@
 #import "TransDataUIViewController.h"
 @interface CountInfoViewController : TransDataUIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *moneyCount;
 
 @end

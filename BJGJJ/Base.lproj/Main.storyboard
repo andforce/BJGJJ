@@ -172,6 +172,9 @@
                         </constraints>
                     </scrollView>
                     <navigationItem key="navigationItem" id="sd3-Jg-cMm"/>
+                    <connections>
+                        <outlet property="moneyCount" destination="Dbo-uF-5eI" id="ySW-Sz-RLh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IS4-Y9-sWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

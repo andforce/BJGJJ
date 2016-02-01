@@ -7,6 +7,9 @@
 //
 
 #import "CountInfoViewController.h"
+#import "StatusBean.h"
+
+
 
 @interface CountInfoViewController ()
 
@@ -23,6 +26,13 @@
     
     
     NSLog(@"%@", data);
+    
+    NSArray * st =  ((NSArray*)data);
+    
+    StatusBean * last = st.lastObject;
+    
+    
+    _moneyCount.text = last.companyName;
 }
 
 
