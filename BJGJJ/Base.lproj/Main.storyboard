@@ -155,13 +155,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99999.9元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbo-uF-5eI">
-                                <rect key="frame" x="259" y="135" width="83" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99999.9元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbo-uF-5eI">
+                                <rect key="frame" x="259" y="199" width="83" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Dbo-uF-5eI" secondAttribute="height" multiplier="83:21" id="2F5-at-UpC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Dbo-uF-5eI" firstAttribute="centerX" secondItem="Frp-Fh-U1d" secondAttribute="centerX" id="WZz-fK-3Js"/>
+                            <constraint firstItem="Dbo-uF-5eI" firstAttribute="top" secondItem="RQW-2I-nVe" secondAttribute="bottom" constant="71" id="hyT-IQ-9ae"/>
+                        </constraints>
                     </scrollView>
                     <navigationItem key="navigationItem" id="sd3-Jg-cMm"/>
                 </viewController>

@@ -103,6 +103,7 @@
         
         UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         CountInfoViewController * infoController = [storyboard instantiateViewControllerWithIdentifier:@"CountInfoViewController"];
+        [infoController transData:statusList];
         
         [root setRootViewController:infoController];
        

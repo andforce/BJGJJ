@@ -28,6 +28,7 @@
 		3A7604411C5FBA0C0044B61A /* CountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A76043F1C5FBA0C0044B61A /* CountInfoCell.xib */; };
 		3A7604441C5FBEA90044B61A /* CountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604431C5FBEA90044B61A /* CountInfoViewController.m */; };
 		3A7604471C5FBF0F0044B61A /* CCFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604461C5FBF0F0044B61A /* CCFNavigationController.m */; };
+		3A76044A1C5FCF150044B61A /* TransData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604491C5FCF150044B61A /* TransData.m */; };
 		3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */; };
 		3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEDD1C5DE4E1007C5D48 /* StatusBean.m */; };
 		3A79DEE11C5DE5F9007C5D48 /* HtmlPraser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */; };
@@ -76,6 +77,8 @@
 		3A7604431C5FBEA90044B61A /* CountInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountInfoViewController.m; sourceTree = "<group>"; };
 		3A7604451C5FBF0F0044B61A /* CCFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFNavigationController.h; sourceTree = "<group>"; };
 		3A7604461C5FBF0F0044B61A /* CCFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFNavigationController.m; sourceTree = "<group>"; };
+		3A7604481C5FCF150044B61A /* TransData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransData.h; sourceTree = "<group>"; };
+		3A7604491C5FCF150044B61A /* TransData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransData.m; sourceTree = "<group>"; };
 		3A79DED81C5DCD3A007C5D48 /* BJBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJBrowser.h; sourceTree = "<group>"; };
 		3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJBrowser.m; sourceTree = "<group>"; };
 		3A79DEDC1C5DE4E1007C5D48 /* StatusBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBean.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				3A79DEDB1C5DE478007C5D48 /* Public */,
 				3A3F44D81C565AAF0061817B /* AppDelegate.h */,
 				3A3F44D91C565AAF0061817B /* AppDelegate.m */,
+				3A7604481C5FCF150044B61A /* TransData.h */,
+				3A7604491C5FCF150044B61A /* TransData.m */,
 				3A7604451C5FBF0F0044B61A /* CCFNavigationController.h */,
 				3A7604461C5FBF0F0044B61A /* CCFNavigationController.m */,
 				3A3F44EF1C56661C0061817B /* LoginViewController.h */,
@@ -346,6 +351,7 @@
 				3A7604311C5FA2B10044B61A /* UIImage+Tint.m in Sources */,
 				3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */,
 				3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */,
+				3A76044A1C5FCF150044B61A /* TransData.m in Sources */,
 				3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */,
 				3A76043B1C5FB9CA0044B61A /* CompayListCell.m in Sources */,
 				3A79DEF31C5E35D2007C5D48 /* CaptchaBrowser.m in Sources */,

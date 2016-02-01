@@ -14,9 +14,14 @@
 
 @implementation CountInfoViewController
 
+@synthesize data;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    NSLog(@"%@", data);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +38,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+
+-(void)transData:(NSObject*)transdata{
+    [self setValue:transdata forKey:@"data"];
+}
 
 @end

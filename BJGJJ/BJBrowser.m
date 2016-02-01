@@ -104,8 +104,14 @@
         
         NSString *cookiesString = @"";
         
+        int pos = 0;
         for (NSHTTPCookie *cookie in cookies) {
-            cookiesString = [cookiesString stringByAppendingString:[NSString stringWithFormat:@"%@=%@; ", cookie.name, cookie.value]];
+            NSString * formater = @"%@=%@; ";
+            if (pos == cookies.count - 1) {
+                formater = @"%@=%@";
+            }
+            cookiesString = [cookiesString stringByAppendingString:[NSString stringWithFormat:formater, cookie.name, cookie.value]];
+            pos ++;
         }
         
         _cookie = cookiesString;
