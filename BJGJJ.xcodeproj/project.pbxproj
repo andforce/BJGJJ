@@ -17,6 +17,10 @@
 		3A3F44E81C565AAF0061817B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F44E61C565AAF0061817B /* LaunchScreen.storyboard */; };
 		3A3F44F11C56661C0061817B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44F01C56661C0061817B /* LoginViewController.m */; };
 		3A3F44F41C5668070061817B /* Browser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44F31C5668070061817B /* Browser.m */; };
+		3A7604291C5FA2630044B61A /* FlatUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604281C5FA2630044B61A /* FlatUIButton.m */; };
+		3A76042C1C5FA29B0044B61A /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76042B1C5FA29B0044B61A /* CommonUtils.m */; };
+		3A7604311C5FA2B10044B61A /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76042E1C5FA2B10044B61A /* UIImage+Tint.m */; };
+		3A7604321C5FA2B10044B61A /* UIColor+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604301C5FA2B10044B61A /* UIColor+MyColor.m */; };
 		3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */; };
 		3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEDD1C5DE4E1007C5D48 /* StatusBean.m */; };
 		3A79DEE11C5DE5F9007C5D48 /* HtmlPraser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */; };
@@ -46,6 +50,14 @@
 		3A3F44F01C56661C0061817B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		3A3F44F21C5668070061817B /* Browser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Browser.h; sourceTree = "<group>"; };
 		3A3F44F31C5668070061817B /* Browser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Browser.m; sourceTree = "<group>"; };
+		3A7604271C5FA2630044B61A /* FlatUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIButton.h; sourceTree = "<group>"; };
+		3A7604281C5FA2630044B61A /* FlatUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatUIButton.m; sourceTree = "<group>"; };
+		3A76042A1C5FA29B0044B61A /* CommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
+		3A76042B1C5FA29B0044B61A /* CommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtils.m; sourceTree = "<group>"; };
+		3A76042D1C5FA2B10044B61A /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
+		3A76042E1C5FA2B10044B61A /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
+		3A76042F1C5FA2B10044B61A /* UIColor+MyColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MyColor.h"; sourceTree = "<group>"; };
+		3A7604301C5FA2B10044B61A /* UIColor+MyColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MyColor.m"; sourceTree = "<group>"; };
 		3A79DED81C5DCD3A007C5D48 /* BJBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJBrowser.h; sourceTree = "<group>"; };
 		3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJBrowser.m; sourceTree = "<group>"; };
 		3A79DEDC1C5DE4E1007C5D48 /* StatusBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBean.h; sourceTree = "<group>"; };
@@ -105,6 +117,14 @@
 				3A3F44D91C565AAF0061817B /* AppDelegate.m */,
 				3A3F44EF1C56661C0061817B /* LoginViewController.h */,
 				3A3F44F01C56661C0061817B /* LoginViewController.m */,
+				3A7604271C5FA2630044B61A /* FlatUIButton.h */,
+				3A7604281C5FA2630044B61A /* FlatUIButton.m */,
+				3A76042A1C5FA29B0044B61A /* CommonUtils.h */,
+				3A76042B1C5FA29B0044B61A /* CommonUtils.m */,
+				3A76042D1C5FA2B10044B61A /* UIImage+Tint.h */,
+				3A76042E1C5FA2B10044B61A /* UIImage+Tint.m */,
+				3A76042F1C5FA2B10044B61A /* UIColor+MyColor.h */,
+				3A7604301C5FA2B10044B61A /* UIColor+MyColor.m */,
 				3A79DEDC1C5DE4E1007C5D48 /* StatusBean.h */,
 				3A79DEDD1C5DE4E1007C5D48 /* StatusBean.m */,
 				3A79DED81C5DCD3A007C5D48 /* BJBrowser.h */,
@@ -291,19 +311,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A7604311C5FA2B10044B61A /* UIImage+Tint.m in Sources */,
 				3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */,
 				3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */,
 				3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */,
 				3A79DEF31C5E35D2007C5D48 /* CaptchaBrowser.m in Sources */,
 				3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */,
+				3A76042C1C5FA29B0044B61A /* CommonUtils.m in Sources */,
 				3A8B5EFB1C5CB48400FE956D /* NSString+Converter.m in Sources */,
 				3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */,
 				3A79DEE41C5DED68007C5D48 /* NSString+Regular.m in Sources */,
 				3A3F44F41C5668070061817B /* Browser.m in Sources */,
 				3A3F44DD1C565AAF0061817B /* ViewController.m in Sources */,
+				3A7604291C5FA2630044B61A /* FlatUIButton.m in Sources */,
 				3A3F44E31C565AAF0061817B /* BJGJJ.xcdatamodeld in Sources */,
 				3A3F44DA1C565AAF0061817B /* AppDelegate.m in Sources */,
 				3A3F44D71C565AAF0061817B /* main.m in Sources */,
+				3A7604321C5FA2B10044B61A /* UIColor+MyColor.m in Sources */,
 				3A3F44F11C56661C0061817B /* LoginViewController.m in Sources */,
 				3A79DEE11C5DE5F9007C5D48 /* HtmlPraser.m in Sources */,
 			);

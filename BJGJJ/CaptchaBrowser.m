@@ -20,6 +20,7 @@
 
 @implementation CaptchaBrowser{
     Browser *_browser;
+    BOOL debug;
 }
 
 - (instancetype)init
@@ -27,78 +28,84 @@
     self = [super init];
     if (self) {
         _browser = [[Browser alloc] initWithStringEncoding:NSUTF8StringEncoding];
+        debug = YES;
     }
     return self;
 }
 -(void)captchaToText:(UIImage *)captchaImage response:(CaptchaResult)response{
     
-    
-    [_browser GET:kOCROnLine response:^(NSString *responseHtml) {
-        NSString * sid = [responseHtml stringWithRegular:@"\"\\w{26}\""];
-        NSString * o_h = [responseHtml stringWithRegular:@"\"\\S{56}\""];
-        NSString * ts = [responseHtml stringWithRegular:@"\"\\d{10}\""];
+    if (debug) {
+        //[self captchaToTextAPI:captchaImage response:response];
+    } else{
         
-        NSLog(@"captchaToText->  %@  %@   %@ ", sid, o_h, ts);
-        
-        NSDictionary * formData = @{
-                                    @"Filename"    :@"123.jpeg",
-                                    @"o_h"         :o_h,
-                                    @"sid"         :sid,
-                                    @"ts"          :ts,
-                                    @"Upload"      :@"Submit Query"
-                                    };
-        
-        [_browser POST:kUpload uploadImage:captchaImage serverAcceptFileName:@"Filedata" fileName:@"123.jpeg" headers:nil formData:formData response:^(NSString *responseHtml) {
-            NSLog(@"----upload %@", responseHtml);
+        [_browser GET:kOCROnLine response:^(NSString *responseHtml) {
+            NSString * sid = [responseHtml stringWithRegular:@"\"\\w{26}\""];
+            NSString * o_h = [responseHtml stringWithRegular:@"\"\\S{56}\""];
+            NSString * ts = [responseHtml stringWithRegular:@"\"\\d{10}\""];
             
-            NSString * fileID = [responseHtml stringWithRegular:@"\\w{40}"];
+            NSLog(@"captchaToText->  %@  %@   %@ ", sid, o_h, ts);
             
-            if (fileID == nil) {
-                [self captchaToTextAPI:captchaImage response:response];
-            } else{
-                NSDictionary * doFormData = @{
-                                              @"service"            :@"OcrKingForCaptcha",
-                                              @"language"           :@"eng",
-                                              @"charset"            :@"4",
-                                              @"upfile"             :@"true",
-                                              @"fileID"             :fileID,
-                                              @"email"              :@""
-                                              };
+            NSDictionary * formData = @{
+                                        @"Filename"    :@"123.jpeg",
+                                        @"o_h"         :o_h,
+                                        @"sid"         :sid,
+                                        @"ts"          :ts,
+                                        @"Upload"      :@"Submit Query"
+                                        };
+            
+            [_browser POST:kUpload uploadImage:captchaImage serverAcceptFileName:@"Filedata" fileName:@"123.jpeg" headers:nil formData:formData response:^(NSString *responseHtml) {
+                NSLog(@"----upload %@", responseHtml);
                 
+                NSString * fileID = [responseHtml stringWithRegular:@"\\w{40}"];
                 
-                [_browser POST:kDoUrl headers:nil formData:doFormData response:^(NSString *responseHtml) {
+                if (fileID == nil) {
+                    [self captchaToTextAPI:captchaImage response:response];
+                } else{
+                    NSDictionary * doFormData = @{
+                                                  @"service"            :@"OcrKingForCaptcha",
+                                                  @"language"           :@"eng",
+                                                  @"charset"            :@"4",
+                                                  @"upfile"             :@"true",
+                                                  @"fileID"             :fileID,
+                                                  @"email"              :@""
+                                                  };
                     
-                    IGXMLDocument * xmlDoc = [[IGXMLDocument alloc] initWithXMLString:responseHtml error:nil];
                     
-                    IGXMLNodeSet *set = [xmlDoc children];
-                    IGXMLNode * resultList = set[0];
-                    IGXMLNodeSet * resultSet = [resultList children];
-                    
-                    IGXMLNodeSet * tmpSet = [resultSet[0] children];
-                    NSString * status;// = [tmpSet[1] text];
-                    NSString * result;// = [tmpSet[0] text];
-                    
-                    for (IGXMLNode *node in tmpSet) {
-                        if ([[node tag] isEqualToString:@"Status"]) {
-                            status = [node text];
-                        } else if([[node tag] isEqualToString:@"Result"]){
-                            result = [node text];
+                    [_browser POST:kDoUrl headers:nil formData:doFormData response:^(NSString *responseHtml) {
+                        
+                        IGXMLDocument * xmlDoc = [[IGXMLDocument alloc] initWithXMLString:responseHtml error:nil];
+                        
+                        IGXMLNodeSet *set = [xmlDoc children];
+                        IGXMLNode * resultList = set[0];
+                        IGXMLNodeSet * resultSet = [resultList children];
+                        
+                        IGXMLNodeSet * tmpSet = [resultSet[0] children];
+                        NSString * status;// = [tmpSet[1] text];
+                        NSString * result;// = [tmpSet[0] text];
+                        
+                        for (IGXMLNode *node in tmpSet) {
+                            if ([[node tag] isEqualToString:@"Status"]) {
+                                status = [node text];
+                            } else if([[node tag] isEqualToString:@"Result"]){
+                                result = [node text];
+                            }
                         }
-                    }
-                    
-                    //<Result>亲，你访问有些快,再不减速小心被判定为恶意访问哦！</Result>
-                    //response([status isEqualToString:@"true"], result);
-                    if ([status isEqualToString:@"true"]) {
-                        response(YES, result);
-                    } else{
-                        [self captchaToTextAPI:captchaImage response:response];
-                    }
-                    
-                }];
-            }
-            
+                        
+                        //<Result>亲，你访问有些快,再不减速小心被判定为恶意访问哦！</Result>
+                        //response([status isEqualToString:@"true"], result);
+                        if ([status isEqualToString:@"true"]) {
+                            response(YES, result);
+                        } else{
+                            [self captchaToTextAPI:captchaImage response:response];
+                        }
+                        
+                    }];
+                }
+                
+            }];
         }];
-    }];
+    }
+
 }
 
 -(void)captchaToTextAPI:(UIImage *)captchaImage response:(CaptchaResult)response{
