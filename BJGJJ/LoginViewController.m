@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "BJBrowser.h"
 #import "CaptchaBrowser.h"
+#import <SVProgressHUD.h>
 
 
 @interface LoginViewController (){
@@ -57,6 +58,8 @@
 }
 
 - (IBAction)login:(id)sender {
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    
    [_browser loginWithCardNumber:_cardNumber.text andPassword:_password.text andSecurityCode:_code.text status:^(NSArray<StatusBean *> *statusList) {
        
    }];

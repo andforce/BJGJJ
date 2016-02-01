@@ -20,7 +20,7 @@
 
 -(NSString *)strEncode:(NSString *)data firstKey:(NSString *)firstKey secondKey:(NSString *)secondKey thirdKey:(NSString *)thirdKey{
     
-    int leng = data.length;
+    int leng = (int)data.length;
     NSString * encData = @"";
     
     
@@ -34,16 +34,16 @@
         
         firstKeyBt = [self getKeyBytes:firstKey];
 
-        firstLength = firstKeyBt.count;
+        firstLength = (int)firstKeyBt.count;
         
     }
     if(secondKey != nil && ![secondKey isEqualToString: @""]){
         secondKeyBt = [self getKeyBytes:secondKey];
-        secondLength = secondKeyBt.count;
+        secondLength = (int)secondKeyBt.count;
     }
     if(thirdKey != nil && ![thirdKey isEqualToString: @""]){
         thirdKeyBt = [self getKeyBytes:thirdKey];
-        thirdLength = thirdKeyBt.count;
+        thirdLength = (int)thirdKeyBt.count;
     }
     
 
