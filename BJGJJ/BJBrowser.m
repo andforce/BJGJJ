@@ -43,13 +43,13 @@
 }
 
 
--(void)loginWithCardNumber:(NSString *)number andPassword:(NSString *)password andSecurityCode:(NSString *)code status:(Response)statusList{
+-(void)loginWithCard:(NSString*) lb number:(NSString *)number andPassword:(NSString *)password andSecurityCode:(NSString *)code status:(Response)statusList{
     Encrypt * enc = [[Encrypt alloc]init];
     
     // FormData
     NSString * encodeNumber = [enc strEncode:number];
     NSString * encodePassword = [enc strEncode:password];
-    NSDictionary * paramaters = @{@"lb"             :@"5",
+    NSDictionary * paramaters = @{@"lb"             :lb,
                                   @"bh"             : encodeNumber,
                                   @"mm"             : encodePassword,
                                   @"gjjcxjjmyhpppp" :code,

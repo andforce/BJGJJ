@@ -16,7 +16,7 @@ typedef void(^CaptchaImage) (UIImage* captchaImage);
 
 @interface BJBrowser : NSObject
 
--(void) loginWithCardNumber:(NSString*) number andPassword:(NSString*)password andSecurityCode:(NSString*)code status:(Response)statusList;
+-(void) loginWithCard:(NSString*) lb number:(NSString *)number andPassword:(NSString *)password andSecurityCode:(NSString *)code status:(Response)statusList;
 
 -(void)refreshVCodeToUIImageView:(UIImageView* )showCapImageView :(CaptchaImage)captchaImage;
 

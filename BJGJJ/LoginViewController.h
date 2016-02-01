@@ -17,5 +17,6 @@
 
 - (IBAction)refreshSecurityCode:(id)sender;
 - (IBAction)login:(id)sender;
+- (IBAction)changeCountType:(id)sender;
 
 @end

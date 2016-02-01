@@ -21,6 +21,7 @@
 		3A76042C1C5FA29B0044B61A /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76042B1C5FA29B0044B61A /* CommonUtils.m */; };
 		3A7604311C5FA2B10044B61A /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76042E1C5FA2B10044B61A /* UIImage+Tint.m */; };
 		3A7604321C5FA2B10044B61A /* UIColor+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604301C5FA2B10044B61A /* UIColor+MyColor.m */; };
+		3A7604341C5FB1010044B61A /* lb.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A7604331C5FB1010044B61A /* lb.plist */; };
 		3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */; };
 		3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEDD1C5DE4E1007C5D48 /* StatusBean.m */; };
 		3A79DEE11C5DE5F9007C5D48 /* HtmlPraser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */; };
@@ -58,6 +59,7 @@
 		3A76042E1C5FA2B10044B61A /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		3A76042F1C5FA2B10044B61A /* UIColor+MyColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MyColor.h"; sourceTree = "<group>"; };
 		3A7604301C5FA2B10044B61A /* UIColor+MyColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MyColor.m"; sourceTree = "<group>"; };
+		3A7604331C5FB1010044B61A /* lb.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lb.plist; sourceTree = "<group>"; };
 		3A79DED81C5DCD3A007C5D48 /* BJBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJBrowser.h; sourceTree = "<group>"; };
 		3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJBrowser.m; sourceTree = "<group>"; };
 		3A79DEDC1C5DE4E1007C5D48 /* StatusBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBean.h; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				3A3F44DB1C565AAF0061817B /* ViewController.h */,
 				3A3F44DC1C565AAF0061817B /* ViewController.m */,
 				3A3F44DE1C565AAF0061817B /* Main.storyboard */,
+				3A7604331C5FB1010044B61A /* lb.plist */,
 				3A3F44E41C565AAF0061817B /* Assets.xcassets */,
 				3A3F44E61C565AAF0061817B /* LaunchScreen.storyboard */,
 				3A3F44E91C565AAF0061817B /* Info.plist */,
@@ -250,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A7604341C5FB1010044B61A /* lb.plist in Resources */,
 				3A3F44E81C565AAF0061817B /* LaunchScreen.storyboard in Resources */,
 				3A3F44E51C565AAF0061817B /* Assets.xcassets in Resources */,
 				3A3F44E01C565AAF0061817B /* Main.storyboard in Resources */,

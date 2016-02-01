@@ -81,6 +81,9 @@
                                     <constraint firstAttribute="width" secondItem="MK7-L1-9hT" secondAttribute="height" multiplier="3:1" id="hhD-kg-hHP"/>
                                 </constraints>
                                 <state key="normal" title="其他登录方式"/>
+                                <connections>
+                                    <action selector="changeCountType:" destination="4Sx-Cy-QX2" eventType="touchUpInside" id="utu-eQ-rfJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJs-1o-4L3" customClass="FlatUIButton">
                                 <rect key="frame" x="191" y="314" width="218" height="30"/>
