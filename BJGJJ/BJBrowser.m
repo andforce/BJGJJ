@@ -105,7 +105,7 @@
         NSString *cookiesString = @"";
         
         for (NSHTTPCookie *cookie in cookies) {
-            cookiesString = [cookiesString stringByAppendingString:[NSString stringWithFormat:@"%@=%@", cookie.name, cookie.value]];
+            cookiesString = [cookiesString stringByAppendingString:[NSString stringWithFormat:@"%@=%@; ", cookie.name, cookie.value]];
         }
         
         _cookie = cookiesString;
