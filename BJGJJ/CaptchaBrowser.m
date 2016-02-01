@@ -35,7 +35,7 @@
 -(void)captchaToText:(UIImage *)captchaImage response:(CaptchaResult)response{
     
     if (debug) {
-        //[self captchaToTextAPI:captchaImage response:response];
+        [self captchaToTextAPI:captchaImage response:response];
     } else{
         
         [_browser GET:kOCROnLine response:^(NSString *responseHtml) {

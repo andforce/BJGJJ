@@ -10,6 +10,8 @@
 #import "BJBrowser.h"
 #import "CaptchaBrowser.h"
 #import <SVProgressHUD.h>
+#import "CCFNavigationController.h"
+#import "CountInfoViewController.h"
 
 #define kLBValue @"lb"
 #define kLBName @"lbName"
@@ -74,6 +76,15 @@
         lb = @"1";
     }
     [_browser loginWithCard:lb number:_cardNumber.text andPassword:_password.text andSecurityCode:_code.text status:^(NSArray<StatusBean *> *statusList) {
+        
+        [SVProgressHUD dismiss];
+        
+        CCFNavigationController * root = (CCFNavigationController*)self.navigationController;
+        
+//        UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        CountInfoViewController * infoController = [storyboard instantiateViewControllerWithIdentifier:@"CountInfoViewController"];
+//        
+//        [root setRootViewController:infoController];
        
    }];
 }

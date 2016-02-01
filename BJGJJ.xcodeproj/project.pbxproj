@@ -10,7 +10,6 @@
 		129184A80040BBE49883431F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A27E0F0F19342F8CCCFCF3 /* libPods.a */; };
 		3A3F44D71C565AAF0061817B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44D61C565AAF0061817B /* main.m */; };
 		3A3F44DA1C565AAF0061817B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44D91C565AAF0061817B /* AppDelegate.m */; };
-		3A3F44DD1C565AAF0061817B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44DC1C565AAF0061817B /* ViewController.m */; };
 		3A3F44E01C565AAF0061817B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F44DE1C565AAF0061817B /* Main.storyboard */; };
 		3A3F44E31C565AAF0061817B /* BJGJJ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44E11C565AAF0061817B /* BJGJJ.xcdatamodeld */; };
 		3A3F44E51C565AAF0061817B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F44E41C565AAF0061817B /* Assets.xcassets */; };
@@ -22,6 +21,13 @@
 		3A7604311C5FA2B10044B61A /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76042E1C5FA2B10044B61A /* UIImage+Tint.m */; };
 		3A7604321C5FA2B10044B61A /* UIColor+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604301C5FA2B10044B61A /* UIColor+MyColor.m */; };
 		3A7604341C5FB1010044B61A /* lb.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A7604331C5FB1010044B61A /* lb.plist */; };
+		3A7604371C5FB9A60044B61A /* CountInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604361C5FB9A60044B61A /* CountInfoTableViewController.m */; };
+		3A76043B1C5FB9CA0044B61A /* CompayListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604391C5FB9CA0044B61A /* CompayListCell.m */; };
+		3A76043C1C5FB9CA0044B61A /* CompayListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A76043A1C5FB9CA0044B61A /* CompayListCell.xib */; };
+		3A7604401C5FBA0C0044B61A /* CountInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76043E1C5FBA0C0044B61A /* CountInfoCell.m */; };
+		3A7604411C5FBA0C0044B61A /* CountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A76043F1C5FBA0C0044B61A /* CountInfoCell.xib */; };
+		3A7604441C5FBEA90044B61A /* CountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604431C5FBEA90044B61A /* CountInfoViewController.m */; };
+		3A7604471C5FBF0F0044B61A /* CCFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604461C5FBF0F0044B61A /* CCFNavigationController.m */; };
 		3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */; };
 		3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEDD1C5DE4E1007C5D48 /* StatusBean.m */; };
 		3A79DEE11C5DE5F9007C5D48 /* HtmlPraser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */; };
@@ -40,8 +46,6 @@
 		3A3F44D61C565AAF0061817B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A3F44D81C565AAF0061817B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A3F44D91C565AAF0061817B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3A3F44DB1C565AAF0061817B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3A3F44DC1C565AAF0061817B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3A3F44DF1C565AAF0061817B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A3F44E21C565AAF0061817B /* BJGJJ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BJGJJ.xcdatamodel; sourceTree = "<group>"; };
 		3A3F44E41C565AAF0061817B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +64,18 @@
 		3A76042F1C5FA2B10044B61A /* UIColor+MyColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MyColor.h"; sourceTree = "<group>"; };
 		3A7604301C5FA2B10044B61A /* UIColor+MyColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MyColor.m"; sourceTree = "<group>"; };
 		3A7604331C5FB1010044B61A /* lb.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lb.plist; sourceTree = "<group>"; };
+		3A7604351C5FB9A60044B61A /* CountInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountInfoTableViewController.h; sourceTree = "<group>"; };
+		3A7604361C5FB9A60044B61A /* CountInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountInfoTableViewController.m; sourceTree = "<group>"; };
+		3A7604381C5FB9CA0044B61A /* CompayListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompayListCell.h; sourceTree = "<group>"; };
+		3A7604391C5FB9CA0044B61A /* CompayListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompayListCell.m; sourceTree = "<group>"; };
+		3A76043A1C5FB9CA0044B61A /* CompayListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompayListCell.xib; sourceTree = "<group>"; };
+		3A76043D1C5FBA0C0044B61A /* CountInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountInfoCell.h; sourceTree = "<group>"; };
+		3A76043E1C5FBA0C0044B61A /* CountInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountInfoCell.m; sourceTree = "<group>"; };
+		3A76043F1C5FBA0C0044B61A /* CountInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountInfoCell.xib; sourceTree = "<group>"; };
+		3A7604421C5FBEA90044B61A /* CountInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountInfoViewController.h; sourceTree = "<group>"; };
+		3A7604431C5FBEA90044B61A /* CountInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountInfoViewController.m; sourceTree = "<group>"; };
+		3A7604451C5FBF0F0044B61A /* CCFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFNavigationController.h; sourceTree = "<group>"; };
+		3A7604461C5FBF0F0044B61A /* CCFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFNavigationController.m; sourceTree = "<group>"; };
 		3A79DED81C5DCD3A007C5D48 /* BJBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJBrowser.h; sourceTree = "<group>"; };
 		3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJBrowser.m; sourceTree = "<group>"; };
 		3A79DEDC1C5DE4E1007C5D48 /* StatusBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBean.h; sourceTree = "<group>"; };
@@ -117,8 +133,20 @@
 				3A79DEDB1C5DE478007C5D48 /* Public */,
 				3A3F44D81C565AAF0061817B /* AppDelegate.h */,
 				3A3F44D91C565AAF0061817B /* AppDelegate.m */,
+				3A7604451C5FBF0F0044B61A /* CCFNavigationController.h */,
+				3A7604461C5FBF0F0044B61A /* CCFNavigationController.m */,
 				3A3F44EF1C56661C0061817B /* LoginViewController.h */,
 				3A3F44F01C56661C0061817B /* LoginViewController.m */,
+				3A7604421C5FBEA90044B61A /* CountInfoViewController.h */,
+				3A7604431C5FBEA90044B61A /* CountInfoViewController.m */,
+				3A7604351C5FB9A60044B61A /* CountInfoTableViewController.h */,
+				3A7604361C5FB9A60044B61A /* CountInfoTableViewController.m */,
+				3A7604381C5FB9CA0044B61A /* CompayListCell.h */,
+				3A7604391C5FB9CA0044B61A /* CompayListCell.m */,
+				3A76043A1C5FB9CA0044B61A /* CompayListCell.xib */,
+				3A76043D1C5FBA0C0044B61A /* CountInfoCell.h */,
+				3A76043E1C5FBA0C0044B61A /* CountInfoCell.m */,
+				3A76043F1C5FBA0C0044B61A /* CountInfoCell.xib */,
 				3A7604271C5FA2630044B61A /* FlatUIButton.h */,
 				3A7604281C5FA2630044B61A /* FlatUIButton.m */,
 				3A76042A1C5FA29B0044B61A /* CommonUtils.h */,
@@ -137,8 +165,6 @@
 				3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */,
 				3A8019AE1C57B6A500DB16BF /* Encrypt.h */,
 				3A8019AF1C57B6A500DB16BF /* Encrypt.m */,
-				3A3F44DB1C565AAF0061817B /* ViewController.h */,
-				3A3F44DC1C565AAF0061817B /* ViewController.m */,
 				3A3F44DE1C565AAF0061817B /* Main.storyboard */,
 				3A7604331C5FB1010044B61A /* lb.plist */,
 				3A3F44E41C565AAF0061817B /* Assets.xcassets */,
@@ -257,6 +283,8 @@
 				3A3F44E81C565AAF0061817B /* LaunchScreen.storyboard in Resources */,
 				3A3F44E51C565AAF0061817B /* Assets.xcassets in Resources */,
 				3A3F44E01C565AAF0061817B /* Main.storyboard in Resources */,
+				3A76043C1C5FB9CA0044B61A /* CompayListCell.xib in Resources */,
+				3A7604411C5FBA0C0044B61A /* CountInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +347,7 @@
 				3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */,
 				3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */,
 				3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */,
+				3A76043B1C5FB9CA0044B61A /* CompayListCell.m in Sources */,
 				3A79DEF31C5E35D2007C5D48 /* CaptchaBrowser.m in Sources */,
 				3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */,
 				3A76042C1C5FA29B0044B61A /* CommonUtils.m in Sources */,
@@ -326,11 +355,14 @@
 				3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */,
 				3A79DEE41C5DED68007C5D48 /* NSString+Regular.m in Sources */,
 				3A3F44F41C5668070061817B /* Browser.m in Sources */,
-				3A3F44DD1C565AAF0061817B /* ViewController.m in Sources */,
 				3A7604291C5FA2630044B61A /* FlatUIButton.m in Sources */,
 				3A3F44E31C565AAF0061817B /* BJGJJ.xcdatamodeld in Sources */,
+				3A7604441C5FBEA90044B61A /* CountInfoViewController.m in Sources */,
+				3A7604471C5FBF0F0044B61A /* CCFNavigationController.m in Sources */,
+				3A7604371C5FB9A60044B61A /* CountInfoTableViewController.m in Sources */,
 				3A3F44DA1C565AAF0061817B /* AppDelegate.m in Sources */,
 				3A3F44D71C565AAF0061817B /* main.m in Sources */,
+				3A7604401C5FBA0C0044B61A /* CountInfoCell.m in Sources */,
 				3A7604321C5FA2B10044B61A /* UIColor+MyColor.m in Sources */,
 				3A3F44F11C56661C0061817B /* LoginViewController.m in Sources */,
 				3A79DEE11C5DE5F9007C5D48 /* HtmlPraser.m in Sources */,
