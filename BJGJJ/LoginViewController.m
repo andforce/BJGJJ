@@ -16,6 +16,9 @@
 #define kLBValue @"lb"
 #define kLBName @"lbName"
 
+#define kCardNumber @"cardnumber"
+#define kCardPassward @"cardPwd"
+
 
 @interface LoginViewController (){
     
@@ -52,7 +55,20 @@
     }
     
     
-    
+    NSString * lb = [[NSUserDefaults standardUserDefaults] valueForKey:kLBValue];
+    if (lb == nil) {
+        lb = @"1";
+    }
+    NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
+    NSString * number = [pref valueForKey:[kCardNumber stringByAppendingString:lb]];
+    NSString * password = [pref valueForKey:[kCardPassward stringByAppendingString:lb]];
+    if (number != nil) {
+        _cardNumber.text = number;
+    }
+    if (password != nil) {
+        _password.text = password;
+    }
+
 
 }
 
@@ -75,16 +91,20 @@
     if (lb == nil) {
         lb = @"1";
     }
+    NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
+    [pref setValue:_cardNumber.text forKey:[kCardNumber stringByAppendingString:lb]];
+    [pref setValue:_password.text forKey:[kCardPassward stringByAppendingString:lb]];
+    
     [_browser loginWithCard:lb number:_cardNumber.text andPassword:_password.text andSecurityCode:_code.text status:^(NSArray<StatusBean *> *statusList) {
         
         [SVProgressHUD dismiss];
         
         CCFNavigationController * root = (CCFNavigationController*)self.navigationController;
         
-//        UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        CountInfoViewController * infoController = [storyboard instantiateViewControllerWithIdentifier:@"CountInfoViewController"];
-//        
-//        [root setRootViewController:infoController];
+        UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        CountInfoViewController * infoController = [storyboard instantiateViewControllerWithIdentifier:@"CountInfoViewController"];
+        
+        [root setRootViewController:infoController];
        
    }];
 }
@@ -96,11 +116,21 @@
     for (NSString* key  in keys) {
         NSString * name = [_lbList valueForKey:key];
         UIAlertAction *action = [UIAlertAction actionWithTitle:name style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
-            [def setValue:key forKey:kLBName];
-            [def setValue:name forKey:kLBName];
+            NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
+            [pref setValue:key forKey:kLBName];
+            [pref setValue:name forKey:kLBName];
             
             _cardNumber.placeholder = name;
+            
+            NSString * number = [pref valueForKey:[kCardNumber stringByAppendingString:key]];
+            NSString * password = [pref valueForKey:[kCardPassward stringByAppendingString:key]];
+            if (number != nil) {
+                _cardNumber.text = number;
+            }
+            if (password != nil) {
+                _password.text = password;
+            }
+            
         }];
         [insertPhotoController addAction:action];
     }

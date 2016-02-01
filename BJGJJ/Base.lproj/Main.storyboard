@@ -204,7 +204,7 @@
         <!--Navigation Controller-->
         <scene sceneID="MYG-ba-X8s">
             <objects>
-                <navigationController id="h9v-1e-EsQ" sceneMemberID="viewController">
+                <navigationController id="h9v-1e-EsQ" customClass="CCFNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yP7-fl-6yr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
