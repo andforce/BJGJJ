@@ -1,31 +1,25 @@
 //
-//  CountInfoViewController.m
+//  TransDataUIViewController.m
 //  BJGJJ
 //
 //  Created by 迪远 王 on 16/2/2.
 //  Copyright © 2016年 andforce. All rights reserved.
 //
 
-#import "CountInfoViewController.h"
+#import "TransDataUIViewController.h"
 
-@interface CountInfoViewController ()
+@interface TransDataUIViewController ()
 
 @end
 
-@implementation CountInfoViewController
-
+@implementation TransDataUIViewController
 
 @synthesize data;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
-    NSLog(@"%@", data);
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -43,6 +37,9 @@
 */
 
 
+-(void)transData:(NSObject*)transdata{
+    [self setValue:transdata forKey:@"data"];
+}
 
 
 @end

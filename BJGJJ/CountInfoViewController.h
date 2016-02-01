@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TransDataUIViewController.h"
+@interface CountInfoViewController : TransDataUIViewController
 
-@interface CountInfoViewController : UIViewController
 
-@property (nonatomic, strong) NSObject* data;
-
--(void) transData:(NSObject*)data;
 @end
