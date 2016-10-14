@@ -75,10 +75,18 @@
                                     <action selector="login:" destination="4Sx-Cy-QX2" eventType="touchUpInside" id="MNh-F8-qBA"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVZ-7V-vMm" customClass="GADBannerView">
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="FrD-zp-TJy"/>
+                                    <constraint firstAttribute="height" constant="50" id="wD6-HR-auV"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Sg4-xs-XpS" firstAttribute="leading" secondItem="pH7-Yq-av4" secondAttribute="leading" id="2Nz-gD-o1Y"/>
+                            <constraint firstItem="fVZ-7V-vMm" firstAttribute="centerX" secondItem="CDZ-aC-bpk" secondAttribute="centerX" id="4ec-1b-d6n"/>
                             <constraint firstItem="bJs-1o-4L3" firstAttribute="centerX" secondItem="CDZ-aC-bpk" secondAttribute="centerX" id="51P-WM-3LB"/>
                             <constraint firstItem="Mbz-3X-nAF" firstAttribute="top" secondItem="K0o-m6-vBr" secondAttribute="bottom" constant="49" id="53R-Da-g3o"/>
                             <constraint firstItem="pH7-Yq-av4" firstAttribute="top" secondItem="Mbz-3X-nAF" secondAttribute="bottom" constant="31" id="CzF-BH-gQ7"/>
@@ -89,6 +97,7 @@
                             <constraint firstItem="jBT-6j-GLN" firstAttribute="leading" secondItem="pH7-Yq-av4" secondAttribute="leading" id="aBT-v6-j0T"/>
                             <constraint firstItem="pH7-Yq-av4" firstAttribute="centerX" secondItem="CDZ-aC-bpk" secondAttribute="centerX" id="bJN-1N-NWN"/>
                             <constraint firstItem="Mbz-3X-nAF" firstAttribute="centerX" secondItem="CDZ-aC-bpk" secondAttribute="centerX" id="eCh-oF-K2V"/>
+                            <constraint firstItem="BG1-uG-sRy" firstAttribute="top" secondItem="fVZ-7V-vMm" secondAttribute="bottom" constant="8" id="iFs-C3-bgA"/>
                             <constraint firstItem="bJs-1o-4L3" firstAttribute="top" secondItem="jBT-6j-GLN" secondAttribute="bottom" constant="41" id="l6Y-a5-z0L"/>
                             <constraint firstItem="jBT-6j-GLN" firstAttribute="top" secondItem="pH7-Yq-av4" secondAttribute="bottom" constant="39" id="n6T-3q-chr"/>
                             <constraint firstItem="nyX-Xz-DQn" firstAttribute="trailing" secondItem="pH7-Yq-av4" secondAttribute="trailing" id="pXW-5W-juk"/>
@@ -98,6 +107,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="北京住房公积金" id="Hhl-Qx-PgX"/>
                     <connections>
+                        <outlet property="adView" destination="fVZ-7V-vMm" id="CKP-12-ecc"/>
                         <outlet property="cardNumber" destination="Mbz-3X-nAF" id="4SR-Ry-QpU"/>
                         <outlet property="code" destination="nyX-Xz-DQn" id="3bA-JL-CSV"/>
                         <outlet property="password" destination="pH7-Yq-av4" id="Wa9-a9-LHK"/>
@@ -106,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXd-zT-eHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-363" y="-13"/>
+            <point key="canvasLocation" x="-364" y="-13.043478260869566"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="2u2-Pe-xme">
