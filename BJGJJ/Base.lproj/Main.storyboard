@@ -19,31 +19,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="联名卡" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mbz-3X-nAF">
-                                <frame key="frameInset" minX="191" minY="113" width="218" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="联名卡" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mbz-3X-nAF">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Mbz-3X-nAF" secondAttribute="height" multiplier="109:15" id="E07-ju-pv9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sg4-xs-XpS">
-                                <frame key="frameInset" minX="191" minY="243" width="90" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sg4-xs-XpS">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Sg4-xs-XpS" secondAttribute="height" multiplier="3:1" id="5sn-VG-PB7"/>
                                     <constraint firstAttribute="height" constant="30" id="RHP-4C-kEv"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pH7-Yq-av4">
-                                <frame key="frameInset" minX="191" minY="174" width="218" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pH7-Yq-av4">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pH7-Yq-av4" secondAttribute="height" multiplier="109:15" id="iU2-yH-NRq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBT-6j-GLN" userLabel="刷新">
-                                <frame key="frameInset" minX="191" minY="243" width="90" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBT-6j-GLN" userLabel="刷新">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hcI-6v-Ee6"/>
                                     <constraint firstAttribute="width" secondItem="jBT-6j-GLN" secondAttribute="height" multiplier="3:1" id="ugM-5G-Gi6"/>
@@ -52,16 +48,14 @@
                                     <action selector="refreshSecurityCode:" destination="4Sx-Cy-QX2" eventType="touchUpInside" id="8yk-Iw-CMB"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyX-Xz-DQn">
-                                <frame key="frameInset" minX="312" minY="243" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyX-Xz-DQn">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nyX-Xz-DQn" secondAttribute="height" multiplier="97:30" id="4hp-Rl-aXr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MK7-L1-9hT">
-                                <frame key="frameInset" minX="255" minY="419" width="90" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MK7-L1-9hT">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MK7-L1-9hT" secondAttribute="height" multiplier="3:1" id="hhD-kg-hHP"/>
                                 </constraints>
@@ -70,8 +64,7 @@
                                     <action selector="changeCountType:" destination="4Sx-Cy-QX2" eventType="touchUpInside" id="utu-eQ-rfJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJs-1o-4L3" customClass="FlatUIButton">
-                                <frame key="frameInset" minX="191" minY="314" width="218" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJs-1o-4L3" customClass="FlatUIButton">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bJs-1o-4L3" secondAttribute="height" multiplier="109:15" id="lyr-E4-Mwm"/>
@@ -156,8 +149,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="99999.9元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbo-uF-5eI">
-                                <rect key="frame" x="259" y="199" width="83" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99999.9元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbo-uF-5eI">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Dbo-uF-5eI" secondAttribute="height" multiplier="83:21" id="2F5-at-UpC"/>
                                 </constraints>
