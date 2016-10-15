@@ -24,7 +24,11 @@
     
     BJBrowser * _browser;
     NSMutableDictionary *_lbList;
+    
+    
 }
+
+@property(nonatomic, strong) GADInterstitial *interstitial;
 
 @end
 
@@ -33,21 +37,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.adView.adUnitID = @"ca-app-pub-4825035857684521/7836686290";
     
-    //self.adView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
     
-    self.adView.rootViewController = self;
     
-    GADRequest *request = [GADRequest request];
-    // Requests test ads on devices you specify. Your test device ID is printed to the console when
-    // an ad request is made. GADBannerView automatically returns test ads when running on a
-    // simulator.
-    request.testDevices = @[
-                            @"2ed19fd608c97b865be80811f226e03a"  // Eric's iPod Touch
-                            ];
     
-    [self.adView loadRequest:request];
+    if (true) {
+        self.adView.adUnitID = @"ca-app-pub-4825035857684521/7836686290";
+        
+        //self.adView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+        
+        self.adView.rootViewController = self;
+        
+        GADRequest *request = [GADRequest request];
+        // Requests test ads on devices you specify. Your test device ID is printed to the console when
+        // an ad request is made. GADBannerView automatically returns test ads when running on a
+        // simulator.
+        request.testDevices = @[
+                                @"2ed19fd608c97b865be80811f226e03a"  // Eric's iPod Touch
+                                ];
+        
+        [self.adView loadRequest:request];
+    }
+    
+    if (true) {
+        
+        self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-4825035857684521/7836686290"];
+        
+        GADRequest *request = [GADRequest request];
+        // Requests test ads on test devices.
+        request.testDevices = @[@"2ed19fd608c97b865be80811f226e03a"];
+        [self.interstitial loadRequest:request];
+        
+
+    }
+
     
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"lb" ofType:@"plist"];
     _lbList = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
@@ -102,6 +125,14 @@
 }
 
 - (IBAction)login:(id)sender {
+    
+    
+    if (true) {
+        if ([self.interstitial isReady]) {
+            [self.interstitial presentFromRootViewController:self];
+        }
+        return;
+    }
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     NSString * lb = [[NSUserDefaults standardUserDefaults] valueForKey:kLBValue];
     if (lb == nil) {
