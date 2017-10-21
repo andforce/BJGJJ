@@ -100,9 +100,8 @@
     [_browser POST:kLKUrl headers:nil formData:nil response:^(NSString *responseHtml) {
 
         NSString *trimmedString = [responseHtml stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
-        NSString * lkFull = [trimmedString substringWithRange:NSMakeRange((NSUInteger) (len - 2), 2)];
-
+        NSInteger len = trimmedString.length;
+        NSString * lkFull = [trimmedString substringWithRange:NSMakeRange(len - 2, 2)];
         NSString *lk = [lkFull stringWithRegular:@"\\d+"];
 
         _lk = lk;
