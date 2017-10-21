@@ -22,14 +22,4 @@
 
 }
 
-
-
--(void)setRootViewController:(UIViewController *)rootViewController {
-    //rootViewController.navigationItem.hidesBackButton = YES;
-    [self popToRootViewControllerAnimated:NO];
-//    [self popToViewController:fakeRootViewController animated:NO];
-    [self pushViewController:rootViewController animated:NO];
-}
-
-
 @end

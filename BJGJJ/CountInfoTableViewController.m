@@ -7,9 +7,28 @@
 //
 
 #import "CountInfoTableViewController.h"
+#import "CountInfoBean.h"
 
 @interface CountInfoTableViewController ()<TransBundleDelegate>{
 
+    
+    IBOutlet UILabel *blanceLb;
+    IBOutlet UILabel *companyName;
+    IBOutlet UILabel *sectionName;
+    IBOutlet UILabel *status;
+    
+    IBOutlet UILabel *actionDate;
+    IBOutlet UILabel *cardType;
+    IBOutlet UILabel *cardNumber;
+    IBOutlet UILabel *personalNumber;
+    IBOutlet UILabel *companyNumber;
+    IBOutlet UILabel *sectionNumber;
+    IBOutlet UILabel *currentPayment;
+    IBOutlet UILabel *pickUpCount;
+    IBOutlet UILabel *lastYearBlance;
+    IBOutlet UILabel *transCount;
+    
+    CountInfoBean *_countInfoBean;
 }
 
 @end
@@ -17,72 +36,34 @@
 @implementation CountInfoTableViewController
 
 - (void)transBundle:(TransBundle *)bundle {
+    _countInfoBean = [bundle getObjectValue:@"count_info"];
 
+    NSLog(@">>>>>>>>>>>> %@", _countInfoBean.balance);
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    blanceLb.text = _countInfoBean.balance;
+
+    companyName.text = _countInfoBean.companyName;
+    sectionName.text = _countInfoBean.sectionName;
+    status.text = _countInfoBean.status;
+
+    actionDate.text = _countInfoBean.actionDate;
+    cardType.text = _countInfoBean.cardType;
+    cardNumber.text = _countInfoBean.cardNumber;
+    personalNumber.text = _countInfoBean.personalNumber;
+    companyNumber.text = _countInfoBean.companyNumber;
+    sectionNumber.text = _countInfoBean.sectionNumber;
+    currentPayment.text = _countInfoBean.currentPayment;
+    pickUpCount.text = _countInfoBean.pickUpCount;
+    lastYearBlance.text = _countInfoBean.lastYearBalance;
+    transCount.text = _countInfoBean.transCount;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
-#pragma mark - Table view data source
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

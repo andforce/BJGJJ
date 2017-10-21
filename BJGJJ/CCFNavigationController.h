@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TransBundleUINavigationController.h"
 
-@interface CCFNavigationController : UINavigationController
-
--(void)setRootViewController:(UIViewController *)rootViewController;
+@interface CCFNavigationController : TransBundleUINavigationController
 
 
 @end
