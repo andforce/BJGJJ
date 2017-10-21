@@ -115,7 +115,8 @@
 
                              StatusBean *statusBean = statusList.lastObject;
                              [_browser showCountInfo:statusBean handler:^(CountInfoBean *countInfoBean) {
-
+                                    CountInfoBean *c = countInfoBean;
+                                 NSLog(c);
                              }];
                          } else {
                              

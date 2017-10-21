@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "StatusBean.h"
 
+@class CountInfoBean;
+
 @interface HTMLParser : NSObject
 
--(NSArray<StatusBean*>*) praserStatusList:(NSString*)html;
+-(NSArray<StatusBean*>*)parseStatusList:(NSString*)html;
 
+-(CountInfoBean*) parseCountInfoBean:(NSString*)html;
 
 @end

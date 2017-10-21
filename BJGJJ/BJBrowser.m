@@ -135,7 +135,7 @@
     };
     [_browser POST:kChoice headers:headers formData:paramaters response:^(NSString *responseHtml) {
         NSLog(@"%@", responseHtml);
-        statusList([_praser praserStatusList:responseHtml]);
+        statusList([_praser parseStatusList:responseHtml]);
     }];
 }
 
@@ -191,6 +191,8 @@
 
     [_browser GET:statusBean.companyLink headers:headers response:^(NSString *responseHtml) {
         NSLog(@"%@", responseHtml);
+
+        handler([_praser parseCountInfoBean:responseHtml]);
     }];
 }
 
