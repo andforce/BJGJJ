@@ -124,8 +124,8 @@
                                  CountInfoBean *c = countInfoBean;
 
                                  UIStoryboard *stortboard = [UIStoryboard mainStoryboard];
-                                 CountInfoTableViewController *infoTableViewController = [stortboard instantiateViewControllerWithIdentifier:@"CountInfoTableViewController"];
-                                 [stortboard changeRootViewControllerTo:@"CountInfoTableViewController"];
+                                 CCFNavigationController *infoTableViewController = [stortboard instantiateViewControllerWithIdentifier:@"CountDetailNaviController"];
+                                 [stortboard changeRootViewControllerToController:infoTableViewController];
                              }];
                          } else {
 

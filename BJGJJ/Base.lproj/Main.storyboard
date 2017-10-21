@@ -387,7 +387,7 @@
         <!--Navigation Controller-->
         <scene sceneID="scP-Vn-7aF">
             <objects>
-                <navigationController id="LKO-PV-rsE" customClass="CCFNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CountDetailNaviController" id="LKO-PV-rsE" customClass="CCFNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="d0H-fZ-tp6">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
