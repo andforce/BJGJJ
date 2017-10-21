@@ -8,11 +8,18 @@
 
 #import "CountInfoTableViewController.h"
 
-@interface CountInfoTableViewController ()
+@interface CountInfoTableViewController ()<TransBundleDelegate>{
+
+}
 
 @end
 
 @implementation CountInfoTableViewController
+
+- (void)transBundle:(TransBundle *)bundle {
+
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -11,7 +11,8 @@
 #import "CaptchaBrowser.h"
 #import <SVProgressHUD.h>
 #import "CCFNavigationController.h"
-#import "CountInfoViewController.h"
+#import "CountInfoTableViewController.h"
+#import "UIStoryboard+Forum.h"
 
 #define kLBValue @"lb"
 #define kLBName @"lbName"
@@ -20,7 +21,7 @@
 #define kCardPassward @"cardPwd"
 
 
-@interface LoginViewController (){
+@interface LoginViewController ()<TransBundleDelegate>{
     
     BJBrowser * _browser;
     NSMutableDictionary *_lbList;
@@ -31,6 +32,11 @@
 @end
 
 @implementation LoginViewController
+
+- (void)transBundle:(TransBundle *)bundle {
+
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -110,24 +116,20 @@
                      status:^(NSArray<StatusBean *> *statusList) {
 
                          [SVProgressHUD dismiss];
-                         
-                         if (statusList && statusList.count > 0){
+
+                         if (statusList && statusList.count > 0) {
 
                              StatusBean *statusBean = statusList.lastObject;
                              [_browser showCountInfo:statusBean handler:^(CountInfoBean *countInfoBean) {
-                                    CountInfoBean *c = countInfoBean;
-                                 NSLog(c);
+                                 CountInfoBean *c = countInfoBean;
+
+                                 UIStoryboard *stortboard = [UIStoryboard mainStoryboard];
+                                 CountInfoTableViewController *infoTableViewController = [stortboard instantiateViewControllerWithIdentifier:@"CountInfoTableViewController"];
+                                 [stortboard changeRootViewControllerTo:@"CountInfoTableViewController"];
                              }];
                          } else {
-                             
 
-//                             CCFNavigationController * root = (CCFNavigationController*)self.navigationController;
-//
-//                             UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//                             CountInfoViewController * infoController = [storyboard instantiateViewControllerWithIdentifier:@"CountInfoViewController"];
-//                             [infoController transData:statusList];
-//
-//                             [root setRootViewController:infoController];
+
                          }
 
        

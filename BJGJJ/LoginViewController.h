@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TransBundleUIViewController.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : TransBundleUIViewController
 @property (weak, nonatomic) IBOutlet UITextField *cardNumber;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UIImageView *securityCode;

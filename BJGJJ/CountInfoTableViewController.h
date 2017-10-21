@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TransBundleUINavigationController.h"
 
-@interface CountInfoTableViewController : UITableViewController
+@interface CountInfoTableViewController : TransBundleUINavigationController
 
 @end
