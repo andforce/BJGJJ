@@ -1,5 +1,5 @@
 //
-//  HtmlPraser.h
+//  HTMLParser.h
 //  BJGJJ
 //
 //  Created by 迪远 王 on 16/1/31.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "StatusBean.h"
 
-@interface HtmlPraser : NSObject
+@interface HTMLParser : NSObject
 
 -(NSArray<StatusBean*>*) praserStatusList:(NSString*)html;
 

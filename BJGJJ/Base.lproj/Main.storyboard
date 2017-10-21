@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LKO-PV-rsE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5QO-Za-Yk4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -80,7 +80,7 @@
         <!--公积金-->
         <scene sceneID="2XP-ra-FWK">
             <objects>
-                <tableViewController id="Cjo-PO-ISB" sceneMemberID="viewController">
+                <tableViewController id="Cjo-PO-ISB" customClass="CountInfoTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ute-7n-TVq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -454,7 +454,7 @@
         <!--Navigation Controller-->
         <scene sceneID="scP-Vn-7aF">
             <objects>
-                <navigationController id="LKO-PV-rsE" sceneMemberID="viewController">
+                <navigationController id="LKO-PV-rsE" customClass="CCFNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="d0H-fZ-tp6">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -486,15 +486,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysC-Y5-gZo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="v0Z-Ps-zqc">
-                                        <rect key="frame" x="137.5" y="100" width="100" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="Yhl-Wl-BIK"/>
-                                            <constraint firstAttribute="width" secondItem="v0Z-Ps-zqc" secondAttribute="height" multiplier="1:1" id="aPJ-5A-3N4"/>
-                                        </constraints>
-                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyJ-U1-dST">
-                                        <rect key="frame" x="40" y="233" width="295" height="135"/>
+                                        <rect key="frame" x="40" y="100" width="295" height="135"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCU-pv-jUs">
                                                 <rect key="frame" x="8" y="5" width="279" height="40"/>
@@ -588,11 +581,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.18172545731067657" green="0.4237322211265564" blue="0.7490922212600708" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="v0Z-Ps-zqc" firstAttribute="top" secondItem="ysC-Y5-gZo" secondAttribute="top" constant="100" id="5Cp-G2-Htj"/>
-                                    <constraint firstItem="cyJ-U1-dST" firstAttribute="top" secondItem="v0Z-Ps-zqc" secondAttribute="bottom" constant="33" id="7aH-HB-YGv"/>
                                     <constraint firstAttribute="trailing" secondItem="cyJ-U1-dST" secondAttribute="trailing" constant="40" id="FQv-UD-8hS"/>
                                     <constraint firstItem="cyJ-U1-dST" firstAttribute="leading" secondItem="ysC-Y5-gZo" secondAttribute="leading" constant="40" id="TUw-2Z-K1M"/>
-                                    <constraint firstItem="v0Z-Ps-zqc" firstAttribute="centerX" secondItem="ysC-Y5-gZo" secondAttribute="centerX" id="WQ0-Mv-ScL"/>
+                                    <constraint firstItem="cyJ-U1-dST" firstAttribute="top" secondItem="ysC-Y5-gZo" secondAttribute="top" constant="100" id="xLR-Vd-9MH"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -672,7 +663,4 @@
             <point key="canvasLocation" x="-1289" y="656"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="AppIcon" width="16" height="16"/>
-    </resources>
 </document>

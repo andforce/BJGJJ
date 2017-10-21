@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F34C2E65C4DCBC27AB96D37 /* CountInfoBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F34C5420B7506258CAB5023 /* CountInfoBean.m */; };
 		3A3F44D71C565AAF0061817B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44D61C565AAF0061817B /* main.m */; };
 		3A3F44DA1C565AAF0061817B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44D91C565AAF0061817B /* AppDelegate.m */; };
 		3A3F44E01C565AAF0061817B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F44DE1C565AAF0061817B /* Main.storyboard */; };
@@ -30,7 +31,7 @@
 		3A76044D1C5FD87A0044B61A /* TransDataUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76044C1C5FD87A0044B61A /* TransDataUIViewController.m */; };
 		3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */; };
 		3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEDD1C5DE4E1007C5D48 /* StatusBean.m */; };
-		3A79DEE11C5DE5F9007C5D48 /* HtmlPraser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */; };
+		3A79DEE11C5DE5F9007C5D48 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEE01C5DE5F9007C5D48 /* HTMLParser.m */; };
 		3A79DEE41C5DED68007C5D48 /* NSString+Regular.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEE31C5DED68007C5D48 /* NSString+Regular.m */; };
 		3A79DEF31C5E35D2007C5D48 /* CaptchaBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DEF21C5E35D2007C5D48 /* CaptchaBrowser.m */; };
 		3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8019AF1C57B6A500DB16BF /* Encrypt.m */; };
@@ -41,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F34C5420B7506258CAB5023 /* CountInfoBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountInfoBean.m; sourceTree = "<group>"; };
+		2F34C704E8113DFA9B3F25F5 /* CountInfoBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountInfoBean.h; sourceTree = "<group>"; };
 		3A3F44D21C565AAF0061817B /* BJGJJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BJGJJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3F44D61C565AAF0061817B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A3F44D81C565AAF0061817B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,8 +84,8 @@
 		3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJBrowser.m; sourceTree = "<group>"; };
 		3A79DEDC1C5DE4E1007C5D48 /* StatusBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBean.h; sourceTree = "<group>"; };
 		3A79DEDD1C5DE4E1007C5D48 /* StatusBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBean.m; sourceTree = "<group>"; };
-		3A79DEDF1C5DE5F9007C5D48 /* HtmlPraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlPraser.h; sourceTree = "<group>"; };
-		3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HtmlPraser.m; sourceTree = "<group>"; };
+		3A79DEDF1C5DE5F9007C5D48 /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
+		3A79DEE01C5DE5F9007C5D48 /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
 		3A79DEE21C5DED68007C5D48 /* NSString+Regular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Regular.h"; sourceTree = "<group>"; };
 		3A79DEE31C5DED68007C5D48 /* NSString+Regular.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Regular.m"; sourceTree = "<group>"; };
 		3A79DEF11C5E35D2007C5D48 /* CaptchaBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptchaBrowser.h; sourceTree = "<group>"; };
@@ -166,8 +169,8 @@
 				3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */,
 				3A79DEF11C5E35D2007C5D48 /* CaptchaBrowser.h */,
 				3A79DEF21C5E35D2007C5D48 /* CaptchaBrowser.m */,
-				3A79DEDF1C5DE5F9007C5D48 /* HtmlPraser.h */,
-				3A79DEE01C5DE5F9007C5D48 /* HtmlPraser.m */,
+				3A79DEDF1C5DE5F9007C5D48 /* HTMLParser.h */,
+				3A79DEE01C5DE5F9007C5D48 /* HTMLParser.m */,
 				3A8019AE1C57B6A500DB16BF /* Encrypt.h */,
 				3A8019AF1C57B6A500DB16BF /* Encrypt.m */,
 				3A3F44DE1C565AAF0061817B /* Main.storyboard */,
@@ -177,6 +180,8 @@
 				3A3F44E91C565AAF0061817B /* Info.plist */,
 				3A3F44E11C565AAF0061817B /* BJGJJ.xcdatamodeld */,
 				3A3F44D51C565AAF0061817B /* Supporting Files */,
+				2F34C5420B7506258CAB5023 /* CountInfoBean.m */,
+				2F34C704E8113DFA9B3F25F5 /* CountInfoBean.h */,
 			);
 			path = BJGJJ;
 			sourceTree = "<group>";
@@ -371,7 +376,8 @@
 				3A7604321C5FA2B10044B61A /* UIColor+MyColor.m in Sources */,
 				3A76044D1C5FD87A0044B61A /* TransDataUIViewController.m in Sources */,
 				3A3F44F11C56661C0061817B /* LoginViewController.m in Sources */,
-				3A79DEE11C5DE5F9007C5D48 /* HtmlPraser.m in Sources */,
+				3A79DEE11C5DE5F9007C5D48 /* HTMLParser.m in Sources */,
+				2F34C2E65C4DCBC27AB96D37 /* CountInfoBean.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +494,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andforce.BJGJJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -502,6 +509,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andforce.BJGJJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

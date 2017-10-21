@@ -39,18 +39,26 @@
     _lbList = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     
     _browser = [[BJBrowser alloc] init];
-    
-    [_browser refreshVCodeToUIImageView:_securityCode :^(UIImage *captchaImage) {
-        
-        CaptchaBrowser * captcha = [[CaptchaBrowser alloc] init];
-        [captcha captchaToText:captchaImage response:^(BOOL success, NSString *captchaText) {
-            NSLog(@" 验证码 解析结果： %@     %@", success ? @"YES" : @"NO", captchaText);
-            if (success) {
-                _code.text = captchaText;
-            }
-        }];
+
+    [_browser loadCookieFromChoice:^(NSString *cookie) {
+        if (cookie){
+            [_browser loadCookieFromFavicon:cookie handler:^(NSString *cookie) {
+
+                [_browser refreshVCodeToUIImageView:_securityCode :^(UIImage *captchaImage) {
+                    
+                    CaptchaBrowser * captcha = [[CaptchaBrowser alloc] init];
+                    [captcha captchaToText:captchaImage response:^(BOOL success, NSString *captchaText) {
+                        NSLog(@" 验证码 解析结果： %@     %@", success ? @"YES" : @"NO", captchaText);
+                        if (success) {
+                            _code.text = captchaText;
+                        }
+                    }];
+                }];
+                
+            }];
+        }
     }];
-    
+
     NSString * defaultName = [[NSUserDefaults standardUserDefaults] valueForKey:kLBName];
     if (defaultName == nil) {
         _cardNumber.placeholder = @"身份证";
@@ -98,17 +106,29 @@
     [pref setValue:_cardNumber.text forKey:[kCardNumber stringByAppendingString:lb]];
     [pref setValue:_password.text forKey:[kCardPassward stringByAppendingString:lb]];
     
-    [_browser loginWithCard:lb number:_cardNumber.text andPassword:_password.text andSecurityCode:_code.text status:^(NSArray<StatusBean *> *statusList) {
-        
-        [SVProgressHUD dismiss];
-        
-        CCFNavigationController * root = (CCFNavigationController*)self.navigationController;
-        
-        UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        CountInfoViewController * infoController = [storyboard instantiateViewControllerWithIdentifier:@"CountInfoViewController"];
-        [infoController transData:statusList];
-        
-        [root setRootViewController:infoController];
+    [_browser loginWithCard:lb number:_cardNumber.text andPassword:_password.text andSecurityCode:_code.text
+                     status:^(NSArray<StatusBean *> *statusList) {
+
+                         [SVProgressHUD dismiss];
+                         
+                         if (statusList && statusList.count > 0){
+
+                             StatusBean *statusBean = statusList.lastObject;
+                             [_browser showCountInfo:statusBean handler:^(CountInfoBean *countInfoBean) {
+
+                             }];
+                         } else {
+                             
+
+//                             CCFNavigationController * root = (CCFNavigationController*)self.navigationController;
+//
+//                             UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                             CountInfoViewController * infoController = [storyboard instantiateViewControllerWithIdentifier:@"CountInfoViewController"];
+//                             [infoController transData:statusList];
+//
+//                             [root setRootViewController:infoController];
+                         }
+
        
    }];
 }
