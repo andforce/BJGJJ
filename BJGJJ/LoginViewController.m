@@ -127,7 +127,7 @@
 - (IBAction)login:(id)sender {
     
     
-    if (true) {
+    if (false) {
         if ([self.interstitial isReady]) {
             [self.interstitial presentFromRootViewController:self];
         }
