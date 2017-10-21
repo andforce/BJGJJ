@@ -11,6 +11,7 @@
 		2F34C75234499A24B2C638A2 /* TransBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CBFDBF153DD568D4FA90 /* TransBundle.m */; };
 		2F34C83268ECD8A330DC61BE /* TransBundleUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F34C3A9E901FD61C7F9B57F /* TransBundleUINavigationController.m */; };
 		2F34C9C7187BFB80C977CA1F /* TransBundleUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CA323995C5BD398CDE3A /* TransBundleUIViewController.m */; };
+		2F34CA602530617EB2B2DD32 /* TranBundleUITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F34C54DFC77D1070DFBD6C7 /* TranBundleUITableViewController.m */; };
 		2F34CA83D0EBDA9E78F7BADD /* UIStoryboard+Forum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F34C43E3BDED465C43E5228 /* UIStoryboard+Forum.m */; };
 		3A3F44D71C565AAF0061817B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44D61C565AAF0061817B /* main.m */; };
 		3A3F44DA1C565AAF0061817B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44D91C565AAF0061817B /* AppDelegate.m */; };
@@ -52,10 +53,12 @@
 		2F34C3A9E901FD61C7F9B57F /* TransBundleUINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransBundleUINavigationController.m; sourceTree = "<group>"; };
 		2F34C43E3BDED465C43E5228 /* UIStoryboard+Forum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+Forum.m"; sourceTree = "<group>"; };
 		2F34C5420B7506258CAB5023 /* CountInfoBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountInfoBean.m; sourceTree = "<group>"; };
+		2F34C54DFC77D1070DFBD6C7 /* TranBundleUITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranBundleUITableViewController.m; sourceTree = "<group>"; };
 		2F34C704E8113DFA9B3F25F5 /* CountInfoBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountInfoBean.h; sourceTree = "<group>"; };
 		2F34C93E0190AD9F064CCED0 /* TransBundleUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransBundleUIViewController.h; sourceTree = "<group>"; };
 		2F34CA323995C5BD398CDE3A /* TransBundleUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransBundleUIViewController.m; sourceTree = "<group>"; };
 		2F34CBFDBF153DD568D4FA90 /* TransBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransBundle.m; sourceTree = "<group>"; };
+		2F34CD95842A1B56FD16EAF9 /* TranBundleUITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranBundleUITableViewController.h; sourceTree = "<group>"; };
 		3A3F44D21C565AAF0061817B /* BJGJJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BJGJJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3F44D61C565AAF0061817B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A3F44D81C565AAF0061817B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 				2F34C93E0190AD9F064CCED0 /* TransBundleUIViewController.h */,
 				2F34C0B9FA322CD84D42A17F /* UIStoryboard+Forum.h */,
 				2F34C43E3BDED465C43E5228 /* UIStoryboard+Forum.m */,
+				2F34C54DFC77D1070DFBD6C7 /* TranBundleUITableViewController.m */,
+				2F34CD95842A1B56FD16EAF9 /* TranBundleUITableViewController.h */,
 			);
 			path = BJGJJ;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				2F34C75234499A24B2C638A2 /* TransBundle.m in Sources */,
 				2F34C9C7187BFB80C977CA1F /* TransBundleUIViewController.m in Sources */,
 				2F34CA83D0EBDA9E78F7BADD /* UIStoryboard+Forum.m in Sources */,
+				2F34CA602530617EB2B2DD32 /* TranBundleUITableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

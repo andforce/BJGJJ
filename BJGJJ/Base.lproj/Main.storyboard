@@ -346,15 +346,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" textLabel="T5w-Zp-sPg" detailTextLabel="O3m-R6-cQI" style="IBUITableViewCellStyleValue1" id="402-GR-eJ1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="T5w-Zp-sPg" detailTextLabel="O3m-R6-cQI" style="IBUITableViewCellStyleValue1" id="402-GR-eJ1">
                                         <rect key="frame" x="0.0" y="607" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="402-GR-eJ1" id="2fr-jj-a4s">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T5w-Zp-sPg">
-                                                    <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -397,7 +397,7 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="Cjo-PO-ISB" kind="relationship" relationship="rootViewController" id="aGf-mo-HCS"/>
+                        <segue destination="Cjo-PO-ISB" kind="relationship" relationship="rootViewController" id="qGN-t5-qZ9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glW-D8-Pdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
