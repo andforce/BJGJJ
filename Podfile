@@ -12,6 +12,4 @@ target ‘BJGJJ’ do
 	pod 'SDWebImage', '~>3.7.5'
 	pod 'MGSwipeTableCell', '~>1.5.6'
 	pod 'SVProgressHUD’, '~> 1.1.3'
-	pod 'Firebase/Core'
-	pod 'Firebase/AdMob'
 end
