@@ -44,7 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    blanceLb.text = _countInfoBean.balance;
+    blanceLb.text = [_countInfoBean.balance substringWithRange:NSMakeRange(0, _countInfoBean.balance.length -1)];
 
     companyName.text = _countInfoBean.companyName;
     sectionName.text = _countInfoBean.sectionName;
