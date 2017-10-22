@@ -48,7 +48,7 @@
 - (void)loadNewCookie:(CookieResponse)response {
     [self loadCookieFromChoice:^(BOOL isSuccess, NSString *cookie) {
         if (isSuccess){
-            [self loadCookieFromFavicon:nil handler:^(BOOL sucess, NSString *cookieResponse) {
+            [self loadCookieFromFavicon:^(BOOL sucess, NSString *cookieResponse) {
                 response(YES, cookieResponse);
             }];
         } else {
@@ -76,7 +76,7 @@
     }];
 }
 
-- (void)loadCookieFromFavicon:(NSString *)choiceCookie handler:(CookieResponse)handler {
+- (void)loadCookieFromFavicon:(CookieResponse)handler {
     NSDictionary * headers = @{
             @"Host"                  :@"www.bjgjj.gov.cn",
             @"Connection"            :@"keep-alive",
@@ -189,9 +189,17 @@
     };
     [_browser POST:kChoice headers:headers formData:paramaters response:^(NSString *responseHtml) {
         if (responseHtml){
-            statusList(YES, [_praser parseStatusList:responseHtml]);
+            NSArray<StatusBean*>* status = [_praser parseStatusList:responseHtml];
+            if (status.count > 0){
+                statusList(YES, status);
+            } else {
+                statusList(NO, @"服务繁忙-Err100");
+                NSLog(@"登录失败001\t\n%@", responseHtml.trim);
+            }
+
         } else {
-            statusList(NO, nil);
+            NSLog(@"登录失败002\t\n%@", responseHtml.trim);
+            statusList(NO, @"服务繁忙-Err101");
         }
     }];
 }
@@ -244,13 +252,19 @@
 
     };
 
-    NSLog(@"detail url: %@ - cookie: %@", statusBean.companyLink, [self cookieString]);
+    //NSLog(@"detail url: %@ - cookie: %@", statusBean.companyLink, [self cookieString]);
 
     [_browser GET:statusBean.companyLink headers:headers response:^(NSString *responseHtml) {
         if (responseHtml){
-            handler(YES, [_praser parseCountInfoBean:responseHtml]);
+
+            CountInfoBean * countInfoBean = [_praser parseCountInfoBean:responseHtml];
+            if (countInfoBean){
+                handler(YES, countInfoBean);
+            } else {
+                handler(NO, @"服务繁忙-Err102");
+            }
         } else {
-            handler(NO,nil);
+            handler(NO,@"服务繁忙-Err103");
         }
         
     }];

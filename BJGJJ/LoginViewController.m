@@ -108,40 +108,74 @@
 
 - (IBAction)login:(id)sender {
 
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     NSString * lb = [self readLoginType];
+
+    NSString *cardNumber = _cardNumber.text;
+    NSString *password = _password.text;
+    NSString *code = _code.text;
+    if ([cardNumber isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"卡号为空"];
+        return;
+    }
+
+    if ([lb isEqualToString:@"1"] && cardNumber.length != 18){
+        [SVProgressHUD showErrorWithStatus:@"身份证号应为18位"];
+        return;
+    }
+
+    if ([password isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"密码为空"];
+        return;
+    }
+
+    if (password.length != 6){
+        [SVProgressHUD showErrorWithStatus:@"密码应是6位数字"];
+        return;
+    }
+
+    if ([code isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"验证码为空"];
+        return;
+    }
+
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+
+
     NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
-    [pref setValue:_cardNumber.text forKey:[kCardNumber stringByAppendingString:lb]];
-    [pref setValue:_password.text forKey:[kCardPassward stringByAppendingString:lb]];
+    [pref setValue:cardNumber forKey:[kCardNumber stringByAppendingString:lb]];
+    [pref setValue:password forKey:[kCardPassward stringByAppendingString:lb]];
 
-    [_browser loginWithCard:lb number:_cardNumber.text andPassword:_password.text andSecurityCode:_code.text status:^(BOOL isSuccess, NSArray<StatusBean *> *statusList) {
+    [_browser loginWithCard:lb number:cardNumber andPassword:password andSecurityCode:code
+                     status:^(BOOL isSuccess, id s) {
 
-        if (isSuccess && statusList.count > 0){
+                         if (isSuccess){
+                             NSArray<StatusBean *> * statusList = s;
 
-            StatusBean *statusBean = statusList.lastObject;
-            [_browser showCountInfo:statusBean handler:^(BOOL success,CountInfoBean *countInfoBean) {
+                             StatusBean *statusBean = statusList.lastObject;
+                             [_browser showCountInfo:statusBean handler:^(BOOL success,id rp) {
 
-                if (countInfoBean){
-                    [SVProgressHUD dismiss];
+                                 if (success) {
+                                     [SVProgressHUD dismiss];
 
-                    TransBundle *transBundle = [[TransBundle alloc] init];
-                    [transBundle putObjectValue:countInfoBean forKey:@"count_info"];
-                    [transBundle putStringValue:countInfoBean.balance forKey:@"count_info_blance"];
+                                     CountInfoBean * countInfoBean = rp;
+                                     TransBundle *transBundle = [[TransBundle alloc] init];
+                                     [transBundle putObjectValue:countInfoBean forKey:@"count_info"];
+                                     [transBundle putStringValue:countInfoBean.balance forKey:@"count_info_blance"];
 
-                    UIStoryboard *stortboard = [UIStoryboard mainStoryboard];
-                    CCFNavigationController *navigationController1 = [stortboard instantiateViewControllerWithIdentifier:@"CountDetailNaviController"];
+                                     UIStoryboard *stortboard = [UIStoryboard mainStoryboard];
+                                     CCFNavigationController *navigationController1 = [stortboard instantiateViewControllerWithIdentifier:@"CountDetailNaviController"];
+                                     [navigationController1 transBundle:transBundle forController:navigationController1.viewControllers.firstObject];
+                                     [stortboard changeRootViewControllerToController:navigationController1];
+                                 } else {
+                                     NSString * error = rp;
+                                     [SVProgressHUD showErrorWithStatus:error];
+                                 }
 
-                    //CountInfoTableViewController *countInfoTableViewController = [stortboard instantiateViewControllerWithIdentifier:@"CountInfoTableViewController"];
-                    [navigationController1 transBundle:transBundle forController:navigationController1.viewControllers.firstObject];
-                    [stortboard changeRootViewControllerToController:navigationController1];
-                } else {
-                    [SVProgressHUD showErrorWithStatus:@"服务器繁忙"];
-                }
-
-            }];
-        } else {
-            [SVProgressHUD showErrorWithStatus:@"服务器繁忙"];
-        }
+                             }];
+                         } else {
+                             NSString * error = s;
+                             [SVProgressHUD showErrorWithStatus:error];
+                         }
     }];
 }
 
