@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface CountInfoBean : NSObject<NSCopying>
+@interface CountInfoBean : NSObject
 
 @property(nonatomic, strong) NSString* userName;        //姓名
 @property(nonatomic, strong) NSString* cardType;        //证件类型
@@ -24,5 +24,7 @@
 @property(nonatomic, strong) NSString* status;          //账户状态
 @property(nonatomic, strong) NSString* pickUpCount;     //当年提取金额
 @property(nonatomic, strong) NSString* actionDate;      //最后业务日期
+
+@property (nonatomic, strong) NSString * employeeNumber;    //员工编号
 
 @end

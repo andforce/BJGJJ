@@ -28,6 +28,7 @@
     IBOutlet UILabel *lastYearBlance;
     IBOutlet UILabel *transCount;
     
+    IBOutlet UILabel *employeeNumber;
     CountInfoBean *_countInfoBean;
 }
 
@@ -60,6 +61,8 @@
     pickUpCount.text = _countInfoBean.pickUpCount;
     lastYearBlance.text = _countInfoBean.lastYearBalance;
     transCount.text = _countInfoBean.transCount;
+    
+    employeeNumber.text = _countInfoBean.employeeNumber;
 }
 
 - (void)didReceiveMemoryWarning {

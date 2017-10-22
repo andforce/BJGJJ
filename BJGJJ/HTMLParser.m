@@ -34,6 +34,8 @@
     countInfoBean.status=           [self cleanCountInfo:document xPath:@"//*[@id=\"t1Contents\"]/div[2]/table/tr[5]/td[4]"];          //账户状态
     countInfoBean.pickUpCount=      [self cleanCountInfo:document xPath:@"//*[@id=\"t1Contents\"]/div[2]/table/tr[6]/td[4]"];     //当年提取金额
     countInfoBean.actionDate=       [self cleanCountInfo:document xPath:@"//*[@id=\"t1Contents\"]/div[2]/table/tr[7]/td[4]"];      //最后业务日期
+
+    countInfoBean.employeeNumber=   [self cleanCountInfo:document xPath:@"//*[@id=\"t2Contents\"]/div/table/tr/td/div/table/tr[2]/td[2]/table/tr[3]/td[2]"];
     
     
     return countInfoBean;
