@@ -27,10 +27,6 @@
 		3A7604321C5FA2B10044B61A /* UIColor+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604301C5FA2B10044B61A /* UIColor+MyColor.m */; };
 		3A7604341C5FB1010044B61A /* lb.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A7604331C5FB1010044B61A /* lb.plist */; };
 		3A7604371C5FB9A60044B61A /* CountInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604361C5FB9A60044B61A /* CountInfoTableViewController.m */; };
-		3A76043B1C5FB9CA0044B61A /* CompayListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604391C5FB9CA0044B61A /* CompayListCell.m */; };
-		3A76043C1C5FB9CA0044B61A /* CompayListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A76043A1C5FB9CA0044B61A /* CompayListCell.xib */; };
-		3A7604401C5FBA0C0044B61A /* CountInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76043E1C5FBA0C0044B61A /* CountInfoCell.m */; };
-		3A7604411C5FBA0C0044B61A /* CountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A76043F1C5FBA0C0044B61A /* CountInfoCell.xib */; };
 		3A7604471C5FBF0F0044B61A /* CCFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604461C5FBF0F0044B61A /* CCFNavigationController.m */; };
 		3A76044D1C5FD87A0044B61A /* TransDataUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76044C1C5FD87A0044B61A /* TransDataUIViewController.m */; };
 		3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79DED91C5DCD3A007C5D48 /* BJBrowser.m */; };
@@ -83,12 +79,6 @@
 		3A7604331C5FB1010044B61A /* lb.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lb.plist; sourceTree = "<group>"; };
 		3A7604351C5FB9A60044B61A /* CountInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountInfoTableViewController.h; sourceTree = "<group>"; };
 		3A7604361C5FB9A60044B61A /* CountInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountInfoTableViewController.m; sourceTree = "<group>"; };
-		3A7604381C5FB9CA0044B61A /* CompayListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompayListCell.h; sourceTree = "<group>"; };
-		3A7604391C5FB9CA0044B61A /* CompayListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompayListCell.m; sourceTree = "<group>"; };
-		3A76043A1C5FB9CA0044B61A /* CompayListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompayListCell.xib; sourceTree = "<group>"; };
-		3A76043D1C5FBA0C0044B61A /* CountInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountInfoCell.h; sourceTree = "<group>"; };
-		3A76043E1C5FBA0C0044B61A /* CountInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountInfoCell.m; sourceTree = "<group>"; };
-		3A76043F1C5FBA0C0044B61A /* CountInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountInfoCell.xib; sourceTree = "<group>"; };
 		3A7604451C5FBF0F0044B61A /* CCFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFNavigationController.h; sourceTree = "<group>"; };
 		3A7604461C5FBF0F0044B61A /* CCFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFNavigationController.m; sourceTree = "<group>"; };
 		3A76044B1C5FD87A0044B61A /* TransDataUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransDataUIViewController.h; sourceTree = "<group>"; };
@@ -160,12 +150,6 @@
 				3A3F44F01C56661C0061817B /* LoginViewController.m */,
 				3A7604351C5FB9A60044B61A /* CountInfoTableViewController.h */,
 				3A7604361C5FB9A60044B61A /* CountInfoTableViewController.m */,
-				3A7604381C5FB9CA0044B61A /* CompayListCell.h */,
-				3A7604391C5FB9CA0044B61A /* CompayListCell.m */,
-				3A76043A1C5FB9CA0044B61A /* CompayListCell.xib */,
-				3A76043D1C5FBA0C0044B61A /* CountInfoCell.h */,
-				3A76043E1C5FBA0C0044B61A /* CountInfoCell.m */,
-				3A76043F1C5FBA0C0044B61A /* CountInfoCell.xib */,
 				3A7604271C5FA2630044B61A /* FlatUIButton.h */,
 				3A7604281C5FA2630044B61A /* FlatUIButton.m */,
 				3A76042A1C5FA29B0044B61A /* CommonUtils.h */,
@@ -315,8 +299,6 @@
 				3A3F44E81C565AAF0061817B /* LaunchScreen.storyboard in Resources */,
 				3A3F44E51C565AAF0061817B /* Assets.xcassets in Resources */,
 				3A3F44E01C565AAF0061817B /* Main.storyboard in Resources */,
-				3A76043C1C5FB9CA0044B61A /* CompayListCell.xib in Resources */,
-				3A7604411C5FBA0C0044B61A /* CountInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +361,6 @@
 				3A8019B01C57B6A500DB16BF /* Encrypt.m in Sources */,
 				3A79DEDE1C5DE4E1007C5D48 /* StatusBean.m in Sources */,
 				3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */,
-				3A76043B1C5FB9CA0044B61A /* CompayListCell.m in Sources */,
 				3A79DEF31C5E35D2007C5D48 /* CaptchaBrowser.m in Sources */,
 				3A79DEDA1C5DCD3A007C5D48 /* BJBrowser.m in Sources */,
 				3A76042C1C5FA29B0044B61A /* CommonUtils.m in Sources */,
@@ -393,7 +374,6 @@
 				3A7604371C5FB9A60044B61A /* CountInfoTableViewController.m in Sources */,
 				3A3F44DA1C565AAF0061817B /* AppDelegate.m in Sources */,
 				3A3F44D71C565AAF0061817B /* main.m in Sources */,
-				3A7604401C5FBA0C0044B61A /* CountInfoCell.m in Sources */,
 				3A7604321C5FA2B10044B61A /* UIColor+MyColor.m in Sources */,
 				3A76044D1C5FD87A0044B61A /* TransDataUIViewController.m in Sources */,
 				3A3F44F11C56661C0061817B /* LoginViewController.m in Sources */,
