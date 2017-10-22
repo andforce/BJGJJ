@@ -8,6 +8,9 @@
 
 #import "CountInfoTableViewController.h"
 #import "CountInfoBean.h"
+#import "UIColor+MyColor.h"
+
+#define kHEIGHT 0
 
 @interface CountInfoTableViewController ()<TransBundleDelegate>{
 
@@ -29,6 +32,7 @@
     IBOutlet UILabel *transCount;
     
     IBOutlet UILabel *employeeNumber;
+    IBOutlet UIView *headerView;
     CountInfoBean *_countInfoBean;
 }
 
@@ -45,6 +49,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.tableView.contentInset = UIEdgeInsetsMake(kHEIGHT, 0, 0, 0);
+
+    UIView *imageView = [[UIView alloc] initWithFrame:CGRectMake(0, -kHEIGHT, [UIScreen mainScreen].bounds.size.width, kHEIGHT)];
+
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.backgroundColor = headerView.backgroundColor;
+    imageView.tag = 101;
+    imageView.clipsToBounds = YES;
+
+    [self.tableView addSubview:imageView];
+
     blanceLb.text = [_countInfoBean.balance substringWithRange:NSMakeRange(0, _countInfoBean.balance.length -1)];
 
     companyName.text = _countInfoBean.companyName;
@@ -63,6 +79,17 @@
     transCount.text = _countInfoBean.transCount;
     
     employeeNumber.text = _countInfoBean.employeeNumber ? _countInfoBean.employeeNumber : @"暂无";
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGPoint point = scrollView.contentOffset;
+    if (point.y < -kHEIGHT) {
+        CGRect rect = [self.tableView viewWithTag:101].frame;
+        rect.origin.y = point.y;
+        rect.size.height = -point.y;
+        [self.tableView viewWithTag:101].frame = rect;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
