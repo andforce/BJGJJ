@@ -19,8 +19,8 @@
     IBOutlet UILabel *companyName;
     IBOutlet UILabel *sectionName;
     IBOutlet UILabel *status;
-    
     IBOutlet UILabel *actionDate;
+    
     IBOutlet UILabel *cardType;
     IBOutlet UILabel *cardNumber;
     IBOutlet UILabel *personalNumber;
@@ -60,6 +60,8 @@
     imageView.clipsToBounds = YES;
 
     [self.tableView addSubview:imageView];
+
+    self.title = _countInfoBean.userName;
 
     blanceLb.text = [_countInfoBean.balance substringWithRange:NSMakeRange(0, _countInfoBean.balance.length -1)];
 
