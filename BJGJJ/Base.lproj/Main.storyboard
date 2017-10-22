@@ -456,7 +456,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="7Sm-Ji-ubD"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZP-yO-MHh">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码是6位数字" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZP-yO-MHh">
                                                 <rect key="frame" x="8" y="45" width="279" height="40"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -534,14 +534,50 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用须知:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d57-CR-LB6">
+                                        <rect key="frame" x="40" y="263" width="74" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.490374356508255" green="0.48967245221138" blue="0.52556020021438599" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="必须已经办理过联名卡" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnA-Z9-Lgv">
+                                        <rect key="frame" x="40" y="295" width="153" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.6903001070022583" green="0.69389569759368896" blue="0.70984625816345215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="必须更改过初始密码(身份证后四位+00)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIb-TJ-gB8">
+                                        <rect key="frame" x="40" y="324" width="269" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.6903001070022583" green="0.69389569759368896" blue="0.70984625816345215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="忘记密码请拨打12329人工客服重置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9o-MZ-5e6">
+                                        <rect key="frame" x="40" y="353" width="242" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.6903001070022583" green="0.69389569759368896" blue="0.70984625816345215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.18172545731067657" green="0.4237322211265564" blue="0.7490922212600708" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LnA-Z9-Lgv" secondAttribute="trailing" constant="20" symbolic="YES" id="2Zv-5H-Zm4"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d57-CR-LB6" secondAttribute="trailing" constant="20" symbolic="YES" id="2tZ-5K-XAZ"/>
+                                    <constraint firstItem="d57-CR-LB6" firstAttribute="top" secondItem="cyJ-U1-dST" secondAttribute="bottom" constant="28" id="7QY-w3-75a"/>
+                                    <constraint firstItem="x9o-MZ-5e6" firstAttribute="leading" secondItem="yIb-TJ-gB8" secondAttribute="leading" id="BXl-6Z-rr7"/>
                                     <constraint firstAttribute="trailing" secondItem="cyJ-U1-dST" secondAttribute="trailing" constant="40" id="FQv-UD-8hS"/>
+                                    <constraint firstItem="x9o-MZ-5e6" firstAttribute="top" secondItem="yIb-TJ-gB8" secondAttribute="bottom" constant="11" id="Fmo-tx-5DB"/>
                                     <constraint firstItem="cyJ-U1-dST" firstAttribute="top" secondItem="emC-01-mXJ" secondAttribute="bottom" constant="26" id="G5D-UR-DtC"/>
                                     <constraint firstItem="cyJ-U1-dST" firstAttribute="leading" secondItem="ysC-Y5-gZo" secondAttribute="leading" constant="40" id="TUw-2Z-K1M"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yIb-TJ-gB8" secondAttribute="trailing" constant="20" symbolic="YES" id="cKw-g0-nEm"/>
+                                    <constraint firstItem="yIb-TJ-gB8" firstAttribute="leading" secondItem="LnA-Z9-Lgv" secondAttribute="leading" id="fzK-v7-YVO"/>
+                                    <constraint firstItem="yIb-TJ-gB8" firstAttribute="top" secondItem="LnA-Z9-Lgv" secondAttribute="bottom" constant="11" id="hTg-yU-xtt"/>
                                     <constraint firstItem="emC-01-mXJ" firstAttribute="centerX" secondItem="ysC-Y5-gZo" secondAttribute="centerX" id="hhM-PY-bVI"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="x9o-MZ-5e6" secondAttribute="trailing" constant="20" symbolic="YES" id="i9F-Lx-pBo"/>
+                                    <constraint firstItem="LnA-Z9-Lgv" firstAttribute="leading" secondItem="d57-CR-LB6" secondAttribute="leading" id="kdf-He-6MD"/>
+                                    <constraint firstItem="LnA-Z9-Lgv" firstAttribute="top" secondItem="d57-CR-LB6" secondAttribute="bottom" constant="11" id="kpN-P8-waj"/>
+                                    <constraint firstItem="d57-CR-LB6" firstAttribute="leading" secondItem="cyJ-U1-dST" secondAttribute="leading" id="ku8-wl-UUH"/>
                                     <constraint firstItem="cyJ-U1-dST" firstAttribute="top" secondItem="ysC-Y5-gZo" secondAttribute="top" constant="100" id="xLR-Vd-9MH"/>
                                 </constraints>
                             </view>
@@ -579,7 +615,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygC-sy-84F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="201" y="-179"/>
+            <point key="canvasLocation" x="200.80000000000001" y="-179.46026986506749"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4S4-dO-Qjh">
