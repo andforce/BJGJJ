@@ -45,12 +45,7 @@
     
     _browser = [[BJBrowser alloc] init];
 
-    [_browser loadNewCookie:^(BOOL isSuccess, NSString *cookie) {
-        if (isSuccess){
-            [self refreshVCode];
-        }
-    }];
-
+    [self reloadCookieAndCode];
 
     NSString *lb = [self readLoginType];
 
@@ -80,6 +75,16 @@
     } else {
         loginType.text = @"使用身份证查询";
     }
+}
+
+-(void) reloadCookieAndCode{
+    [_browser loadNewCookie:^(BOOL isSuccess, NSString *cookie) {
+        if (isSuccess){
+            [self refreshVCode];
+        } else {
+            [SVProgressHUD showErrorWithStatus:cookie];
+        }
+    }];
 }
 
 -(NSString *)readLoginType{
@@ -169,12 +174,14 @@
                                  } else {
                                      NSString * error = rp;
                                      [SVProgressHUD showErrorWithStatus:error];
+                                     [self reloadCookieAndCode];
                                  }
 
                              }];
                          } else {
                              NSString * error = s;
                              [SVProgressHUD showErrorWithStatus:error];
+                             [self reloadCookieAndCode];
                          }
     }];
 }

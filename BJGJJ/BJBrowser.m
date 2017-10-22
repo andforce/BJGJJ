@@ -25,6 +25,8 @@
 
 #define kFavicon @"https://www.bjgjj.gov.cn/favicon.ico"
 
+#define kUserAgent @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
+
 
 
 @implementation BJBrowser{
@@ -46,6 +48,8 @@
 }
 
 - (void)loadNewCookie:(CookieResponse)response {
+    [self clearCookie];
+
     [self loadCookieFromChoice:^(BOOL isSuccess, NSString *cookie) {
         if (isSuccess){
             [self loadCookieFromFavicon:^(BOOL sucess, NSString *cookieResponse) {
@@ -61,7 +65,7 @@
     NSDictionary * headers = @{
             @"Host"                  :@"www.bjgjj.gov.cn",
             @"Connection"            :@"keep-alive",
-            @"User-Agent"            :@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36",
+            @"User-Agent"            :kUserAgent,
             @"Upgrade-Insecure-Requests"    :@"1",
             @"Accept"                :@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
             @"Content-Type"          :@"application/x-www-form-urlencoded",
@@ -71,8 +75,12 @@
     };
 
     [_browser GET:@"https://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-login.jsp" headers:headers response:^(NSString *responseHtml) {
-        handler(YES,[self cookieString]);
-        NSLog(@"choice cookie %@", [self cookieString]);
+        NSString *cookie = [self cookieString];
+        if (cookie.length > 0){
+            handler(YES,cookie);
+        } else {
+            handler(NO,@"服务繁忙-Err104");
+        }
     }];
 }
 
@@ -80,7 +88,7 @@
     NSDictionary * headers = @{
             @"Host"                  :@"www.bjgjj.gov.cn",
             @"Connection"            :@"keep-alive",
-            @"User-Agent"            :@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36",
+            @"User-Agent"            :kUserAgent,
             @"Accept"                :@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
             @"Content-Type"          :@"application/x-www-form-urlencoded",
             @"Accept-Language"       :@"zh-CN,zh;q=0.8,en;q=0.6",
@@ -88,8 +96,13 @@
     };
 
     [_browser GET:kFavicon headers:headers response:^(NSString *responseHtml) {
-        NSLog(@"Favicon cookie %@", [self cookieString]);
-        handler(YES,[self cookieString]);
+
+        NSString *cookie = [self cookieString];
+        if (cookie.length > 0){
+            handler(YES,cookie);
+        } else {
+            handler(NO,@"服务繁忙-Err105");
+        }
     }];
 }
 
@@ -177,7 +190,7 @@
             @"Origin"               :@"https://www.bjgjj.gov.cn",
             @"Upgrade-Insecure-Requests"    :@"1",
             @"Content-Type"          :@"application/x-www-form-urlencoded",
-            @"User-Agent"            :@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36",
+            @"User-Agent"            :kUserAgent,
 
             @"Referer"              :@"https://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-login.jsp",
             @"Accept"                :@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
@@ -219,6 +232,16 @@
     }];
 }
 
+-(void) clearCookie{
+    NSArray<NSHTTPCookie *> *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+
+    for (NSHTTPCookie *cookie in cookies) {
+        if ([cookie.domain containsString:@"bjgjj.gov.cn"]) {
+            [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+        }
+    }
+}
+
 -(NSString *) cookieString{
     NSArray<NSHTTPCookie *> *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
 
@@ -226,11 +249,13 @@
 
     int pos = 0;
     for (NSHTTPCookie *cookie in cookies) {
-        NSString * formater = @"%@=%@; ";
-        if (pos == cookies.count - 1) {
-            formater = @"%@=%@";
+        if ([cookie.domain containsString:@"bjgjj.gov.cn"]){
+            NSString * formater = @"%@=%@; ";
+            if (pos == cookies.count - 1) {
+                formater = @"%@=%@";
+            }
+            cookiesString = [cookiesString stringByAppendingString:[NSString stringWithFormat:formater, cookie.name, cookie.value]];
         }
-        cookiesString = [cookiesString stringByAppendingString:[NSString stringWithFormat:formater, cookie.name, cookie.value]];
         pos ++;
     }
     return cookiesString;
@@ -241,7 +266,7 @@
             @"Host"                  :@"www.bjgjj.gov.cn",
             @"Connection"            :@"keep-alive",
             @"Upgrade-Insecure-Requests"    :@"1",
-            @"User-Agent"            :@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36",
+            @"User-Agent"            :kUserAgent,
 
             @"Referer"              :@"https://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-choice.jsp",
             @"Accept"                :@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
@@ -274,7 +299,7 @@
     NSDictionary * headers = @{
             @"Host"                  :@"www.bjgjj.gov.cn",
             @"Connection"            :@"keep-alive",
-            @"User-Agent"            :@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36",
+            @"User-Agent"            :kUserAgent,
             @"Referer"              :@"https://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-login.jsp",
             @"Accept"                :@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
             @"Accept-Language"       :@"zh-CN,zh;q=0.8,en;q=0.6",
@@ -297,7 +322,7 @@
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
         [request setValue:[self cookieString] forHTTPHeaderField:@"Cookie"];
         [request setValue:@"image/webp,image/*,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
-        [request setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
+        [request setValue:kUserAgent forHTTPHeaderField:@"User-Agent"];
         [request setValue:@"http://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-login.jsp" forHTTPHeaderField:@"Referer"];
 
 
