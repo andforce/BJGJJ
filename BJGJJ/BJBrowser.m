@@ -27,7 +27,7 @@
 
 #define kUserAgent @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
 
-
+typedef void(^LKResponse) (BOOL isSuccess, NSString * lk);
 
 @implementation BJBrowser{
     Browser *_browser;
@@ -42,6 +42,7 @@
     if (self = [super init]) {
         _browser = [[Browser alloc] initWithStringEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
         _praser = [[HTMLParser alloc] init];
+        _lk = @"";
     }
 
     return self;
@@ -220,7 +221,7 @@
 
 
 
-- (void)refreshLK {
+- (void)refreshLK:(LKResponse) lkResponse {
     [_browser POST:kLKUrl headers:nil formData:nil response:^(NSString *responseHtml) {
 
         NSString *trimmedString = [responseHtml stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -228,7 +229,11 @@
         NSString * lkFull = [trimmedString substringWithRange:NSMakeRange(len - 2, 2)];
         NSString *lk = [lkFull stringWithRegular:@"\\d+"];
 
-        _lk = lk;
+        if (lk && lk.length > 0){
+            lkResponse(YES, lk);
+        } else {
+            lkResponse(NO, @"");
+        }
     }];
 }
 
@@ -295,6 +300,20 @@
     }];
 }
 
+- (void)refreshLkAndVCode:(UIImageView *)showCapImageView :(CaptchaImage)captchaImage {
+    
+    [self refreshVCodeToUIImageView:showCapImageView :captchaImage];
+    
+    [self refreshLK:^(BOOL isSuccess, NSString *lk) {
+        if (isSuccess){
+            _lk = lk;
+        } else {
+            _lk = @"";
+        }
+    }];
+}
+
+
 -(void)refreshVCodeToUIImageView:(UIImageView *)showCapImageView :(CaptchaImage)captchaImage{
     NSDictionary * headers = @{
             @"Host"                  :@"www.bjgjj.gov.cn",
@@ -310,7 +329,7 @@
 
     [_browser GET:kLoginUrl headers:headers response:^(NSString *responseHtml) {
 
-        [self refreshLK];
+        //[self refreshLK];
 
         AFImageDownloader *downloader = [[showCapImageView class] sharedImageDownloader];
         id <AFImageRequestCache> imageCache = downloader.imageCache;

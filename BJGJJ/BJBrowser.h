@@ -27,7 +27,7 @@ typedef void(^CookieResponse) (BOOL isSuccess, NSString * cookie);
 
 -(void) showCountInfo:(StatusBean *)statusBean handler:(DetailResponse) handler;
 
--(void)refreshVCodeToUIImageView:(UIImageView* )showCapImageView :(CaptchaImage)captchaImage;
+-(void)refreshLkAndVCode:(UIImageView* )showCapImageView :(CaptchaImage)captchaImage;
 
 
 @end

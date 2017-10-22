@@ -94,7 +94,7 @@
 - (void) refreshVCode{
     _code.text = @"";
 
-    [_browser refreshVCodeToUIImageView:_securityCode :^(UIImage *captchaImage) {
+    [_browser refreshLkAndVCode:_securityCode :^(UIImage *captchaImage) {
         CaptchaBrowser * captcha = [[CaptchaBrowser alloc] init];
         [captcha captchaToText:captchaImage response:^(BOOL success, NSString *captchaText) {
             NSLog(@" 验证码 解析结果： %@     %@", success ? @"YES" : @"NO", captchaText);
