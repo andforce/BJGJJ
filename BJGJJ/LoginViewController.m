@@ -49,16 +49,7 @@
         if (cookie){
             [_browser loadCookieFromFavicon:cookie handler:^(NSString *cookie) {
 
-                [_browser refreshVCodeToUIImageView:_securityCode :^(UIImage *captchaImage) {
-                    
-                    CaptchaBrowser * captcha = [[CaptchaBrowser alloc] init];
-                    [captcha captchaToText:captchaImage response:^(BOOL success, NSString *captchaText) {
-                        NSLog(@" 验证码 解析结果： %@     %@", success ? @"YES" : @"NO", captchaText);
-                        if (success) {
-                            _code.text = captchaText;
-                        }
-                    }];
-                }];
+                [self refreshVCode];
                 
             }];
         }
@@ -103,7 +94,7 @@
     return lb;
 }
 
-- (IBAction)refreshSecurityCode:(id)sender {
+- (void) refreshVCode{
     [_browser refreshVCodeToUIImageView:_securityCode :^(UIImage *captchaImage) {
         CaptchaBrowser * captcha = [[CaptchaBrowser alloc] init];
         [captcha captchaToText:captchaImage response:^(BOOL success, NSString *captchaText) {
@@ -113,6 +104,10 @@
             }
         }];
     }];
+}
+
+- (IBAction)refreshSecurityCode:(id)sender {
+    [self refreshVCode];
 }
 
 - (IBAction)login:(id)sender {
@@ -189,7 +184,7 @@
     
     
     
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"放弃" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         
     }];
     [insertPhotoController addAction:cancel];

@@ -474,18 +474,13 @@
                                             </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T5I-KA-3j7">
                                                 <rect key="frame" x="8" y="95" width="76" height="32"/>
+                                                <color key="backgroundColor" red="0.87844228739999997" green="0.87451827530000004" blue="0.87452721600000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="76" id="e9l-nW-7Ga"/>
                                                     <constraint firstAttribute="height" constant="32" id="rCQ-bJ-IIl"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZV0-UM-FMw">
-                                                <rect key="frame" x="8" y="95" width="76" height="32"/>
-                                                <connections>
-                                                    <action selector="refreshSecurityCode:" destination="a0P-rR-aHM" eventType="touchUpInside" id="i34-wE-XqE"/>
-                                                </connections>
-                                            </button>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxY-Sk-YqA">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="&lt;-点击刷新验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxY-Sk-YqA">
                                                 <rect key="frame" x="92" y="93" width="195" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="1Km-cM-fct"/>
@@ -493,6 +488,12 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZV0-UM-FMw">
+                                                <rect key="frame" x="8" y="94" width="76" height="32"/>
+                                                <connections>
+                                                    <action selector="refreshSecurityCode:" destination="a0P-rR-aHM" eventType="touchUpInside" id="i34-wE-XqE"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
