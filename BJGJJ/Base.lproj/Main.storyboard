@@ -384,15 +384,20 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="公积金" id="m9j-WC-Owt"/>
                     <connections>
+                        <outlet property="actionDate" destination="Z2T-eb-7ET" id="OGw-BE-lMd"/>
+                        <outlet property="blanceLb" destination="afY-80-zRn" id="luh-ma-PWo"/>
                         <outlet property="cardNumber" destination="Azb-Qc-NLE" id="GZF-Vj-47D"/>
                         <outlet property="cardType" destination="0Qh-1n-X3u" id="O7h-hU-qZ9"/>
+                        <outlet property="companyName" destination="1sO-9m-clw" id="vWU-XK-cuE"/>
                         <outlet property="companyNumber" destination="Mmg-i2-Di8" id="vmY-bz-kIf"/>
                         <outlet property="currentPayment" destination="HGe-kQ-gp6" id="4c0-il-OLE"/>
                         <outlet property="employeeNumber" destination="0cS-sZ-5LF" id="ZmJ-74-oRf"/>
                         <outlet property="lastYearBlance" destination="rux-ka-6S8" id="Vld-71-CTs"/>
                         <outlet property="personalNumber" destination="ls1-sI-Crj" id="5UB-RT-8e8"/>
                         <outlet property="pickUpCount" destination="ZeV-ix-xTj" id="zeg-3c-hc9"/>
+                        <outlet property="sectionName" destination="hEw-HI-oEQ" id="pkJ-FV-IQB"/>
                         <outlet property="sectionNumber" destination="vIO-tx-A6v" id="s2a-vO-x1s"/>
+                        <outlet property="status" destination="q0A-Uy-RLM" id="29c-g8-7es"/>
                         <outlet property="transCount" destination="O3m-R6-cQI" id="x9h-mk-rPK"/>
                     </connections>
                 </tableViewController>
