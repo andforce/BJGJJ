@@ -29,7 +29,6 @@
 
 @implementation BJBrowser{
     Browser *_browser;
-    NSString * _cookie;
     NSString * _lk;
     HTMLParser *_praser;
 }
@@ -46,6 +45,17 @@
     return self;
 }
 
+- (void)loadNewCookie:(CookieResponse)response {
+    [self loadCookieFromChoice:^(BOOL isSuccess, NSString *cookie) {
+        if (isSuccess){
+            [self loadCookieFromFavicon:nil handler:^(BOOL sucess, NSString *cookieResponse) {
+                response(YES, cookieResponse);
+            }];
+        } else {
+            response(NO, cookie);
+        }
+    }];
+}
 
 - (void)loadCookieFromChoice:(CookieResponse)handler {
     NSDictionary * headers = @{
@@ -61,7 +71,7 @@
     };
 
     [_browser GET:@"https://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-login.jsp" headers:headers response:^(NSString *responseHtml) {
-        handler([self cookieString]);
+        handler(YES,[self cookieString]);
         NSLog(@"choice cookie %@", [self cookieString]);
     }];
 }
@@ -79,7 +89,7 @@
 
     [_browser GET:kFavicon headers:headers response:^(NSString *responseHtml) {
         NSLog(@"Favicon cookie %@", [self cookieString]);
-        handler([self cookieString]);
+        handler(YES,[self cookieString]);
     }];
 }
 
@@ -146,6 +156,7 @@
     };
     return paramaters;
 }
+
 
 -(void)loginWithCard:(NSString*) lb number:(NSString *)number andPassword:(NSString *)password
      andSecurityCode:(NSString *)code status:(Response)statusList{

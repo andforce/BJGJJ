@@ -45,13 +45,9 @@
     
     _browser = [[BJBrowser alloc] init];
 
-    [_browser loadCookieFromChoice:^(NSString *cookie) {
-        if (cookie){
-            [_browser loadCookieFromFavicon:cookie handler:^(NSString *cookie) {
-
-                [self refreshVCode];
-                
-            }];
+    [_browser loadNewCookie:^(BOOL isSuccess, NSString *cookie) {
+        if (isSuccess){
+            [self refreshVCode];
         }
     }];
 
