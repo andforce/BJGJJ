@@ -440,14 +440,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyJ-U1-dST">
                                         <rect key="frame" x="40" y="100" width="295" height="135"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="身份证" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCU-pv-jUs">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="身份证号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCU-pv-jUs">
                                                 <rect key="frame" x="8" y="5" width="279" height="40"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="3l5-Da-tub"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="cc-number"/>
+                                                <textInputTraits key="textInputTraits" textContentType="username"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wd-cK-kAs" userLabel="dividerTop">
                                                 <rect key="frame" x="5" y="44" width="285" height="1"/>
@@ -528,12 +528,20 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用身份证查询" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emC-01-mXJ">
+                                        <rect key="frame" x="126" y="53" width="122" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.18172545731067657" green="0.4237322211265564" blue="0.7490922212600708" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="cyJ-U1-dST" secondAttribute="trailing" constant="40" id="FQv-UD-8hS"/>
+                                    <constraint firstItem="cyJ-U1-dST" firstAttribute="top" secondItem="emC-01-mXJ" secondAttribute="bottom" constant="26" id="G5D-UR-DtC"/>
                                     <constraint firstItem="cyJ-U1-dST" firstAttribute="leading" secondItem="ysC-Y5-gZo" secondAttribute="leading" constant="40" id="TUw-2Z-K1M"/>
+                                    <constraint firstItem="emC-01-mXJ" firstAttribute="centerX" secondItem="ysC-Y5-gZo" secondAttribute="centerX" id="hhM-PY-bVI"/>
                                     <constraint firstItem="cyJ-U1-dST" firstAttribute="top" secondItem="ysC-Y5-gZo" secondAttribute="top" constant="100" id="xLR-Vd-9MH"/>
                                 </constraints>
                             </view>
@@ -564,6 +572,7 @@
                     <connections>
                         <outlet property="cardNumber" destination="dCU-pv-jUs" id="M7Z-o0-cDv"/>
                         <outlet property="code" destination="CxY-Sk-YqA" id="fW7-fZ-Y38"/>
+                        <outlet property="loginType" destination="emC-01-mXJ" id="GtN-pr-e9p"/>
                         <outlet property="password" destination="HZP-yO-MHh" id="1Td-Me-2to"/>
                         <outlet property="securityCode" destination="T5I-KA-3j7" id="bc2-i5-ApO"/>
                     </connections>

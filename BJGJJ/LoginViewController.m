@@ -25,6 +25,7 @@
     
     BJBrowser * _browser;
     NSMutableDictionary *_lbList;
+    IBOutlet UILabel *loginType;
 }
 
 @end
@@ -63,16 +64,10 @@
         }
     }];
 
-    NSString * defaultName = [[NSUserDefaults standardUserDefaults] valueForKey:kLBName];
-    if (defaultName == nil) {
-        _cardNumber.placeholder = @"身份证";
-    }
-    
-    
-    NSString * lb = [[NSUserDefaults standardUserDefaults] valueForKey:kLBValue];
-    if (lb == nil) {
-        lb = @"1";
-    }
+
+    NSString *lb = [self readLoginType];
+
+    // 获取已经登录过的
     NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
     NSString * number = [pref valueForKey:[kCardNumber stringByAppendingString:lb]];
     NSString * password = [pref valueForKey:[kCardPassward stringByAppendingString:lb]];
@@ -82,10 +77,31 @@
     if (password != nil) {
         _password.text = password;
     }
-
-
+    // 更新Placeholer
+    if ([lb isEqualToString:@"1"]){
+        _cardNumber.placeholder = @"身份证号码";
+    } else {
+        _cardNumber.placeholder = @"联名卡号码";
+    }
 }
 
+- (void) showLoginType:(NSString *) lb{
+    if ([lb isEqualToString:@"1"]){
+        loginType.text = @"使用身份证查询";
+    } else if ([lb isEqualToString:@"5"]){
+        loginType.text = @"使用联名卡查询";
+    } else {
+        loginType.text = @"使用身份证查询";
+    }
+}
+
+-(NSString *)readLoginType{
+    NSString * lb = [[NSUserDefaults standardUserDefaults] valueForKey:kLBValue];
+    if (lb == nil) {
+        lb = @"1";
+    }
+    return lb;
+}
 
 - (IBAction)refreshSecurityCode:(id)sender {
     [_browser refreshVCodeToUIImageView:_securityCode :^(UIImage *captchaImage) {
@@ -102,10 +118,7 @@
 - (IBAction)login:(id)sender {
 
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
-    NSString * lb = [[NSUserDefaults standardUserDefaults] valueForKey:kLBValue];
-    if (lb == nil) {
-        lb = @"1";
-    }
+    NSString * lb = [self readLoginType];
     NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
     [pref setValue:_cardNumber.text forKey:[kCardNumber stringByAppendingString:lb]];
     [pref setValue:_password.text forKey:[kCardPassward stringByAppendingString:lb]];
@@ -150,6 +163,8 @@
     for (NSString* key  in keys) {
         NSString * name = [_lbList valueForKey:key];
         UIAlertAction *action = [UIAlertAction actionWithTitle:name style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+
             NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
             [pref setValue:key forKey:kLBValue];
             [pref setValue:name forKey:kLBName];
@@ -164,6 +179,9 @@
             if (password != nil) {
                 _password.text = password;
             }
+
+            //
+            [self showLoginType:key];
             
         }];
         [insertPhotoController addAction:action];
