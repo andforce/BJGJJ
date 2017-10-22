@@ -188,8 +188,11 @@
 
     };
     [_browser POST:kChoice headers:headers formData:paramaters response:^(NSString *responseHtml) {
-        NSLog(@"%@", responseHtml);
-        statusList([_praser parseStatusList:responseHtml]);
+        if (responseHtml){
+            statusList(YES, [_praser parseStatusList:responseHtml]);
+        } else {
+            statusList(NO, nil);
+        }
     }];
 }
 
@@ -244,12 +247,10 @@
     NSLog(@"detail url: %@ - cookie: %@", statusBean.companyLink, [self cookieString]);
 
     [_browser GET:statusBean.companyLink headers:headers response:^(NSString *responseHtml) {
-        NSLog(@"%@", responseHtml);
-
         if (responseHtml){
-            handler([_praser parseCountInfoBean:responseHtml]);
+            handler(YES, [_praser parseCountInfoBean:responseHtml]);
         } else {
-            handler(nil);
+            handler(NO,nil);
         }
         
     }];

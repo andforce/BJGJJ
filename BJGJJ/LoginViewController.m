@@ -113,38 +113,36 @@
     NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
     [pref setValue:_cardNumber.text forKey:[kCardNumber stringByAppendingString:lb]];
     [pref setValue:_password.text forKey:[kCardPassward stringByAppendingString:lb]];
-    
-    [_browser loginWithCard:lb number:_cardNumber.text andPassword:_password.text andSecurityCode:_code.text
-                     status:^(NSArray<StatusBean *> *statusList) {
 
-                         [SVProgressHUD dismiss];
+    [_browser loginWithCard:lb number:_cardNumber.text andPassword:_password.text andSecurityCode:_code.text status:^(BOOL isSuccess, NSArray<StatusBean *> *statusList) {
 
-                         if (statusList && statusList.count > 0) {
+        if (isSuccess && statusList.count > 0){
 
-                             StatusBean *statusBean = statusList.lastObject;
-                             [_browser showCountInfo:statusBean handler:^(CountInfoBean *countInfoBean) {
+            StatusBean *statusBean = statusList.lastObject;
+            [_browser showCountInfo:statusBean handler:^(BOOL success,CountInfoBean *countInfoBean) {
 
-                                 if (countInfoBean){
-                                     TransBundle *transBundle = [[TransBundle alloc] init];
-                                     [transBundle putObjectValue:countInfoBean forKey:@"count_info"];
-                                     [transBundle putStringValue:countInfoBean.balance forKey:@"count_info_blance"];
+                if (countInfoBean){
+                    [SVProgressHUD dismiss];
 
-                                     UIStoryboard *stortboard = [UIStoryboard mainStoryboard];
-                                     CCFNavigationController *navigationController1 = [stortboard instantiateViewControllerWithIdentifier:@"CountDetailNaviController"];
+                    TransBundle *transBundle = [[TransBundle alloc] init];
+                    [transBundle putObjectValue:countInfoBean forKey:@"count_info"];
+                    [transBundle putStringValue:countInfoBean.balance forKey:@"count_info_blance"];
 
-                                     //CountInfoTableViewController *countInfoTableViewController = [stortboard instantiateViewControllerWithIdentifier:@"CountInfoTableViewController"];
-                                     [navigationController1 transBundle:transBundle forController:navigationController1.viewControllers.firstObject];
-                                     [stortboard changeRootViewControllerToController:navigationController1];
-                                 }
+                    UIStoryboard *stortboard = [UIStoryboard mainStoryboard];
+                    CCFNavigationController *navigationController1 = [stortboard instantiateViewControllerWithIdentifier:@"CountDetailNaviController"];
 
-                             }];
-                         } else {
+                    //CountInfoTableViewController *countInfoTableViewController = [stortboard instantiateViewControllerWithIdentifier:@"CountInfoTableViewController"];
+                    [navigationController1 transBundle:transBundle forController:navigationController1.viewControllers.firstObject];
+                    [stortboard changeRootViewControllerToController:navigationController1];
+                } else {
+                    [SVProgressHUD showErrorWithStatus:@"服务器繁忙"];
+                }
 
-
-                         }
-
-       
-   }];
+            }];
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"服务器繁忙"];
+        }
+    }];
 }
 
 - (IBAction)changeCountType:(id)sender {

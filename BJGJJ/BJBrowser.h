@@ -13,17 +13,13 @@
 @class CountInfoBean;
 
 
-typedef void(^Response) (NSArray<StatusBean*>* statusList);
+typedef void(^Response) (BOOL isSuccess,NSArray<StatusBean*>* statusList);
 typedef void(^CaptchaImage) (UIImage* captchaImage);
-typedef void(^DetailResponse) (CountInfoBean * countInfoBean);
+typedef void(^DetailResponse) (BOOL isSuccess,CountInfoBean * countInfoBean);
 
 typedef void(^CookieResponse) (BOOL isSuccess, NSString * cookie);
 
 @interface BJBrowser : NSObject
-
-//-(void) loadCookieFromChoice:(CookieResponse) handler;
-//
-//-(void) loadCookieFromFavicon:(NSString *) choiceCookie handler:(CookieResponse) handler;
 
 -(void) loadNewCookie:(CookieResponse) response;
 
