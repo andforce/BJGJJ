@@ -9,6 +9,8 @@
 #import "CountInfoTableViewController.h"
 #import "CountInfoBean.h"
 #import "UIColor+MyColor.h"
+#import "CCFNavigationController.h"
+#import "UIStoryboard+Forum.h"
 
 #define kHEIGHT 0
 
@@ -46,6 +48,11 @@
     NSLog(@">>>>>>>>>>>> %@", _countInfoBean.balance);
 }
 
+- (IBAction)exitCountInfoPage:(id)sender {
+    UIStoryboard *stortboard = [UIStoryboard mainStoryboard];
+    CCFNavigationController *navigationController1 = [stortboard instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+    [stortboard changeRootViewControllerToController:navigationController1];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

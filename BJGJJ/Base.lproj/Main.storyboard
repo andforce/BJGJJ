@@ -378,7 +378,14 @@
                             <outlet property="delegate" destination="5VQ-2i-eC9" id="pU8-De-C2j"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="HmP-J2-Yad"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="HmP-J2-Yad">
+                        <barButtonItem key="rightBarButtonItem" image="ic_close_18pt" id="8EY-Xl-K7b">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="exitCountInfoPage:" destination="5VQ-2i-eC9" id="yeR-1F-ogC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="actionDate" destination="HxM-yv-01j" id="yWi-at-9Pt"/>
                         <outlet property="blanceLb" destination="qi5-tB-P0F" id="7BD-HD-uNm"/>
@@ -621,7 +628,7 @@
         <!--Navigation Controller-->
         <scene sceneID="4S4-dO-Qjh">
             <objects>
-                <navigationController id="5QO-Za-Yk4" customClass="CCFNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNavigationController" id="5QO-Za-Yk4" customClass="CCFNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Uq9-7p-Bpb">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -639,4 +646,7 @@
             <point key="canvasLocation" x="-1122" y="-179"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_close_18pt" width="18" height="18"/>
+    </resources>
 </document>

@@ -78,6 +78,7 @@
 }
 
 -(void) reloadCookieAndCode{
+    _code.text = @"";
     [_browser loadNewCookie:^(BOOL isSuccess, NSString *cookie) {
         if (isSuccess){
             [self refreshVCode];
@@ -96,6 +97,8 @@
 }
 
 - (void) refreshVCode{
+    _code.text = @"";
+
     [_browser refreshVCodeToUIImageView:_securityCode :^(UIImage *captchaImage) {
         CaptchaBrowser * captcha = [[CaptchaBrowser alloc] init];
         [captcha captchaToText:captchaImage response:^(BOOL success, NSString *captchaText) {
