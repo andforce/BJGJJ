@@ -192,7 +192,12 @@
     [_browser GET:statusBean.companyLink headers:headers response:^(NSString *responseHtml) {
         NSLog(@"%@", responseHtml);
 
-        handler([_praser parseCountInfoBean:responseHtml]);
+        if (responseHtml){
+            handler([_praser parseCountInfoBean:responseHtml]);
+        } else {
+            handler(nil);
+        }
+        
     }];
 }
 

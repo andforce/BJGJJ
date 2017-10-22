@@ -62,7 +62,7 @@
     lastYearBlance.text = _countInfoBean.lastYearBalance;
     transCount.text = _countInfoBean.transCount;
     
-    employeeNumber.text = _countInfoBean.employeeNumber;
+    employeeNumber.text = _countInfoBean.employeeNumber ? _countInfoBean.employeeNumber : @"暂无";
 }
 
 - (void)didReceiveMemoryWarning {

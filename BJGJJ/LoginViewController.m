@@ -123,16 +123,19 @@
                              StatusBean *statusBean = statusList.lastObject;
                              [_browser showCountInfo:statusBean handler:^(CountInfoBean *countInfoBean) {
 
-                                 TransBundle *transBundle = [[TransBundle alloc] init];
-                                 [transBundle putObjectValue:countInfoBean forKey:@"count_info"];
-                                 [transBundle putStringValue:countInfoBean.balance forKey:@"count_info_blance"];
+                                 if (countInfoBean){
+                                     TransBundle *transBundle = [[TransBundle alloc] init];
+                                     [transBundle putObjectValue:countInfoBean forKey:@"count_info"];
+                                     [transBundle putStringValue:countInfoBean.balance forKey:@"count_info_blance"];
 
-                                 UIStoryboard *stortboard = [UIStoryboard mainStoryboard];
-                                 CCFNavigationController *navigationController1 = [stortboard instantiateViewControllerWithIdentifier:@"CountDetailNaviController"];
+                                     UIStoryboard *stortboard = [UIStoryboard mainStoryboard];
+                                     CCFNavigationController *navigationController1 = [stortboard instantiateViewControllerWithIdentifier:@"CountDetailNaviController"];
 
-                                 //CountInfoTableViewController *countInfoTableViewController = [stortboard instantiateViewControllerWithIdentifier:@"CountInfoTableViewController"];
-                                 [navigationController1 transBundle:transBundle forController:navigationController1.viewControllers.firstObject];
-                                 [stortboard changeRootViewControllerToController:navigationController1];
+                                     //CountInfoTableViewController *countInfoTableViewController = [stortboard instantiateViewControllerWithIdentifier:@"CountInfoTableViewController"];
+                                     [navigationController1 transBundle:transBundle forController:navigationController1.viewControllers.firstObject];
+                                     [stortboard changeRootViewControllerToController:navigationController1];
+                                 }
+
                              }];
                          } else {
 
