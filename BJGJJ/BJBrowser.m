@@ -83,9 +83,7 @@
     }];
 }
 
--(void)loginWithCard:(NSString*) lb number:(NSString *)number andPassword:(NSString *)password
-     andSecurityCode:(NSString *)code status:(Response)statusList{
-
+-(NSDictionary *) formDataForIDCard:(NSString *)lk lb:(NSString *)lb cardNumber:(NSString *)number pwd:(NSString *)password code:(NSString *)code{
     Encrypt * enc = [[Encrypt alloc]init];
 
     // FormData
@@ -112,8 +110,53 @@
             @"bh4"              :@"",
             @"mm4"              :@"",
             @"gjjcxjjmyhpppp4"  :@"",
-            @"lk"               :_lk
+            @"lk"               :lk
     };
+    return paramaters;
+}
+
+-(NSDictionary *) formDataForBankCard:(NSString *)lk lb:(NSString *)lb cardNumber:(NSString *)number pwd:(NSString *)password code:(NSString *)code{
+    Encrypt * enc = [[Encrypt alloc]init];
+
+    // FormData
+    NSString * encodeNumber = [enc strEncode:number];
+    NSString * encodePassword = [enc strEncode:password];
+
+    NSDictionary * paramaters = @{
+            @"lb"               :lb,
+            @"bh"               : encodeNumber,
+            @"mm"               : encodePassword,
+            @"gjjcxjjmyhpppp"   :code,
+            @"bh5"              :number,
+            @"mm5"              :password,
+            @"gjjcxjjmyhpppp5"  :code,
+            @"bh2"              :@"",
+            @"mm2"              :@"",
+            @"gjjcxjjmyhpppp2"  :@"",
+            @"mm1"              :@"",
+            @"bh1"              :@"",
+            @"gjjcxjjmyhpppp1"  :@"",
+            @"bh3"              :@"",
+            @"mm3"              :@"",
+            @"gjjcxjjmyhpppp3"  :@"",
+            @"bh4"              :@"",
+            @"mm4"              :@"",
+            @"gjjcxjjmyhpppp4"  :@"",
+            @"lk"               :lk
+    };
+    return paramaters;
+}
+
+-(void)loginWithCard:(NSString*) lb number:(NSString *)number andPassword:(NSString *)password
+     andSecurityCode:(NSString *)code status:(Response)statusList{
+
+    // FormData
+    NSDictionary * paramaters;
+    if ([lb intValue] == 1){
+        paramaters = [self formDataForIDCard:_lk lb:lb cardNumber:number pwd:password code:code];
+    } else{
+        paramaters = [self formDataForBankCard:_lk lb:lb cardNumber:number pwd:password code:code];
+    }
     // 设置Headers
 
     NSDictionary * headers = @{

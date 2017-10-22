@@ -11,7 +11,6 @@
 #import "CaptchaBrowser.h"
 #import <SVProgressHUD.h>
 #import "CCFNavigationController.h"
-#import "CountInfoTableViewController.h"
 #import "UIStoryboard+Forum.h"
 #import "CountInfoBean.h"
 
@@ -26,8 +25,6 @@
     
     BJBrowser * _browser;
     NSMutableDictionary *_lbList;
-    
-    
 }
 
 @end
@@ -154,7 +151,7 @@
         NSString * name = [_lbList valueForKey:key];
         UIAlertAction *action = [UIAlertAction actionWithTitle:name style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
-            [pref setValue:key forKey:kLBName];
+            [pref setValue:key forKey:kLBValue];
             [pref setValue:name forKey:kLBName];
             
             _cardNumber.placeholder = name;

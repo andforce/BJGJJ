@@ -4,12 +4,6 @@
 <dict>
 	<key>1</key>
 	<string>身份证</string>
-	<key>2</key>
-	<string>个人登记号</string>
-	<key>3</key>
-	<string>军官证</string>
-	<key>4</key>
-	<string>护照</string>
 	<key>5</key>
 	<string>联名卡号</string>
 </dict>
