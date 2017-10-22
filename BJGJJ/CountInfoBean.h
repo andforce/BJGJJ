@@ -27,4 +27,5 @@
 
 @property (nonatomic, strong) NSString * employeeNumber;    //员工编号
 
+- (CountInfoBean *) demo;
 @end

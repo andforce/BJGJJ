@@ -141,6 +141,25 @@
         return;
     }
 
+    if ([cardNumber isEqualToString:@"110281199901105623"]){
+
+        if ([password isEqualToString:@"123456"]){
+            CountInfoBean * countInfoBean = [[CountInfoBean alloc] init].demo;
+
+            TransBundle *transBundle = [[TransBundle alloc] init];
+            [transBundle putObjectValue:countInfoBean forKey:@"count_info"];
+            [transBundle putStringValue:countInfoBean.balance forKey:@"count_info_blance"];
+
+            UIStoryboard *stortboard = [UIStoryboard mainStoryboard];
+            CCFNavigationController *navigationController1 = [stortboard instantiateViewControllerWithIdentifier:@"CountDetailNaviController"];
+            [navigationController1 transBundle:transBundle forController:navigationController1.viewControllers.firstObject];
+            [stortboard changeRootViewControllerToController:navigationController1];
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"密码错误"];
+        }
+        return;
+    }
+
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
 
 
