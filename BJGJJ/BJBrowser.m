@@ -222,7 +222,20 @@ typedef void(^LKResponse) (BOOL isSuccess, NSString * lk);
 
 
 - (void)refreshLK:(LKResponse) lkResponse {
-    [_browser POST:kLKUrl headers:nil formData:nil response:^(NSString *responseHtml) {
+    NSDictionary * headers = @{
+            @"Host"                  :@"www.bjgjj.gov.cn",
+            @"Connection"            :@"keep-alive",
+            @"Origin"               :@"https://www.bjgjj.gov.cn",
+            @"Content-Type"          :@"text/html;",
+            @"User-Agent"            :kUserAgent,
+            @"Referer"              :@"https://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-login.jsp",
+            @"Accept"                :@"*/*",
+            @"Accept-Language"       :@"zh-CN,zh;q=0.8,en;q=0.6",
+            @"Accept-Encoding"       :@"gzip, deflate, br",
+            @"Cookie"               :[self cookieString]
+
+    };
+    [_browser POST:kLKUrl headers:headers formData:nil response:^(NSString *responseHtml) {
 
         NSString *trimmedString = [responseHtml stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
         NSInteger len = trimmedString.length;
