@@ -45,7 +45,13 @@
     
     _browser = [[BJBrowser alloc] init];
 
-    [self reloadCookieAndCode];
+    [_browser loadNewCookie:^(BOOL isSuccess, NSString *cookie) {
+        if (isSuccess){
+            [self refreshVCode];
+        } else {
+            [SVProgressHUD showErrorWithStatus:cookie];
+        }
+    }];
 
     NSString *lb = [self readLoginType];
 
@@ -59,7 +65,7 @@
     if (password != nil) {
         _password.text = password;
     }
-    // 更新Placeholer
+    // 更新Place Holder
     if ([lb isEqualToString:@"1"]){
         _cardNumber.placeholder = @"身份证号码";
     } else {
@@ -75,17 +81,6 @@
     } else {
         loginType.text = @"使用身份证查询";
     }
-}
-
--(void) reloadCookieAndCode{
-    _code.text = @"";
-    [_browser loadNewCookie:^(BOOL isSuccess, NSString *cookie) {
-        if (isSuccess){
-            [self refreshVCode];
-        } else {
-            [SVProgressHUD showErrorWithStatus:cookie];
-        }
-    }];
 }
 
 -(NSString *)readLoginType{
@@ -177,14 +172,14 @@
                                  } else {
                                      NSString * error = rp;
                                      [SVProgressHUD showErrorWithStatus:error];
-                                     [self reloadCookieAndCode];
+                                     [self refreshVCode];
                                  }
 
                              }];
                          } else {
                              NSString * error = s;
                              [SVProgressHUD showErrorWithStatus:error];
-                             [self reloadCookieAndCode];
+                             [self refreshVCode];
                          }
     }];
 }
