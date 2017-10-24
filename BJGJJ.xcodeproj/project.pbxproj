@@ -21,6 +21,7 @@
 		3A3F44E81C565AAF0061817B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F44E61C565AAF0061817B /* LaunchScreen.storyboard */; };
 		3A3F44F11C56661C0061817B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44F01C56661C0061817B /* LoginViewController.m */; };
 		3A3F44F41C5668070061817B /* Browser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F44F31C5668070061817B /* Browser.m */; };
+		3A6309C51F9F72B200CF94BA /* launch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A6309C41F9F72B100CF94BA /* launch.jpg */; };
 		3A7604291C5FA2630044B61A /* FlatUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7604281C5FA2630044B61A /* FlatUIButton.m */; };
 		3A76042C1C5FA29B0044B61A /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76042B1C5FA29B0044B61A /* CommonUtils.m */; };
 		3A7604311C5FA2B10044B61A /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76042E1C5FA2B10044B61A /* UIImage+Tint.m */; };
@@ -38,7 +39,6 @@
 		3A8B5EF51C5C820100FE956D /* NSArray+Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EF41C5C820100FE956D /* NSArray+Converter.m */; };
 		3A8B5EF81C5C977D00FE956D /* NSStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EF71C5C977D00FE956D /* NSStringUtils.m */; };
 		3A8B5EFB1C5CB48400FE956D /* NSString+Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5EFA1C5CB48400FE956D /* NSString+Converter.m */; };
-		3A9CC8691F9CCA9A00634FD8 /* launch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A9CC8681F9CCA9A00634FD8 /* launch.jpg */; };
 		428C346EF9C30953AC5D4A33 /* libPods-BJGJJ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A96CF235663C188FD7EF9564 /* libPods-BJGJJ.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +69,7 @@
 		3A3F44F01C56661C0061817B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		3A3F44F21C5668070061817B /* Browser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Browser.h; sourceTree = "<group>"; };
 		3A3F44F31C5668070061817B /* Browser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Browser.m; sourceTree = "<group>"; };
+		3A6309C41F9F72B100CF94BA /* launch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.jpg; sourceTree = "<group>"; };
 		3A7604271C5FA2630044B61A /* FlatUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIButton.h; sourceTree = "<group>"; };
 		3A7604281C5FA2630044B61A /* FlatUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatUIButton.m; sourceTree = "<group>"; };
 		3A76042A1C5FA29B0044B61A /* CommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
@@ -102,7 +103,6 @@
 		3A8B5EF71C5C977D00FE956D /* NSStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringUtils.m; sourceTree = "<group>"; };
 		3A8B5EF91C5CB48400FE956D /* NSString+Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Converter.h"; sourceTree = "<group>"; };
 		3A8B5EFA1C5CB48400FE956D /* NSString+Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Converter.m"; sourceTree = "<group>"; };
-		3A9CC8681F9CCA9A00634FD8 /* launch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.jpg; sourceTree = "<group>"; };
 		72DD758C1117D897B8E16FA0 /* Pods-BJGJJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJGJJ.release.xcconfig"; path = "Pods/Target Support Files/Pods-BJGJJ/Pods-BJGJJ.release.xcconfig"; sourceTree = "<group>"; };
 		A96CF235663C188FD7EF9564 /* libPods-BJGJJ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BJGJJ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2581A410982D2C0BBD564E1 /* Pods-BJGJJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJGJJ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BJGJJ/Pods-BJGJJ.debug.xcconfig"; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 		3A3F44D51C565AAF0061817B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3A9CC8681F9CCA9A00634FD8 /* launch.jpg */,
+				3A6309C41F9F72B100CF94BA /* launch.jpg */,
 				3A3F44D61C565AAF0061817B /* main.m */,
 			);
 			name = "Supporting Files";
@@ -299,9 +299,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A7604341C5FB1010044B61A /* lb.plist in Resources */,
+				3A6309C51F9F72B200CF94BA /* launch.jpg in Resources */,
 				3A3F44E81C565AAF0061817B /* LaunchScreen.storyboard in Resources */,
 				3A3F44E51C565AAF0061817B /* Assets.xcassets in Resources */,
-				3A9CC8691F9CCA9A00634FD8 /* launch.jpg in Resources */,
 				3A3F44E01C565AAF0061817B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

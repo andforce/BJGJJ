@@ -355,7 +355,7 @@ typedef void(^LKResponse) (BOOL isSuccess, NSString * lk);
         [request setValue:[self cookieString] forHTTPHeaderField:@"Cookie"];
         [request setValue:@"image/webp,image/*,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
         [request setValue:kUserAgent forHTTPHeaderField:@"User-Agent"];
-        [request setValue:@"http://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-login.jsp" forHTTPHeaderField:@"Referer"];
+        [request setValue:@"https://www.bjgjj.gov.cn/wsyw/wscx/gjjcx-login.jsp" forHTTPHeaderField:@"Referer"];
 
 
         UIImageView * view = showCapImageView;
