@@ -270,7 +270,7 @@
 				TargetAttributes = {
 					3A3F44D11C565AAF0061817B = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = YZ6U5WU446;
+						DevelopmentTeam = RH9H7T7RBU;
 					};
 				};
 			};
@@ -333,7 +333,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BJGJJ/Pods-BJGJJ-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BJGJJ/Pods-BJGJJ-resources.sh",
 				"${PODS_ROOT}/CSSSelectorConverter/CSSSelectorConverter/CSSSelectorGrammar.txt",
 				"${PODS_ROOT}/CSSSelectorConverter/CSSSelectorConverter/CSSSelectorParser.plist",
 				"${PODS_ROOT}/LCActionSheet/LCActionSheet/LCActionSheet.bundle",
@@ -350,7 +350,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BJGJJ/Pods-BJGJJ-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BJGJJ/Pods-BJGJJ-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -448,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -485,7 +485,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -497,9 +497,9 @@
 			baseConfigurationReference = D2581A410982D2C0BBD564E1 /* Pods-BJGJJ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = YZ6U5WU446;
+				DEVELOPMENT_TEAM = RH9H7T7RBU;
 				INFOPLIST_FILE = BJGJJ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andforce.BJGJJ.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,9 +513,9 @@
 			baseConfigurationReference = 72DD758C1117D897B8E16FA0 /* Pods-BJGJJ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = YZ6U5WU446;
+				DEVELOPMENT_TEAM = RH9H7T7RBU;
 				INFOPLIST_FILE = BJGJJ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andforce.BJGJJ.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
